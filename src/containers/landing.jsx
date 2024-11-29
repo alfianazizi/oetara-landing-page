@@ -12,7 +12,7 @@ const Landing = () => {
         <div className="">
             <Hero cover={cover} jalur={jalur} />
             <Definition />
-            <div className="bg-[#F5F5F5] -mt-[5rem]">
+            <div className="bg-[#F5F5F5] -mt-[8rem]">
                 <div className="relative">
                     <img src={texture} alt="texture" className="w-full" />
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">

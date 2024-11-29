@@ -6,7 +6,7 @@ import alphaR from '../assets/logo/R_logo.svg';
 
 const Definition = () => {
     return (
-        <div className="bg-black h-[100vh] text-white relative mt-[5.2rem]  rounded-b-[10%]">
+        <div className="bg-black h-[100vh] text-white relative definition-top rounded-b-[10%] z-[2]">
             <div className="flex flex-col w-full justify-center items-center h-full gap-10">
                 <div className="flex justify-center border border-[#EC1C24] gap-16 py-[3rem] px-[5rem] rounded-[2rem]">
                     <div className="text-center">

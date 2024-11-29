@@ -6,7 +6,7 @@
   width: 40%;
   font-size: 3rem;
   line-height: 1.2;
-  top: 12rem;
+  top: 8rem;
 }
 
 @keyframes slideIn {
@@ -38,14 +38,18 @@
 }
 
 .route-container {
-  width: 88%;
-  bottom: -1.5rem;
+  width: 86%;
+  bottom: 0rem;
+  transform: rotate(3deg)
+}
+
+.definition-top {
+  margin-top: 0rem
 }
 
 @media (min-width: 1600px) {
   .route-container {
-    width: 88%;
-    bottom: -2rem;
+    bottom: 4rem;
   }
 }
 

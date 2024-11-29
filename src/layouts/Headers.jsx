@@ -17,7 +17,7 @@ const Headers = () => {
   }, []);
 
   return (
-    <div className={`fixed top-0 left-0 z-[1] flex justify-between items-center py-2 md:py-4 px-5 md:px-10 w-full transition-all duration-300 ${
+    <div className={`fixed top-0 left-0 z-[9] flex justify-between items-center py-2 md:py-4 px-5 md:px-10 w-full transition-all duration-300 ${
       isScrolled ? 'bg-white shadow-md' : ''
     }`}>
         <div className="flex items-center gap-5 md:gap-10">

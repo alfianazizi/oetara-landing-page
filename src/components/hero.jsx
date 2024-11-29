@@ -11,7 +11,7 @@ const Hero = ({ cover, jalur}) => {
                     className="animate-draw" 
                 />
             </div>
-            <img src={cover} alt="cover" />
+            <img src={cover} alt="cover" className="w-[100%] h-[100vh]" />
         </div>
     )
 }

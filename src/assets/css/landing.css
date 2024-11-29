@@ -40,7 +40,6 @@
 .route-container {
   width: 86%;
   bottom: 0rem;
-  transform: rotate(3deg)
 }
 
 .definition-top {
@@ -49,7 +48,11 @@
 
 @media (min-width: 1500px) {
   .route-container {
-    bottom: 15rem;
+    bottom: 12rem;
+  }
+
+  .title-landing {
+    width: 35%;
   }
 }
 

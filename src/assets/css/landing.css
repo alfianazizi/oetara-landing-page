@@ -47,13 +47,17 @@
   margin-top: 0rem
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1500px) {
   .route-container {
-    bottom: 4rem;
+    bottom: 15rem;
   }
 }
 
 @media (min-width: 1600px) {
+  .route-container {
+    bottom: 4rem;
+  }
+
   .title-landing {
     width: 30%;
     font-size: 5rem;

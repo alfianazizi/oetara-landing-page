@@ -1,0 +1,57 @@
+.container_landing {
+    padding-top: 5rem;
+}
+
+.title-landing {
+  width: 40%;
+  font-size: 3rem;
+  line-height: 1.2;
+  top: 12rem;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%) rotate(-4deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(-4deg);
+    opacity: 1;
+  }
+}
+
+.routeAnimation {
+  animation: slideIn 1.5s ease-out forwards;
+}
+
+@keyframes draw {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.animate-draw {
+  animation: draw 5s ease-in-out forwards;
+}
+
+.route-container {
+  width: 88%;
+  bottom: -1.5rem;
+}
+
+@media (min-width: 1600px) {
+  .route-container {
+    width: 88%;
+    bottom: -2rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .title-landing {
+    width: 30%;
+    font-size: 5rem;
+  }
+}

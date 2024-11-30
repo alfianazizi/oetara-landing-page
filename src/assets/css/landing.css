@@ -9,6 +9,10 @@
   top: 8rem;
 }
 
+.shadow-image {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjust values as needed */
+}
+
 @keyframes slideIn {
   0% {
     transform: translateX(-100%) rotate(-4deg);

@@ -1,0 +1,140 @@
+.email-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-header {
+  margin-bottom: 60px;
+}
+
+.contact-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  min-height: 600px;
+}
+
+.left-section {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.get-in-touch {
+  color: #DC1E2D;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 15px;
+  border: 1px solid #eee;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+.message-input {
+  min-height: 120px;
+  resize: none;
+}
+
+.submit-button {
+  background: #DC1E2D;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 35px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.contact-info {
+  margin-top: 40px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  background: #DC1E2D;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.info-item h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.info-item p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.right-section {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Icons */
+.location-icon,
+.email-icon,
+.phone-icon {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(0) invert(1);
+}
+
+.location-icon {
+  background-image: url('/location-icon.svg');
+}
+
+.email-icon {
+  background-image: url('/email-icon.svg');
+}
+
+.phone-icon {
+  background-image: url('/phone-icon.svg');
+}
+
+@media (max-width: 768px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .right-section {
+    height: 400px;
+  }
+}
+ 

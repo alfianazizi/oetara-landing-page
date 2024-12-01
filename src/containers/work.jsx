@@ -1,0 +1,101 @@
+import { useNavigate } from 'react-router-dom';
+
+const CaseStudy = () => {
+  const navigate = useNavigate();
+
+  const cases = [
+    {
+      id: 1,
+      image: "https://images.unsplash.com/photo-1633613286991-611fe299c4be",
+      title: "KOL services",
+      subtitle: "for Dejavu"
+    },
+    {
+      id: 2,
+      image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868",
+      overlay: true,
+      title: "KOL services for Dejavu",
+    },
+    {
+      id: 3,
+      image: "https://images.unsplash.com/photo-1586335963805-7b603f62a048",
+      title: "Beauty Product Campaign",
+    },
+    {
+      id: 4,
+      image: "https://images.unsplash.com/photo-1554412933-514a83d2f3c8",
+      title: "Fashion Campaign",
+    },
+    {
+      id: 5,
+      image: "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb",
+      title: "Social Media Campaign",
+    },
+    {
+      id: 6,
+      image: "https://images.unsplash.com/photo-1557838923-2985c318be48",
+      title: "Digital Marketing",
+    },
+    {
+      id: 7,
+      image: "https://images.unsplash.com/photo-1596704017254-9b121068fb31",
+      title: "Beauty Campaign",
+    },
+    {
+      id: 8,
+      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888",
+      title: "Car Campaign",
+    },
+    {
+      id: 9,
+      image: "https://images.unsplash.com/photo-1483985988355-763728e1935b",
+      title: "Fashion Shoot",
+    },
+    {
+      id: 10,
+      image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0",
+      title: "Social Campaign",
+    },
+  ];
+
+  return (
+    <section className="my-12">
+      <div className="container mx-auto px-4 py-12">
+        <h2 className="text-3xl font-bold mb-4">Case Study</h2>
+        <p className="mb-8 text-gray-600 max-w-3xl">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+          nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        </p>
+
+        <div className="grid grid-cols-3 gap-4">
+          {cases.map((item) => (
+            <div 
+              key={item.id} 
+              className={`relative group cursor-pointer rounded-lg overflow-hidden
+                ${item.id === 2 ? 'col-span-1 row-span-1' : ''}
+                ${item.id === 1 || item.id === 3 ? 'col-span-1 row-span-1' : ''}
+                ${item.id === 4 || item.id === 5 ? 'col-span-1' : ''}
+              `}
+              onClick={() => navigate(`/work/detail-work/${item.id}`)}
+            >
+              <img 
+                src={item.image} 
+                alt={item.title}
+                className="w-full h-full object-cover"
+                style={{ aspectRatio: item.id === 2 ? '1/1' : '4/3' }}
+              />
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
+                <p className="text-xl font-medium">{item.title}</p>
+                {item.subtitle && <p className="text-lg mb-4">{item.subtitle}</p>}
+                <span className="mt-2 text-2xl">→</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default CaseStudy;

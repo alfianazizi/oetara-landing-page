@@ -1,13 +1,8 @@
-import './App.css';
-import Headers from './layouts/Headers';
-import Landing from './containers/landing';
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
+
 function App() {
-  return (
-    <div>
-      <Headers />
-      <Landing />
-    </div>
-  )
+    return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

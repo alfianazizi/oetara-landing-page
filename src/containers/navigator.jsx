@@ -117,7 +117,7 @@ const Navigator = () => {
       </div>    
 
       {/* Our Navigators Section */}
-      <section className="lg:mb-20 relative ">
+      <section className="relative ">
         <img src={bg_texture} alt="" className='h-[50vh] lg:h-auto object-cover' />
         <div className='absolute top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 w-[100%] lg:w-[80%] px-5 lg:px-10'>
           <div className="w-full h-auto">

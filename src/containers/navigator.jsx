@@ -58,18 +58,18 @@ const Navigator = () => {
 
   return (
     <div className="mt-[4rem]">  
-      <div className='mx-auto px-[5%]'>
+      <div className='mx-auto px-5 lg:px-[5%]'>
         {/* Hero Section */}
         <section className="py-16">
-          <h1 className="text-4xl font-[600] mb-6">Navigator</h1>
-          <p className="text-lg">
+          <h1 className="text-3xl lg:text-4xl font-[600] mb-6">Navigator</h1>
+          <p className="text-md lg:text-lg">
             We are Navigators not only crafting the right message but also setting the measurable goals and will be your guidance through Digital World Crowdedness. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, diam nonummy nibh euismod tincidunt ut laoreet dolore
           </p>
         </section>
 
         {/* OETARA Values */}
         <section className="mb-20 mt-16">
-          <div className="flex justify-between items-start max-w-4xl mx-auto">
+          <div className="flex justify-between items-start mx-w-2xl lg:max-w-4xl mx-auto">
             {valueDetails.map((value, index) => (
               <div 
                 className="cursor-pointer text-center"
@@ -79,11 +79,11 @@ const Navigator = () => {
                 <img 
                   src={value.icon} 
                   alt="logo" 
-                  className={`w-16 h-16 mx-auto transition-all duration-300 ${
+                  className={`w-8 h-8 lg:w-16 lg:h-16 mx-auto transition-all duration-300 ${
                     selectedValue === index ? 'scale-110' : ''
                   }`} 
                 />
-                <p className={`text-center w-[80px] mt-5 transition-colors duration-300 ${
+                <p className={`text-center lg:w-[80px] mt-5 transition-colors duration-300 text-[10px] lg:text-md ${
                   selectedValue === index 
                     ? 'text-black font-medium' 
                     : 'text-gray-400 hover:text-gray-600'
@@ -117,13 +117,13 @@ const Navigator = () => {
       </div>    
 
       {/* Our Navigators Section */}
-      <section className="mb-20 relative ">
-        <img src={bg_texture} alt="" />
+      <section className="lg:mb-20 relative ">
+        <img src={bg_texture} alt="" className='h-[50vh] lg:h-auto object-cover' />
         <div className='absolute top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 w-[100%] lg:w-[80%] px-5 lg:px-10'>
           <div className="w-full h-auto">
             <h2 className="text-3xl font-[600] text-[#C01C30] text-center mb-4">Our Navigators</h2>
             <p className="text-center text-gray-600 mb-12">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
-            <div className="grid grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 gap-2 lg:gap-8 max-w-4xl mx-auto">
               <div className="aspect-square flex flex-col items-center w-[100%] relative group">
                 <img className="w-full h-full object-cover object-top" src={nav_1} alt="Navigator 1" />
                 {/* Hover Overlay */}
@@ -159,21 +159,21 @@ const Navigator = () => {
       </section>
 
       {/* Join Team Section - Updated */}
-      <section className="relative mb-20 overflow-hidden">
+      <section className="relative lg:mb-20 overflow-hidden h-[50vh] lg:h-auto">
         <img 
           src={nav_4}
           alt="Team working together" 
-          className="w-full h-[100%] object-cover brightness-75"
+          className="w-full object-contain lg:object-cover brightness-75"
         />
-        <div className="absolute inset-0 flex items-end bottom-10 justify-center">
-          <div className="bg-white flex justify-between p-8 rounded-xl shadow-lg mx-4 max-w-3xl">
-            <div className='w-[70%]'>
+        <div className="absolute inset-0 flex items-end bottom-0 lg:bottom-10 justify-center">
+          <div className="bg-white flex justify-between flex-wrap lg:flex-nowrap p-4 lg:p-8 rounded-xl shadow-lg mx-4 max-w-3xl">
+            <div className='w-[100%] lg:w-[70%]'>
               <h2 className="text-2xl font-bold text-red-600 mb-4">Join Our Team</h2>
               <p className="text-gray-600 mb-6">
                 Be part of our growing team and help shape the future of digital marketing. Join us in creating innovative solutions.
               </p>
             </div>
-            <div className='flex justify-center items-center'>
+            <div className='w-[100%] lg:w-auto flex justify-start lg:justify-center items-center'>
               <button 
                 onClick={handleJoinClick}
                 className="bg-red-600 h-auto text-white px-8 py-3 rounded-full hover:bg-red-700 transition-colors"
@@ -186,7 +186,7 @@ const Navigator = () => {
       </section>
 
       {/* Clients Section */}
-      <section className="mb-20">
+      <section className="mb-20 mt-14 lg:mt-0">
         <h2 className="text-3xl font-bold text-red-600 text-center mb-12">Our Clients</h2>
         <Marquee>
           <div className="flex gap-10 items-center mb-8">

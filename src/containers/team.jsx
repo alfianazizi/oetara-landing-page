@@ -1,16 +1,17 @@
+import { FaAngleLeft } from 'react-icons/fa6';
 import Headers from '../layouts/Headers';
 import { Link } from 'react-router-dom';
 
 const Team = () => {
   const teamMembers = [
     // Row 1
-    { id: 1, image: "https://randomuser.me/api/portraits/men/1.jpg" },
-    { id: 2, image: "https://randomuser.me/api/portraits/women/2.jpg" },
-    { id: 3, image: "https://randomuser.me/api/portraits/men/3.jpg", name: "Shee Fulan", role: "Director" },
-    { id: 4, image: "https://randomuser.me/api/portraits/women/4.jpg" },
-    { id: 5, image: "https://randomuser.me/api/portraits/men/5.jpg" },
+    { id: 1 },
+    { id: 2 },
+    { id: 3, name: "Shee Fulan", role: "Director" },
+    { id: 4 },
+    { id: 5 },
     // Row 2
-    { id: 6, image: "https://randomuser.me/api/portraits/women/6.jpg" },
+    { id: 6 },
     { id: 7, image: "https://randomuser.me/api/portraits/men/7.jpg" },
     { id: 8, image: "https://randomuser.me/api/portraits/women/8.jpg" },
     { id: 9, image: "https://randomuser.me/api/portraits/men/9.jpg" },
@@ -22,16 +23,16 @@ const Team = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
-      <Headers />
       
       {/* Breadcrumb */}
-      <div className="py-4">
+      <div className="py-10">
         <Link 
           to="/"
-          className="text-gray-600 hover:text-red-600 transition-colors duration-200"
+          className="text-gray-600 flex gap-2 hover:text-red-600 transition-colors duration-200"
           aria-label="Back to Navigator"
         >
-          ← Navigator
+          <FaAngleLeft className='text-lg mt-1' /> 
+          <p className='mb-0'>Navigator</p>
         </Link>
       </div>
 
@@ -47,19 +48,18 @@ const Team = () => {
 
       {/* Team Section */}
       <section className="mb-20">
-        <h2 className="text-2xl font-bold text-red-600 mb-8">Our Creative Team</h2>
+        <h2 className="text-2xl font-[600] text-center text-[#EC1C24] mb-10">Our Creative Team</h2>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+        <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 gap-2 md:gap-4">
           {teamMembers.map((member) => (
             <div 
               key={member.id} 
               className="aspect-square relative group overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
             >
-              <img 
-                src={member.image} 
-                alt={member.name || 'Team member'} 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-              />
+              <svg className="w-full h-full object-cover" viewBox="0 0 100 100">
+                <rect width="100" height="100" fill="#F5F5F5" />
+                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="#EC1C24" fontWeight="bold" opacity="0.5">F O T O</text>
+              </svg>
               {member.name && (
                 <div className={`absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-center
                   ${member.name ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}
@@ -76,11 +76,11 @@ const Team = () => {
 
         {/* Pagination */}
         <div className="flex justify-center gap-2 mt-8">
-          <button className="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center">1</button>
+          <button className="w-8 h-8 rounded-xl bg-[#EC1C24] text-white flex items-center justify-center">1</button>
           {[2, 3, 4, 5].map((page) => (
             <button 
               key={page}
-              className="w-8 h-8 rounded-full text-gray-600 hover:bg-gray-100 flex items-center justify-center"
+              className="w-8 h-8 rounded-xl text-[#EC1C24] bg-[#D1D3D4] hover:bg-gray-100 flex items-center justify-center"
             >
               {page}
             </button>

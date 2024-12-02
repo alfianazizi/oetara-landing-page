@@ -150,7 +150,7 @@ const Navigator = () => {
               </div>
             </div>
             <div className="text-center mt-8">
-              <Link to="/team" className="text-gray-600 hover:text-red-600 inline-flex items-center">
+              <Link to="/team" className="text-gray-600 hover:text-[#EC1C24] inline-flex items-center">
                 See all our navigator <span className="ml-2">→</span>
               </Link>
             </div>

@@ -27,8 +27,8 @@ const Team = () => {
       {/* Breadcrumb */}
       <div className="py-10">
         <Link 
-          to="/"
-          className="text-gray-600 flex gap-2 hover:text-red-600 transition-colors duration-200"
+          to="/navigator"
+          className="text-gray-600 flex gap-2 hover:text-[#EC1C24] transition-colors duration-200"
           aria-label="Back to Navigator"
         >
           <FaAngleLeft className='text-lg mt-1' /> 

@@ -97,7 +97,7 @@ const Headers = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`fixed top-0 right-0 h-full w-[100%] z-[9] bg-white transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-[100%] z-[10] bg-white transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
       >

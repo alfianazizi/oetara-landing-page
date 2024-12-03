@@ -57,7 +57,7 @@ const Navigator = () => {
   };
 
   return (
-    <div className="mt-[4rem]">  
+    <div className="">  
       <div className='mx-auto px-5 lg:px-[5%]'>
         {/* Hero Section */}
         <section className="py-16">
@@ -123,29 +123,29 @@ const Navigator = () => {
           <div className="w-full h-auto">
             <h2 className="text-3xl font-[600] text-[#C01C30] text-center mb-4">Our Navigators</h2>
             <p className="text-center text-gray-600 mb-12">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
-            <div className="grid grid-cols-3 gap-2 lg:gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 gap-2 lg:gap-8 max-w-4xl lg:max-w-7xl mx-auto">
               <div className="aspect-square flex flex-col items-center w-[100%] relative group">
                 <img className="w-full h-full object-cover object-top" src={nav_1} alt="Navigator 1" />
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                  <h3 className="text-xl font-medium">Shee Fulan</h3>
-                  <p className="text-gray-300">Direktur</p>
+                  <h3 className="text-sm lg:text-xl font-medium">Shee Fulan</h3>
+                  <p className="text-xs lg:text-md text-gray-300">Direktur</p>
                 </div>
               </div>
               <div className="aspect-square flex flex-col items-center w-[100%] relative group">
                 <img className="w-full h-full object-cover object-top" src={nav_2} alt="Navigator 1" />
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                  <h3 className="text-xl font-medium">Shee Fulan</h3>
-                  <p className="text-gray-300">Direktur</p>
+                  <h3 className="text-sm lg:text-xl font-medium">Shee Fulan</h3>
+                  <p className="text-xs lg:text-md text-gray-300">Direktur</p>
                 </div>
               </div>
               <div className="aspect-square flex flex-col items-center w-[100%] relative group">
                 <img className="w-full h-full object-cover object-top" src={nav_3} alt="Navigator 1" />
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                  <h3 className="text-xl font-medium">Shee Fulan</h3>
-                  <p className="text-gray-300">Direktur</p>
+                  <h3 className="text-sm lg:text-xl font-medium">Shee Fulan</h3>
+                  <p className="text-xs lg:text-md text-gray-300">Direktur</p>
                 </div>
               </div>
             </div>

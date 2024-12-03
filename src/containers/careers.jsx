@@ -294,7 +294,7 @@ const Careers = () => {
                     </ul>
                   </div>
                 ))}
-                <button className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded">
+                <button className="bg-[#EC1C24] hover:bg-red-600 text-white px-8 py-3 rounded">
                   Apply Now
                 </button>
               </>
@@ -304,35 +304,37 @@ const Careers = () => {
               </div>
             )}
           </div>
+
           {isShowCareer ? 
-            <div className="fixed lg:hidden inset-0 z-[9] flex items-end justify-center bg-black bg-opacity-50">
+            <div className="fixed lg:hidden inset-0 z-[12] flex items-end justify-center bg-black bg-opacity-50">
               <div className="bg-white rounded-2xl  w-full lg:w-1/3">
                 <div className="flex justify-center">
                   <div className="border-b-[8px] rounded-full border-[#58595B] my-5 w-[30%]"></div>
                 </div>
-                <div className="flex justify-between p-4">
-                  <h3 className="text-lg font-[400] mb-4">Category</h3>
-                  <div 
-                    onClick={() => console.log('reset')} 
-                    className="text-[#EC1C24]"
-                  >
-                    Reset
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-2 px-4 pb-2">
-                  {['All', 'Internship', 'Entry level', 'Associate', 'Mid-Senior level', 'Director'].map((cat) => (
-                    <button 
-                      key={cat} 
-                      onClick={() => handleCategorySelect(cat)} 
-                      className="py-2 px-6 text-left bg-white border text-xs border-[#BCBEC0] rounded-full hover:bg-gray-200 w-auto h-auto"
-                    >
-                      {cat}
+                <div className='px-4 h-[80vh]  overflow-x-scroll'>
+                  <h3 className="text-xl font-[600] pb-4 pt-6">{jobListings[0]['title']}</h3>
+                  <p>{jobListings[0]['description']}</p>
+
+                  <div className='py-6'>
+                    <h4 className="font-bold mb-6">WHAT WILL YOU DO?</h4>
+                    {Object.entries(jobListings[selectedJobIndex].responsibilities || {}).map(([category, items], idx) => (
+                      <div key={idx} className="mb-6">
+                        <p className="font-semibold mb-3">{`${idx + 1}. ${category}`}</p>
+                        <ul className="list-none space-y-3">
+                          {items.map((item, i) => (
+                            <li key={i} className="flex items-start">
+                              <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 mt-2"></span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                    <button className="bg-[#EC1C24] hover:bg-red-600 text-white px-4 py-2 text-sm rounded-full" onClick={() => setIsShowCarieer(false)}>
+                      Apply Now
                     </button>
-                  ))}
-                </div>
-                <div className='px-4 py-4'>
-                  <button className="w-full text-white bg-[#C01C30] text-sm" onClick={() => setIsCategoryModalOpen(false)}>Show Result</button>
-                </div>      
+                  </div>
+                </div>     
               </div>
             </div>
           : null}

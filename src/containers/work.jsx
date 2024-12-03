@@ -61,13 +61,13 @@ const CaseStudy = () => {
   return (
     <section className="my-12">
       <div className="container mx-auto px-4 py-12">
-        <h2 className="text-3xl font-bold mb-4">Case Study</h2>
+        <h3 className="text-2xl md:text-3xl font-[600] mb-4">Case Study</h3>
         <p className="mb-8 text-gray-600 max-w-3xl">
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
           nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
         </p>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
           {cases.map((item) => (
             <div 
               key={item.id} 
@@ -78,12 +78,16 @@ const CaseStudy = () => {
               `}
               onClick={() => navigate(`/work/detail-work/${item.id}`)}
             >
-              <img 
+              {/* <img 
                 src={item.image} 
                 alt={item.title}
                 className="w-full h-full object-cover"
                 style={{ aspectRatio: item.id === 2 ? '1/1' : '4/3' }}
-              />
+              /> */}
+              <svg className='rounded-none md:rounded-lg shadow-image object-cover' viewBox="0 0 290 227">
+                  <rect width="100%" height="100%" fill="lightgray" />
+                  <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="20">Image Work</text>
+              </svg>
               {/* Hover Overlay */}
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
                 <p className="text-xl font-medium">{item.title}</p>

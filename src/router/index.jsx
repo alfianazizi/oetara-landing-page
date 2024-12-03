@@ -7,7 +7,7 @@ import Work from '../containers/work';
 import Layout from '../layouts';
 import DetailWork from '../containers/detailWork';
 import Team from '../containers/team';
-import Careers from '../containers/Careers';
+import Careers from '../containers/careers';
 
 // Layout components (if you have any)
 // import MainLayout from '../layouts/MainLayout';

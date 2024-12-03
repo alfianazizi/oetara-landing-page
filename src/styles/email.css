@@ -129,6 +129,12 @@
 }
 
 @media (max-width: 768px) {
+
+  .email-container {
+    padding: 1.5rem 1rem;
+    margin: 0 auto;
+  }
+
   .contact-wrapper {
     grid-template-columns: 1fr;
   }

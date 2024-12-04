@@ -17,14 +17,14 @@ const Email = () => {
   return (
     
     <div className="sm:email-container w-full min-h-screen flex flex-col overflow-x-hidden">
-      <div className="contact-header mt-10 mb-10 px-8">
+      <div className="contact-header mt-10 !mb-5 md:!mb-10 px-6 md:px-12">
         <h3 className='text-[2rem] md:text-[3.2rem] leading[1.2] md:leading-[1.1] py-12 md:py-4 font-[600]'>Contact Us & Let&apos;s Collaborate!</h3>
         <p>Say us a Hello. Get to know each other. Tell us your story. We listen. We tell you our story. You listen. Then you ask simple question. We answer. We ask you back. You answer. And then we getting closer and...</p>
         <p>Oh hey, we haven&apos;t even start the conversation, but it looks like we already miss you. Please drop us a line.</p>
       </div>
 
-      <div className="relative w-full flex-grow">
-        <div className="bg-white shadow-lg p-8 w-full min-h-full relative z-1">
+      <div className="w-full flex-grow px-5 md:px-12">
+        <div className="bg-white shadow-xl md:shadow-lg p-8 w-full min-h-full relative z-[10]">
           <div className="flex flex-col md:flex-row md:space-x-8">
             {/* Contact Information Side */}
             <div className="md:w-1/2 mb-6 md:mb-0">
@@ -105,20 +105,9 @@ const Email = () => {
         </div>
 
         {/* Map as background with fixed height */}
-        <div className="hidden md:contents px-0 absolute -left-[50vw] top-[50%] md:top-[20vh] md:-right-[50vw] w-[150vw] md:w-[129vw] lg:w-full h-[100vh] md:h-[50vh] -z-10">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666466960686!2d106.82493841476885!3d-6.175392395527999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sen!2sid!4v1680123456789!5m2!1sen!2sid"
-            className="w-full h-full object-cover pointer-events-auto cursor-pointer"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Google Maps"
-          ></iframe>
-        </div>
-
-        <div className='inline-block md:hidden w-full h-[50vh]'>
-          <iframe
+        <div className='hidden md:inline-block'>
+          <div className="px-0 absolute left-0 md:top-[50vh] w-[100%] h-[100vh]">
+            <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666466960686!2d106.82493841476885!3d-6.175392395527999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sen!2sid!4v1680123456789!5m2!1sen!2sid"
               className="w-full h-full object-cover pointer-events-auto cursor-pointer"
               style={{ border: 0 }}
@@ -127,7 +116,20 @@ const Email = () => {
               referrerPolicy="no-referrer-when-downgrade"
               title="Google Maps"
             ></iframe>
+          </div>
         </div>
+
+      </div>
+      <div className='relative mt-5 inline-block md:hidden w-full h-[50vh]'>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666466960686!2d106.82493841476885!3d-6.175392395527999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sen!2sid!4v1680123456789!5m2!1sen!2sid"
+            className="w-full h-full object-cover pointer-events-auto cursor-pointer"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Google Maps"
+          ></iframe>
       </div>
     </div>
   );

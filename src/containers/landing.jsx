@@ -11,7 +11,6 @@ import service_2 from '../assets/pattern/SVG/service_2.svg';
 import service_3 from '../assets/pattern/SVG/service_3.svg';
 import service_4 from '../assets/pattern/SVG/service_4.svg';
 
-import work_1 from '../assets/pattern/work/work_1.jpg';
 import '../assets/css/landing.css';
 import { FaChevronRight } from 'react-icons/fa6';
 
@@ -57,32 +56,26 @@ const Landing = () => {
 
     const our_work = [
         {
-            image: work_1,
             title: 'KOL Service',
             desc: 'for Dejavu'
         },
         {
-            image: work_1,
             title: 'KOL Service',
             desc: 'for Dejavu'
         },
         {
-            image: work_1,
             title: 'KOL Service',
             desc: 'for Dejavu'
         },
         {
-            image: work_1,
             title: 'KOL Service',
             desc: 'for Dejavu'
         },
         {
-            image: work_1,
             title: 'KOL Service',
             desc: 'for Dejavu'
         },
         {
-            image: work_1,
             title: 'KOL Service',
             desc: 'for Dejavu'
         }

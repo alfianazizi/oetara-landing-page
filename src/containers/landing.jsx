@@ -1,7 +1,7 @@
 import Hero from '../components/hero';
 import Definition from '../components/definition';
 import cover from '../assets/pattern/hero.png';
-import cover_mobile from '../assets/pattern/hero_mobile.jpg';
+import cover_mobile from '../assets/pattern/hero_mobile.png';
 import jalur from '../assets/pattern/jalur.png';
 
 import texture from '../assets/pattern/bg-texture.jpg';
@@ -154,12 +154,12 @@ const Landing = () => {
                         </div>
                     </div>
                 </div>
-                <div className="bg-white py-20 px-10 -mt-[40%] lg:-mt-[20%] relative mx-[6%] rounded-2xl shadow-xl">
+                <div className="bg-white py-10 md:py-20 px-10 -mt-[40%] lg:-mt-[20%] relative mx-[6%] rounded-2xl shadow-xl">
                     <div className="max-w-7xl mx-auto">
                         <div className="grid  lg:grid-cols-2 gap-20">
                             {/* Left Column */}
                             <div>
-                                <h2 className="text-[#EC1C24] text-5xl font-medium mb-4">Get in touch</h2>
+                                <h2 className="text-[#EC1C24] text-3xl md:text-5xl font-medium mb-4">Get in touch</h2>
                                 <p className="text-gray-600 mb-12">
                                     Leave us your details and a member of our team will get back to you as soon as possible.
                                 </p>
@@ -208,7 +208,7 @@ const Landing = () => {
 
                             {/* Right Column - Contact Form */}
                             <div>
-                                <form className="space-y-6 mt-8">
+                                <form className="space-y-3 md:space-y-6 md:mt-8">
                                     <input
                                         type="text"
                                         placeholder="Full Name"

@@ -42,8 +42,8 @@
 }
 
 .route-container {
-  width: 86%;
-  bottom: 0rem;
+  width: 100%;
+  /* bottom: 0rem; */
 }
 
 .definition-top {
@@ -51,9 +51,9 @@
 }
 
 @media (min-width: 1500px) {
-  .route-container {
+  /* .route-container {
     bottom: 12rem;
-  }
+  } */
 
   .title-landing {
     width: 35%;
@@ -61,9 +61,9 @@
 }
 
 @media (min-width: 1600px) {
-  .route-container {
+  /* .route-container {
     bottom: 4rem;
-  }
+  } */
 
   .title-landing {
     width: 30%;

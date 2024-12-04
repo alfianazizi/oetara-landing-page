@@ -207,7 +207,7 @@ const Navigator = () => {
       <section className="mb-20 mt-14 lg:mt-0">
         <h2 className="text-3xl font-bold text-red-600 text-center mb-12">Our Clients</h2>
         <Marquee>
-          <div className="flex gap-10 items-center mb-8">
+          <div className="flex gap-10 items-center">
             <div className="flex justify-center items-center">
               <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
                 <rect width="100%" height="100%" fill="gainsboro" />
@@ -282,8 +282,54 @@ const Navigator = () => {
             </div>
           </div>
         </Marquee>
-        <Marquee direction='ltr' className='mt-6'>
+        <Marquee direction='ltr' className='my-6'>
           <div className="flex gap-10 items-center">
+          <div className="flex justify-center items-center">
+              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="gainsboro" />
+                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
+              </svg>
+            </div>
+            <div className="flex justify-center items-center">
+              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="gainsboro" />
+                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
+              </svg>
+            </div>
+            <div className="flex justify-center items-center">
+              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="gainsboro" />
+                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
+              </svg>
+            </div>
+            <div className="flex justify-center items-center">
+              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="gainsboro" />
+                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
+              </svg>
+            </div>
+            <div className="flex justify-center items-center">
+              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="gainsboro" />
+                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
+              </svg>
+            </div>
+            <div className="flex justify-center items-center">
+              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="gainsboro" />
+                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
+              </svg>
+            </div>
+            <div className="flex justify-center items-center">
+              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="gainsboro" />
+                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
+              </svg>
+            </div>
+          </div>
+        </Marquee>
+        <Marquee direction='ltr' className='my-6'>
+          <div className="flex md:hidden gap-10 items-center">
           <div className="flex justify-center items-center">
               <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
                 <rect width="100%" height="100%" fill="gainsboro" />

@@ -10,6 +10,7 @@ const Careers = () => {
   const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
   const [isExperienceLevelModalOpen, setIsExperienceLevelModalOpen] = useState(false);
   const [isShowCareer, setIsShowCarieer] = useState(false)
+  const [isSlidingOut, setIsSlidingOut] = useState(false);
 
   const jobListings = [
     {
@@ -59,6 +60,15 @@ const Careers = () => {
   const handleCategorySelect = (value) => {
     setCategory(value);
     setIsCategoryModalOpen(false);
+  };
+
+  // Function to close the modal with slide effect
+  const closeCareerModal = () => {
+    setIsSlidingOut(true);
+    setTimeout(() => {
+      setIsShowCarieer(false);
+      setIsSlidingOut(false);
+    }, 300); // Match this duration with your CSS transition duration
   };
 
   return (
@@ -286,17 +296,19 @@ const Careers = () => {
                     <p className="font-semibold mb-3">{`${idx + 1}. ${category}`}</p>
                     <ul className="list-none space-y-3">
                       {items.map((item, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 mt-2"></span>
+                        <li key={i} className="flex items-start ml-5">
+                          {/* <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 mt-2"></span> */}
                           <span>{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 ))}
-                <button className="bg-[#EC1C24] hover:bg-red-600 text-white px-8 py-3 rounded">
-                  Apply Now
-                </button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3RgPhjSHg-GKy75tftNnppESmB1woIK0NJyPC5hlWqlGU_A/viewform" target="_blank">
+                  <button className="bg-[#EC1C24] hover:bg-red-600 text-white px-8 py-3 rounded-full">
+                    Apply Now
+                  </button>
+                </a>
               </>
             ) : (
               <div className="flex items-center justify-center h-full">
@@ -306,12 +318,12 @@ const Careers = () => {
           </div>
 
           {isShowCareer ? 
-            <div className="fixed lg:hidden inset-0 z-[12] flex items-end justify-center bg-black bg-opacity-50">
-              <div className="bg-white rounded-2xl  w-full lg:w-1/3">
-                <div className="flex justify-center">
+            <div className={`fixed lg:hidden inset-0 z-[12] flex items-end justify-center bg-black bg-opacity-50 transition-transform duration-300 ${isSlidingOut ? 'transform translate-y-full' : 'transform translate-y-0'}`} onClick={() => closeCareerModal()}>
+              <div className="bg-white rounded-2xl w-full lg:w-1/3">
+                <div className="flex justify-center" onClick={() => closeCareerModal()}>
                   <div className="border-b-[8px] rounded-full border-[#58595B] my-5 w-[30%]"></div>
                 </div>
-                <div className='px-4 h-[80vh]  overflow-x-scroll'>
+                <div className='px-4 h-[80vh] overflow-x-scroll'>
                   <h3 className="text-xl font-[600] pb-4 pt-6">{jobListings[0]['title']}</h3>
                   <p>{jobListings[0]['description']}</p>
 
@@ -323,16 +335,18 @@ const Careers = () => {
                         <ul className="list-none space-y-3">
                           {items.map((item, i) => (
                             <li key={i} className="flex items-start">
-                              <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 mt-2"></span>
-                              <span>{item}</span>
+                              {/* <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 mt-2"></span> */}
+                              <span className='ml-5'>{item}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     ))}
-                    <button className="bg-[#EC1C24] hover:bg-red-600 text-white px-4 py-2 text-sm rounded-full" onClick={() => setIsShowCarieer(false)}>
-                      Apply Now
-                    </button>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3RgPhjSHg-GKy75tftNnppESmB1woIK0NJyPC5hlWqlGU_A/viewform" target="_blank">
+                      <button className="bg-[#EC1C24] hover:bg-red-600 text-white px-4 py-2 text-sm rounded-full">
+                        Apply Now
+                      </button>
+                    </a>
                   </div>
                 </div>     
               </div>

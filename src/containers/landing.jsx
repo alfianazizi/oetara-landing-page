@@ -15,8 +15,11 @@ import work_1 from '../assets/pattern/work/work_1.jpg';
 import '../assets/css/landing.css';
 import { FaChevronRight } from 'react-icons/fa6';
 
+import { useNavigate } from 'react-router-dom';
+
 
 const Landing = () => {
+    const navigate = useNavigate();
     const our_service = [
         {
             icon: service_1,
@@ -84,6 +87,10 @@ const Landing = () => {
             desc: 'for Dejavu'
         }
     ]
+
+    const handleWork = () => {
+        navigate('/work');
+    }
     return (
         <>
             <Hero cover={cover} cover_mobile={cover_mobile} jalur={jalur} />
@@ -91,7 +98,7 @@ const Landing = () => {
             <div className="bg-white pb-[10%] -mt-[5rem] lg:-mt-[8rem]">
                 <div className="relative">
                     <img src={texture} alt="texture" className="w-full h-[100vh] lg:h-auto" />
-                    <div className="absolute top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 w-[100%] lg:w-[80%] px-5 lg:px-10">
+                    <div className="absolute top-[55%] md:top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 w-[100%] lg:w-[80%] px-5 lg:px-10">
                         <div className="w-full mx-auto">
                             <p className="text-[2rem] lg:text-[3rem] text-center font-[500] text-[#EC1C24] mb-8">
                                 Our Service
@@ -130,16 +137,16 @@ const Landing = () => {
                                             <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="14">Image Work</text>
                                         </svg>
                                         {/* Hover Overlay */}
-                                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                                            <p className="text-xl font-medium mb-4 ">{item.title}</p>
-                                            {item.desc && <p className="text-lg mb-4">{item.desc}</p>}
-                                            <span className="mt-2 text-2xl">→</span>
+                                        <div className="absolute rounded-xl inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
+                                            <p className="md:text-xl font-medium md:mb-4 ">{item.title}</p>
+                                            {item.desc && <p className="text-sm md:text-lg md:mb-4">{item.desc}</p>}
+                                            <span className="md:mt-2 md:text-2xl">→</span>
                                         </div>
                                     </div>
                                 ))}
                             </div>
                             <div className="flex justify-center mt-16">
-                                <button className='py-2 px-10 bg-white rounded-full font-[600] flex items-center shadow-2xl hover:bg-gray-50 transition-colors'>
+                                <button className='py-2 px-10 bg-white rounded-full font-[600] flex items-center shadow-2xl hover:bg-gray-50 transition-colors' onClick={() => handleWork()}>
                                     <span className='lg:text-[18px] mr-5'>See all our work</span>
                                     <FaChevronRight size={18} />
                                 </button>

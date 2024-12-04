@@ -14,7 +14,8 @@ const CaseStudy = () => {
       id: 2,
       image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868",
       overlay: true,
-      title: "KOL services for Dejavu",
+      title: "KOL services",
+      subtitle: "for Dejavu"
     },
     {
       id: 3,
@@ -76,7 +77,13 @@ const CaseStudy = () => {
                 ${item.id === 1 || item.id === 3 ? 'col-span-1 row-span-1' : ''}
                 ${item.id === 4 || item.id === 5 ? 'col-span-1' : ''}
               `}
-              onClick={() => navigate(`/work/detail-work/${item.id}`)}
+              onClick={() => {
+                if (window.innerWidth <= 768) { // Check for mobile resolution
+                  setTimeout(() => navigate(`/work/detail-work/${item.id}`), 1000); // 1 seconds delay
+                } else {
+                  navigate(`/work/detail-work/${item.id}`); // No delay for larger screens
+                }
+              }}
             >
               {/* <img 
                 src={item.image} 
@@ -90,9 +97,9 @@ const CaseStudy = () => {
               </svg>
               {/* Hover Overlay */}
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                <p className="text-xl font-medium">{item.title}</p>
-                {item.subtitle && <p className="text-lg mb-4">{item.subtitle}</p>}
-                <span className="mt-2 text-2xl">→</span>
+                <p className="md:text-xl font-medium">{item.title}</p>
+                {item.subtitle && <p className="text-sm md:text-lg md:mb-4">{item.subtitle}</p>}
+                <span className="md:mt-2 text-2xl">→</span>
               </div>
             </div>
           ))}

@@ -61,8 +61,8 @@ const DetailWork = ({ id }) => {
 
       <div className="relative px-7 flex items-center gap-6 -mt-[3rem]">
           <div className="flex items-center justify-center flex-wrap md:flex-nowrap gap-2 md:gap-8">
-            <div className='w-[100%] md:w-auto h-[10vh] md:h-[18vh] bg-[#d3d3d3] rounded-lg shadow-lg flex items-center'>
-              <svg className='w-32 md:w-[10rem] object-cover' viewBox="0 0 290 227">
+            <div className='w-[100%] md:w-auto h-[10vh] md:h-[18vh]  flex items-center'>
+              <svg className='w-32 md:w-[10rem] object-cover rounded-lg shadow-lg' viewBox="0 0 290 227">
                   <rect width="100%" height="100%" fill="lightgray" />
                   <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="28">Image</text>
               </svg>
@@ -110,7 +110,7 @@ const DetailWork = ({ id }) => {
             //   alt={`Campaign ${item}`}
             //   className="w-full md:rounded-lg"
             // />
-            <div className='h-[50vh] rounded-lg bg-[#D3D3D3] shadow-lg flex items-center'>
+            <div className='h-[20vh] md:h-[50vh] rounded-lg bg-[#D3D3D3] shadow-lg flex items-center'>
               <svg className='object-cover' viewBox="0 0 290 227">
                   <rect width="100%" height="100%" fill="#D3D3D3" />
                   <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="28">Image</text>

@@ -83,7 +83,7 @@ const Navigator = () => {
                     selectedValue === index ? 'scale-110' : ''
                   }`} 
                 />
-                <p className={`text-center lg:w-[80px] mt-5 transition-colors duration-300 text-[10px] lg:text-md ${
+                <p className={`text-center lg:w-[80px] mt-5 transition-colors duration-300 text-[10px] lg:text-[12px] ${
                   selectedValue === index 
                     ? 'text-black font-medium' 
                     : 'text-gray-400 hover:text-gray-600'
@@ -104,10 +104,28 @@ const Navigator = () => {
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-16 h-8">
                 
               </div>
+
+              {/* <div className={`speech-bubble ${selectedValue !== null ? 'move-right' : ''}`}>
+                  <p className='text-gray-600'>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.
+                  </p>
+              </div> */}
               
               {/* Description text */}
-              <div className="border border-[#EC1C24] rounded-lg p-6">
-                <p className="text-center text-gray-600 text-sm">
+              <div className="border border-[#EC1C24] rounded-lg p-6 relative">
+                {/* Add the triangle pointer */}
+                <div className={`absolute -top-5 
+                  transition-all duration-300 
+                  ${selectedValue === 0 && 'left-[2rem]' ||
+                    selectedValue === 1 && 'left-[12rem]' ||
+                    selectedValue === 2 && 'left-[22.5rem]' ||
+                    selectedValue === 3 && 'left-[33rem]' ||
+                    selectedValue === 4 && 'left-[43rem]' ||
+                    selectedValue === 5 && 'left-[53rem]'
+                  } 
+                  w-0 h-5 border-l-8 border-l-transparent border-r-8 border-r-transparent border-b-8 border-b-[#EC1C24]
+                `}></div>
+                <p className="text-center text-gray-600 text-sm md:text-md">
                   {valueDetails[selectedValue].description}
                 </p>
               </div>

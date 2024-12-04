@@ -17,7 +17,6 @@ const Email = () => {
   return (
     
     <div className="email-container w-full min-h-screen flex flex-col overflow-x-hidden">
-      <Headers/>
       <div className="contact-header mt-10 mb-10 px-4">
         <h3 className='text-[2rem] md:text-[3.2rem] leading[1.2] md:leading-[1.1] py-4 font-[600]'>Contact Us & Let&apos;s Collaborate!</h3>
         <p>Say us a Hello. Get to know each other. Tell us your story. We listen. We tell you our story. You listen. Then you ask simple question. We answer. We ask you back. You answer. And then we getting closer and...</p>

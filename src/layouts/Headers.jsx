@@ -27,7 +27,7 @@ const Headers = () => {
   return (
     <>
       <div className={`fixed top-0 left-0 z-[9] lg:relative flex justify-between items-center py-8 md:py-4 px-5 md:px-10 w-full transition-all duration-500
-        ${isScrolled ? 'bg-white shadow-md' : ''}`}>
+        ${isScrolled ? 'bg-white sm:shadow-md' : ''}`}>
         <div className="flex justify-between lg:justify-start items-center gap-5 md:gap-10 w-[100%]">
             <Link to="/" className="w-full lg:w-auto">
               <img src={logo} alt="logo" className="hidden lg:inline-block w-8 h-8 md:w-10 md:h-10" />
@@ -96,7 +96,7 @@ const Headers = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`fixed top-0 right-0 h-full w-[100%] z-[10] bg-white transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-[100%] z-[10] bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
       >

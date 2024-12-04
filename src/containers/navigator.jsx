@@ -74,7 +74,7 @@ const Navigator = () => {
               <div 
                 className="cursor-pointer text-center"
                 key={index}
-                onClick={() => {setSelectedValue(index); console.log(valueDetails[selectedValue])}}
+                onClick={() => setSelectedValue(index)}
               >
                 <img 
                   src={value.icon} 
@@ -117,11 +117,11 @@ const Navigator = () => {
                 <div className={`absolute -top-5 
                   transition-all duration-300 
                   ${selectedValue === 0 && 'left-[2rem]' ||
-                    selectedValue === 1 && 'left-[12rem]' ||
-                    selectedValue === 2 && 'left-[22.5rem]' ||
-                    selectedValue === 3 && 'left-[33rem]' ||
-                    selectedValue === 4 && 'left-[43rem]' ||
-                    selectedValue === 5 && 'left-[53rem]'
+                    selectedValue === 1 && 'left-[30%] lg:left-[12rem]' ||
+                    selectedValue === 2 && 'left-[45%] lg:left-[22.5rem]' ||
+                    selectedValue === 3 && 'left-[60%] lg:left-[33rem]' ||
+                    selectedValue === 4 && 'left-[74%] lg:left-[43rem]' ||
+                    selectedValue === 5 && 'left-[89%] lg:left-[53rem]'
                   } 
                   w-0 h-5 border-l-8 border-l-transparent border-r-8 border-r-transparent border-b-8 border-b-[#EC1C24]
                 `}></div>

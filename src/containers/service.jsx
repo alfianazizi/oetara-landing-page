@@ -96,7 +96,7 @@ const Service = () => {
   ];
 
   return (
-    <div className="container mx-auto px-8 lg:px-4 py-12 my-12">
+    <div className="mx-auto px-8 lg:px-12 py-12 my-12">
       {/* Hero Section */}
       <h1 className="text-xl lg:text-4xl font-[600] mb-6">Our Service</h1>
       <p className="text-gray-700 mb-4">
@@ -156,7 +156,7 @@ const Service = () => {
                 <div className="bg-[#DC2626] text-white rounded-sm md:rounded-lg py-1 px-2 md:px-3 text-[10px] md:text-sm font-bold">
                   {stage.number}
                 </div>
-                <h3 className="text-[8px] md:text-md ml-2 font-semibold">{stage.title}</h3>
+                <h3 className="text-[8px] md:text-lg ml-2 font-semibold">{stage.title}</h3>
               </div>
               {/* <img 
                 src={stage.image} 

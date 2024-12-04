@@ -61,7 +61,7 @@ const CaseStudy = () => {
 
   return (
     <section className="my-12">
-      <div className="container mx-auto px-4 py-12">
+      <div className="mx-auto px-8 md:px-12 py-12">
         <h3 className="text-2xl md:text-3xl font-[600] mb-4">Case Study</h3>
         <p className="mb-8 text-gray-600 max-w-3xl">
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy

@@ -82,7 +82,7 @@ const Careers = () => {
         }}
       >
         <div className="absolute inset-0" style={{ background: 'rgba(0, 0, 0, 0.4)'}} />
-        <div className="relative z-[8] h-[80vh] flex justify-center items-center max-w-7xl mx-auto px-4 py-16">
+        <div className="relative z-[8] h-[80vh] flex justify-center items-center container mx-auto px-4 py-16">
           <div>
             <div className="mb-12 text-center">
               <h1 className="text-lg lg:text-4xl font-[400] mb-4">Find Jobs, Employment & Career Opportunities</h1>
@@ -251,7 +251,7 @@ const Careers = () => {
       )}
 
       {/* Modified Job Listings Layout */}
-      <div className="max-w-7xl mx-auto px-4 py-6 lg:py-16">
+      <div className="container mx-auto px-5 md:px-10 py-6 lg:py-16">
         <div className="flex gap-8">
           {/* Left Side - Fixed Job List */}
           <div className="w-[100%] lg:w-1/3 bg-white rounded-xl">

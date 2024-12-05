@@ -35,7 +35,7 @@ const Team = () => {
   const swiperRef = useRef(null);
 
   return (
-    <div className="mx-auto px-10 md:px-[5rem] py-12">
+    <div className="mx-auto container px-10 md:px-[5rem] py-12">
       
       {/* Breadcrumb */}
       <div className="py-10">

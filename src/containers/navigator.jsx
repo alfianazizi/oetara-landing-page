@@ -57,7 +57,7 @@ const Navigator = () => {
 
   return (
     <div className="">  
-      <div className='mx-auto px-5 lg:px-[5%]'>
+      <div className='mx-auto container px-5 lg:px-[5%]'>
         {/* Hero Section */}
         <section className="py-16">
           <motion.h1 

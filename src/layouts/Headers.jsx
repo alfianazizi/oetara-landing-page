@@ -15,7 +15,6 @@ const Headers = () => {
   const activeLink = location.pathname.substring(1) || '';
 
   useEffect(() => {
-    console.log(location.pathname)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };

@@ -158,7 +158,7 @@ const Careers = () => {
             <div className="flex justify-between p-4">
               <h3 className="text-lg font-[400] mb-4">Job Level</h3>
               <div 
-                onClick={() => console.log('reset')} 
+                onClick={() => setIsJobTypeModalOpen(false)} 
                 className="text-[#EC1C24]"
               >
                 Reset
@@ -192,7 +192,7 @@ const Careers = () => {
             <div className="flex justify-between p-4">
               <h3 className="text-lg font-[400] mb-4">Category</h3>
               <div 
-                onClick={() => console.log('reset')} 
+                onClick={() => setIsCategoryModalOpen(false)} 
                 className="text-[#EC1C24]"
               >
                 Reset
@@ -226,7 +226,7 @@ const Careers = () => {
             <div className="flex justify-between p-4">
               <h3 className="text-lg font-[400] mb-4">Experience Level</h3>
               <div 
-                onClick={() => console.log('reset')} 
+                onClick={() => setIsExperienceLevelModalOpen(false)} 
                 className="text-[#EC1C24]"
               >
                 Reset

@@ -91,7 +91,6 @@ const Team = () => {
             disableOnInteraction: false,
           }}
           onSlideChange={(swiper) => {
-            console.log('Slide changed to:', swiper.activeIndex);
             setCurrentSlide(swiper.activeIndex);
           }}
           navigation={true}

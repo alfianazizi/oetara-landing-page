@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
 const DetailWork = ({ id }) => {
-    const navigate = useNavigate();
-    console.log(id);
+  const navigate = useNavigate();
   const metrics = [
     {
       label: "Total KOL",

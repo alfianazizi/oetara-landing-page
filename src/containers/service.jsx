@@ -3,6 +3,8 @@ import service_2 from '../assets/pattern/SVG/service_2.svg';
 import service_3 from '../assets/pattern/SVG/service_3.svg';
 import service_4 from '../assets/pattern/SVG/service_4.svg';
 
+import { motion } from 'motion/react';
+
 const Service = () => {
   const services = [
     {
@@ -96,22 +98,45 @@ const Service = () => {
   ];
 
   return (
-    <div className="mx-auto px-8 lg:px-12 py-12 my-12">
+    <div className="mx-auto container px-8 lg:px-12 py-12 my-12">
       {/* Hero Section */}
-      <h1 className="text-xl lg:text-4xl font-[600] mb-6">Our Service</h1>
-      <p className="text-gray-700 mb-4">
+      <motion.h1 
+        initial={{ opacity: 0, translateY: '-1.5rem' }} 
+        animate={{ opacity: 1, translateY: 0 }} 
+        transition={{ duration: 0.5 }} 
+        className="text-xl lg:text-4xl font-[600] mb-6"
+      >
+        Our Service
+      </motion.h1>
+      <motion.p 
+        initial={{ opacity: 0, translateY: '-1.5rem' }} 
+        animate={{ opacity: 1, translateY: 0 }} 
+        transition={{ duration: 0.5, delay: 0.2 }} 
+        className="text-gray-700 mb-4"
+      >
         OETARA is a maps where top strategic, creative, Influencer, and analysts who
         called themselves "Navigator" let us show you the right path
-      </p>
-      <p className="text-gray-600 mb-16">
+      </motion.p>
+      <motion.p
+        initial={{ opacity: 0, translateY: '-1.5rem' }} 
+        animate={{ opacity: 1, translateY: 0 }} 
+        transition={{ duration: 0.5, delay: 0.3 }}  
+        className="text-gray-600 mb-16"
+      >
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
         nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-      </p>
+      </motion.p>
 
       {/* Services Grid - Update the styling */}
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-8 pt-[2rem] pb-24">
         {our_service.map((item, key) => 
-          <div key={key} className="bg-white rounded-xl shadow-lg py-4 lg:py-8 px-5 lg:px-10 max-w-xs">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0 }} 
+            animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.5 * key } }} 
+            whileHover={{ scale: 1.10 }}
+            key={key} 
+            className="bg-white rounded-xl shadow-lg py-4 lg:py-8 px-5 max-w-xs"
+          >
               <div className="flex justify-center">
                   <div className="bg-[#F0F1F1] p-5 rounded-full">
                       <img src={item.icon} alt="" className='w-8 h-8 lg:w-16 lg:h-16' />
@@ -122,15 +147,28 @@ const Service = () => {
                   <p className="font-[500] py-0 text-[11px] md:text-sm lg:text-md">{item.title.title_2}</p>
               </div>
               <div className="text-center text-[10px] md:text-sm">{item.text}</div>
-          </div>
+          </motion.div>
         )}
       </div>
 
       {/* Stages of Service */}
-      <h2 className="text-2xl md:text-3xl font-[600] text-center mb-12 text-[#DC2626]">Stages of Service</h2>
+      <motion.h2
+        initial={{ opacity: 0, translateY: '-1.5rem' }} 
+        animate={{ opacity: 1, translateY: 0 }} 
+        transition={{ duration: 0.5, delay: 1.8 }}  
+        className="text-2xl md:text-3xl font-[600] text-center mb-12 text-[#DC2626]"
+      >
+        Stages of Service
+      </motion.h2>
       <div className="grid grid-cols-3 md:grid-cols-3 gap-x-1 gap-y-1 md:gap-x-16 md:gap-y-20 mb-12 relative">
         {stages.map((stage, index) => (
-          <div key={index} className="relative">
+          <motion.div 
+            key={index}
+            initial={{ opacity: 0, translateY: '-1.5rem' }} 
+            animate={{ opacity: 1, translateY: 0 }} 
+            transition={{ duration: 0.5, delay: 0.5 * index }}  
+            className="relative"
+          >
             {/* Panah ke kanan untuk stage 1 dan 2 */}
             {(index === 0 || index === 1) && (
               <div className="hidden md:block absolute -right-10 top-1/2 transform -translate-y-1/2">
@@ -152,8 +190,8 @@ const Service = () => {
             {/* Card dengan border putih dan shadow */}
             <div className={`bg-white px-1 py-2 md:py-4 md:px-4 rounded-none md:rounded-lg shadow-lg relative`}>
               {/* Badge nomor dengan warna merah */}
-              <div className="md:absolute -top-4 -left-4 flex items-center">
-                <div className="bg-[#DC2626] text-white rounded-sm md:rounded-lg py-1 px-2 md:px-3 text-[10px] md:text-sm font-bold">
+              <div className="flex items-center">
+                <div className="bg-[#DC2626] text-white rounded-sm md:rounded-lg py-1 md:py-2 px-2 md:px-4 text-[10px] md:text-[16px] font-bold">
                   {stage.number}
                 </div>
                 <h3 className="text-[8px] md:text-lg ml-2 font-semibold">{stage.title}</h3>
@@ -170,7 +208,7 @@ const Service = () => {
                 </svg>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

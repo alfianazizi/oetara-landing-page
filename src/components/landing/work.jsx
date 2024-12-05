@@ -59,7 +59,7 @@ const OurWork = () => {
     }, []);
 
     return (
-        <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] lg:w-[90%]">
+        <div className="absolute container top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] lg:w-[90%]">
             <div className="w-full mx-auto px-10 lg:px-[5rem]">
                 <motion.p 
                     ref={ref}
@@ -76,7 +76,7 @@ const OurWork = () => {
                             ref={ref}
                             key={key} 
                             initial={{ opacity: 0, scale: 0 }} 
-                            animate={isVisible ? { opacity: 1, scale: 1, transition: { duration: 0.5, delay: key + 0.5 * 0.2 } } : {}} 
+                            animate={isVisible ? { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.5 * key } } : {}} 
                             whileHover={{ scale: 1.03 }}
                             className="flex flex-col items-center w-[100%] relative group"
                         >
@@ -98,7 +98,7 @@ const OurWork = () => {
                         ref={ref}
                         initial={{ opacity: 0, translateY: '-2rem' }} 
                         animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
-                        transition={{ duration: 1, delay: our_work.length}} 
+                        transition={{ duration: 1, delay: 2.8}} 
                         className='py-2 px-10 bg-white rounded-full font-[600] flex items-center shadow-2xl hover:bg-gray-50 transition-colors' 
                         onClick={() => handleWork()}
                     >

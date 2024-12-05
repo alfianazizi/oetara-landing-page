@@ -63,7 +63,7 @@ const OurService = () => {
         }
     ]
     return (
-        <div className="absolute top-[55%] md:top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 w-[100%] lg:w-[80%] px-5 lg:px-10">
+        <div className="absolute top-[55%] md:top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 container px-5 lg:px-10">
             <div className="w-full mx-auto">
                 <motion.p 
                     ref={ref}
@@ -80,7 +80,7 @@ const OurService = () => {
                             ref={ref}
                             key={key} 
                             initial={{ opacity: 0, scale: 0 }} 
-                            animate={isVisible ? { opacity: 1, scale: 1, transition: { duration: 0.3, delay: key + 1 - 0.8 } } : {}} 
+                            animate={isVisible ? { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.5 * key } } : {}} 
                             whileHover={{ scale: 1.10 }}
                             className="bg-white rounded-xl shadow-lg py-4 lg:py-8 px-5 lg:px-8 xl:px-10 max-w-xs"
                         >

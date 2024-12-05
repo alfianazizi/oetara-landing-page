@@ -38,8 +38,8 @@
 }
 
 .animate-draw {
-  animation: draw 5s ease-in-out forwards;
-  animation-delay: 2s;
+  animation: draw 3s ease-in-out forwards;
+  animation-delay: 1.5s;
 }
 
 .route-container {
@@ -49,6 +49,14 @@
 
 .definition-top {
   margin-top: 0rem
+}
+
+.hover-effect {
+  transition: transform 0.3s;
+}
+
+.hover-effect:hover {
+  transform: scale(1.25);
 }
 
 @media (min-width: 1500px) {

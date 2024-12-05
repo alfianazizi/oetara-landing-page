@@ -19,7 +19,7 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                     className="animate-draw w-[100%] h-[100vh]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 2 }}
+                    transition={{ delay: 1 }}
                 />
             </div>
             <motion.img 

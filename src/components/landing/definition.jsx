@@ -1,8 +1,8 @@
-import alphaO from '../assets/logo/O_logo.svg';
-import alphaE from '../assets/logo/E_logo.svg';
-import alphaT from '../assets/logo/T_logo.svg';
-import alphaA from '../assets/logo/A_logo.svg';
-import alphaR from '../assets/logo/R_logo.svg';
+import alphaO from '../../assets/logo/O_logo.svg';
+import alphaE from '../../assets/logo/E_logo.svg';
+import alphaT from '../../assets/logo/T_logo.svg';
+import alphaA from '../../assets/logo/A_logo.svg';
+import alphaR from '../../assets/logo/R_logo.svg';
 
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react';
@@ -37,7 +37,7 @@ const Definition = () => {
                     ref={ref}
                     initial={{ opacity: 0, pathLength: 0 }} 
                     animate={isVisible ? { opacity: 1, pathLength: 1 } : {}} 
-                    transition={{ duration: 1, delay: 3 }} 
+                    transition={{ delay: 3 }} 
                     className='absolute top-[24%] border border-[#EC1C24] py-5 lg:py-[7rem] w-[55%] px-5 lg:px-[5rem] rounded-[2rem]'
                 >
                 </motion.div>

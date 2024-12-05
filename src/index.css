@@ -93,6 +93,16 @@ button:focus-visible {
   display: none;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  color: #EC1C24 !important; /* Change this to your desired color */
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #FF0000; /* Change this to your desired hover color */
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

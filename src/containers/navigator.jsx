@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import alphaO from '../assets/logo/logo_black/O_logo_black.svg';
 import alphaE from '../assets/logo/logo_black/E_logo_black.svg';
 import alphaT from '../assets/logo/logo_black/T_logo_black.svg';
@@ -7,13 +7,12 @@ import alphaA from '../assets/logo/logo_black/A_logo_black.svg';
 import alphaR from '../assets/logo/logo_black/R_logo_black.svg';
 
 import bg_texture from '../assets/pattern/bg-texture.jpg';
-
-import nav_1 from '../assets/image/navigator-1.jpg';
-import nav_2 from '../assets/image/navigator-2.jpg';
-import nav_3 from '../assets/image/navigator-3.jpg';
 import nav_4 from '../assets/image/navigation-web.png';
 
 import Marquee from "react-fast-marquee";
+import { motion } from 'motion/react';
+import OurNavigator from '../components/navigator/our_nav';
+import OurTeam from '../components/navigator/our_team';
 
 
 const Navigator = () => {
@@ -61,17 +60,32 @@ const Navigator = () => {
       <div className='mx-auto px-5 lg:px-[5%]'>
         {/* Hero Section */}
         <section className="py-16">
-          <h1 className="text-3xl lg:text-4xl font-[600] mb-6">Navigator</h1>
-          <p className="text-md lg:text-lg">
+          <motion.h1 
+            initial={{ opacity: 0, translateY: '-2rem' }} 
+            animate={{ opacity: 1, translateY: 0 }} 
+            transition={{ duration: 1 }} 
+            className="text-3xl lg:text-4xl font-[600] mb-6"
+          >
+            Navigator
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, translateY: '-2rem' }} 
+            animate={{ opacity: 1, translateY: 0 }} 
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-md lg:text-lg"
+          >
             We are Navigators not only crafting the right message but also setting the measurable goals and will be your guidance through Digital World Crowdedness. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, diam nonummy nibh euismod tincidunt ut laoreet dolore
-          </p>
+          </motion.p>
         </section>
 
         {/* OETARA Values */}
         <section className="mb-20 mt-16">
           <div className="flex justify-between items-start mx-w-2xl lg:max-w-4xl mx-auto">
             {valueDetails.map((value, index) => (
-              <div 
+              <motion.div 
+                initial={{ opacity: 0, translateX: '-2rem' }} 
+                animate={{ opacity: 1, translateX: 0 }} 
+                transition={{ duration: 0.3, delay: 0.1 * index+1 }}
                 className="cursor-pointer text-center"
                 key={index}
                 onClick={() => setSelectedValue(index)}
@@ -90,7 +104,7 @@ const Navigator = () => {
                 }`}>
                   {value.title}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -99,17 +113,14 @@ const Navigator = () => {
             mt-10 max-w-4xl mx-auto transition-all duration-300
             ${selectedValue !== null ? 'opacity-100' : 'opacity-0'}
           `}>
-            <div className="relative">
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              transition={{ duration: 0.5, delay: 2 }}
+              className="relative"
+            >
               {/* Red curved line */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-16 h-8">
-                
-              </div>
-
-              {/* <div className={`speech-bubble ${selectedValue !== null ? 'move-right' : ''}`}>
-                  <p className='text-gray-600'>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.
-                  </p>
-              </div> */}
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-16 h-8"></div>
               
               {/* Description text */}
               <div className="border border-[#EC1C24] rounded-lg p-6 relative">
@@ -129,7 +140,7 @@ const Navigator = () => {
                   {valueDetails[selectedValue].description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
       </div>    
@@ -137,43 +148,7 @@ const Navigator = () => {
       {/* Our Navigators Section */}
       <section className="relative ">
         <img src={bg_texture} alt="" className='h-[50vh] lg:h-auto object-cover' />
-        <div className='absolute top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 w-[100%] lg:w-[80%] px-5 lg:px-10'>
-          <div className="w-full h-auto">
-            <h2 className="text-3xl font-[600] text-[#C01C30] text-center mb-4">Our Navigators</h2>
-            <p className="text-center text-gray-600 mb-12">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
-            <div className="grid grid-cols-3 gap-2 lg:gap-8 max-w-4xl lg:max-w-7xl mx-auto">
-              <div className="aspect-square flex flex-col items-center w-[100%] relative group">
-                <img className="w-full h-full object-cover object-top" src={nav_1} alt="Navigator 1" />
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                  <h3 className="text-sm lg:text-xl font-medium">Shee Fulan</h3>
-                  <p className="text-xs lg:text-md text-gray-300">Direktur</p>
-                </div>
-              </div>
-              <div className="aspect-square flex flex-col items-center w-[100%] relative group">
-                <img className="w-full h-full object-cover object-top" src={nav_2} alt="Navigator 1" />
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                  <h3 className="text-sm lg:text-xl font-medium">Shee Fulan</h3>
-                  <p className="text-xs lg:text-md text-gray-300">Direktur</p>
-                </div>
-              </div>
-              <div className="aspect-square flex flex-col items-center w-[100%] relative group">
-                <img className="w-full h-full object-cover object-top" src={nav_3} alt="Navigator 1" />
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                  <h3 className="text-sm lg:text-xl font-medium">Shee Fulan</h3>
-                  <p className="text-xs lg:text-md text-gray-300">Direktur</p>
-                </div>
-              </div>
-            </div>
-            <div className="text-center mt-8">
-              <Link to="/team" className="text-gray-600 hover:text-[#EC1C24] inline-flex items-center">
-                See all our navigator <span className="ml-2">→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
+        <OurNavigator />
       </section>
 
       {/* Join Team Section - Updated */}
@@ -183,24 +158,7 @@ const Navigator = () => {
           alt="Team working together" 
           className="w-full object-contain lg:object-cover brightness-75"
         />
-        <div className="absolute inset-0 flex items-end bottom-0 lg:bottom-10 justify-center">
-          <div className="bg-white flex justify-between flex-wrap lg:flex-nowrap p-4 lg:p-8 rounded-xl shadow-lg mx-4 max-w-3xl">
-            <div className='w-[100%] lg:w-[70%]'>
-              <h2 className="text-2xl font-bold text-red-600 mb-4">Join Our Team</h2>
-              <p className="text-gray-600 mb-6">
-                Be part of our growing team and help shape the future of digital marketing. Join us in creating innovative solutions.
-              </p>
-            </div>
-            <div className='w-[100%] lg:w-auto flex justify-start lg:justify-center items-center'>
-              <button 
-                onClick={handleJoinClick}
-                className="bg-red-600 h-auto text-white px-8 py-3 rounded-full hover:bg-red-700 transition-colors"
-              >
-                Join Now
-              </button>
-            </div>
-          </div>
-        </div>
+        <OurTeam handleJoinClick={handleJoinClick} />
       </section>
 
       {/* Clients Section */}

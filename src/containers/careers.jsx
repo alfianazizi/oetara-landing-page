@@ -72,7 +72,7 @@ const Careers = () => {
   };
 
   return (
-    <div className="w-full mt-16 lg:mt-20 bg-[#F1F2F2]">
+    <div className="w-full mt-16 lg:mt-0 bg-[#F1F2F2]">
       {/* Hero Section */}
       <div className="relative h-[80vh] bg-cover bg-center text-white" 
         style={{ 

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const CaseStudy = () => {
   const navigate = useNavigate();
@@ -61,16 +62,31 @@ const CaseStudy = () => {
 
   return (
     <section className="my-12">
-      <div className="mx-auto px-8 md:px-12 py-12">
-        <h3 className="text-2xl md:text-3xl font-[600] mb-4">Case Study</h3>
-        <p className="mb-8 text-gray-600 max-w-3xl">
+      <div className="container mx-auto px-8 md:px-12 py-12">
+        <motion.h3 
+          initial={{ opacity: 0, translateY: '-1.5rem' }} 
+          animate={{ opacity: 1, translateY: 0 }} 
+          transition={{ duration: 0.5 }} 
+          className="text-2xl md:text-3xl font-[600] mb-4"
+        >
+          Case Study
+        </motion.h3>
+        <motion.p
+          initial={{ opacity: 0, translateY: '-1.5rem' }} 
+          animate={{ opacity: 1, translateY: 0 }} 
+          transition={{ duration: 0.5, delay: 0.2 }}  
+          className="mb-8 text-gray-600 max-w-3xl"
+        >
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
           nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-        </p>
+        </motion.p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
-          {cases.map((item) => (
-            <div 
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-8">
+          {cases.map((item, key) => (
+            <motion.div 
+              initial={{ opacity: 0, scale: 0 }} 
+              animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.5 * key } }} 
+              whileHover={{ scale: 1.02 }}
               key={item.id} 
               className={`relative group cursor-pointer rounded-lg overflow-hidden
                 ${item.id === 2 ? 'col-span-1 row-span-1' : ''}
@@ -101,7 +117,7 @@ const CaseStudy = () => {
                 {item.subtitle && <p className="text-sm md:text-lg md:mb-4">{item.subtitle}</p>}
                 <span className="md:mt-2 text-2xl">→</span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

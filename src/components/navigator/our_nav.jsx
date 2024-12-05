@@ -64,7 +64,7 @@ const OurNavigator = () => {
                 initial={{ opacity: 0, translateY: '-2rem' }} 
                 animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-center text-gray-600 mb-12"
+                className="text-center text-gray-600 mb-12 text-xl"
             >
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
             </motion.p>
@@ -93,7 +93,7 @@ const OurNavigator = () => {
                 transition={{ duration: 0.5, delay: 1 }}
                 className="text-center mt-8"
             >
-              <Link to="/team" className="text-gray-600 hover:text-[#EC1C24] inline-flex items-center">
+              <Link to="/team" className="text-gray-600 hover:text-[#EC1C24] md:text-xl inline-flex items-center">
                 See all our navigator <span className="ml-2">→</span>
               </Link>
             </motion.div>

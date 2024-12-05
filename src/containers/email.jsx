@@ -12,12 +12,12 @@ const Email = () => {
     
     <div className="sm:email-container w-full min-h-screen flex flex-col overflow-x-hidden">
       <div className="flex justify-center items-center">
-        <div className="contact-header container mt-10 !mb-5 md:!mb-10 px-6 md:px-[5rem]">
+        <div className="contact-header container mt-10 md:mt-16 !mb-5 md:!mb-10 px-6 md:px-10">
           <motion.h3
             initial={{ opacity: 0, translateY: '-1.5rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
             transition={{ duration: 0.5 }}  
-            className='text-[2rem] md:text-[3.2rem] leading[1.2] md:leading-[1.1] py-12 md:py-4 font-[600]'
+            className='text-3xl lg:text-4xl leading[1.2] md:leading-[1.1] py-12 md:py-4 font-[600]'
           >
             Contact Us & Let&apos;s Collaborate!
           </motion.h3>
@@ -43,7 +43,7 @@ const Email = () => {
       </div>
 
       <div className="flex justify-center items-center">
-        <div className="container flex-grow px-5 md:px-12">
+        <div className="container flex-grow px-5 md:px-10">
           <div className="bg-white shadow-xl md:shadow-2xl rounded-xl p-8 w-full min-h-full relative z-[10]">
             <div className="flex flex-col md:flex-row md:space-x-8">
               {/* Contact Information Side */}

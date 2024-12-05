@@ -57,7 +57,7 @@ const Navigator = () => {
 
   return (
     <div className="">  
-      <div className='mx-auto container px-5 lg:px-[5%]'>
+      <div className='mx-auto container px-5 lg:px-10'>
         {/* Hero Section */}
         <section className="py-16">
           <motion.h1 
@@ -72,7 +72,7 @@ const Navigator = () => {
             initial={{ opacity: 0, translateY: '-2rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-md lg:text-lg"
+            className="text-md lg:text-xl"
           >
             We are Navigators not only crafting the right message but also setting the measurable goals and will be your guidance through Digital World Crowdedness. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, diam nonummy nibh euismod tincidunt ut laoreet dolore
           </motion.p>
@@ -97,7 +97,7 @@ const Navigator = () => {
                     selectedValue === index ? 'scale-110' : ''
                   }`} 
                 />
-                <p className={`text-center lg:w-[80px] mt-5 transition-colors duration-300 text-[10px] lg:text-[12px] ${
+                <p className={`text-center lg:w-[80px] mt-5 transition-colors duration-300 text-[10px] lg:text-[14px] ${
                   selectedValue === index 
                     ? 'text-black font-medium' 
                     : 'text-gray-400 hover:text-gray-600'
@@ -136,7 +136,7 @@ const Navigator = () => {
                   } 
                   w-0 h-5 border-l-8 border-l-transparent border-r-8 border-r-transparent border-b-8 border-b-[#EC1C24]
                 `}></div>
-                <p className="text-center text-gray-600 text-sm md:text-md">
+                <p className="text-center text-gray-600 text-sm md:text-xl">
                   {valueDetails[selectedValue].description}
                 </p>
               </div>
@@ -147,16 +147,16 @@ const Navigator = () => {
 
       {/* Our Navigators Section */}
       <section className="relative ">
-        <img src={bg_texture} alt="" className='h-[50vh] lg:h-auto object-cover' />
+        <img src={bg_texture} alt="" className='w-full h-[50vh] lg:h-[80vh] object-cover' />
         <OurNavigator />
       </section>
 
       {/* Join Team Section - Updated */}
-      <section className="relative lg:mb-20 overflow-hidden h-[50vh] lg:h-auto">
+      <section className="relative lg:mb-20 overflow-hidden h-[50vh] lg:h-[85vh]">
         <img 
           src={nav_4}
           alt="Team working together" 
-          className="w-full object-contain lg:object-cover brightness-75"
+          className="absolute bottom-0 w-full object-contain lg:object-cover brightness-75"
         />
         <OurTeam handleJoinClick={handleJoinClick} />
       </section>

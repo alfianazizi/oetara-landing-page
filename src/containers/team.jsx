@@ -8,6 +8,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { getTeam } from '../api/navigator';
 
 const Team = () => {
   useEffect(() => {
@@ -33,6 +34,31 @@ const Team = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const swiperRef = useRef(null);
+  const [team, setTeam] = useState([]);
+
+  useEffect(() => {
+    handleTeam()
+  }, [])
+
+  const handleTeam = async () => {
+    const result = await getTeam();
+    try {
+      // Slice the result into chunks of 12
+      const chunkedTeam = sliceIntoChunks(result, 12);
+      setTeam(chunkedTeam);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  // Utility function to slice an array into chunks
+  const sliceIntoChunks = (array, chunkSize) => {
+    const result = [];
+    for (let i = 0; i < array.length; i += chunkSize) {
+      result.push(array.slice(i, i + chunkSize));
+    }
+    return result;
+  }
 
   return (
     <div className="mx-auto container px-10 md:px-[5rem] py-12">
@@ -97,67 +123,42 @@ const Team = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 gap-2 md:gap-4">
-              {teamMembers.map((member, key) => (
-                <motion.div 
-                  key={member.id}
-                  initial={{ opacity: 0, translateY: '-1.5rem' }} 
-                animate={{ opacity: 1, translateY: 0 }} 
-                transition={{ duration: 0.5, delay: 0.6 * key}} 
-                  className="cursor-pointer aspect-square relative group overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
-                >
-                  <svg className="w-full h-full object-cover" viewBox="0 0 100 100">
-                    <rect width="100" height="100" fill="#F5F5F5" />
-                    <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="#EC1C24" fontWeight="bold" opacity="0.5">F O T O</text>
-                  </svg>
-                  {member.name && (
-                    <div className={`absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-center
-                      ${member.name ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}
-                    >
-                      <div>
-                        <h3 className="text-[10px] md:text-xl font-medium">{member.name}</h3>
-                        <p className="text-[8px] md:text-lg text-gray-300">{member.role}</p>
+          {team.length > 0 && team.map((item, key) => 
+            <SwiperSlide>
+              <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 gap-2 md:gap-4">
+                {item.map((member, key) => (
+                  <motion.div 
+                    key={member.id}
+                    initial={{ opacity: 0, translateY: '-1.5rem' }} 
+                  animate={{ opacity: 1, translateY: 0 }} 
+                  transition={{ duration: 0.5, delay: 0.6 * key}} 
+                    className="cursor-pointer aspect-square relative group overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
+                  >
+                    <img src={member.acf.photo} alt="navigator" className="w-auto object-cover" />
+                    {/* <svg className="w-full h-full object-cover" viewBox="0 0 100 100">
+                      <rect width="100" height="100" fill="#F5F5F5" />
+                      <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="#EC1C24" fontWeight="bold" opacity="0.5">F O T O</text>
+                    </svg> */}
+                    {member.acf.name && (
+                      <div className={`absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-center
+                        ${member.acf.name ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}
+                      >
+                        <div>
+                          <h3 className="text-[10px] md:text-xl font-medium">{member.acf.name}</h3>
+                          <p className="text-[8px] md:text-lg text-gray-300">{member.acf.position}</p>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 gap-2 md:gap-4">
-              {teamMembers.map((member, key) => (
-                <motion.div 
-                  key={member.id}
-                  initial={{ opacity: 0, translateY: '-1.5rem' }} 
-                animate={{ opacity: 1, translateY: 0 }} 
-                transition={{ duration: 0.5, delay: 0.6 * key}} 
-                  className="cursor-pointer aspect-square relative group overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
-                >
-                  <svg className="w-full h-full object-cover" viewBox="0 0 100 100">
-                    <rect width="100" height="100" fill="#F5F5F5" />
-                    <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="#EC1C24" fontWeight="bold" opacity="0.5">F O T O</text>
-                  </svg>
-                  {member.name && (
-                    <div className={`absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-center
-                      ${member.name ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}
-                    >
-                      <div>
-                        <h3 className="text-[10px] md:text-xl font-medium">{member.name}</h3>
-                        <p className="text-[8px] md:text-lg text-gray-300">{member.role}</p>
-                      </div>
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </SwiperSlide>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </SwiperSlide>
+          )}
         </Swiper>
         
         {/* Custom Pagination */}
         <div className="flex justify-center mt-4">
-          {Array.from({ length: Math.ceil(teamMembers.length / 6) }).map((_, index) => (
+          {Array.from({ length: Math.ceil(team.length / 6) }).map((_, index) => (
             <button
               key={index}
               onClick={() => {

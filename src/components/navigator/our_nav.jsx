@@ -69,7 +69,7 @@ const OurNavigator = ({data}) => {
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
             </motion.p>
             <div className="grid grid-cols-3 gap-2 lg:gap-8 max-w-4xl lg:max-w-7xl mx-auto">
-                {data.map((item, key) => (
+                {data.slice(0,3).map((item, key) => (
                     <motion.div
                         ref={ref}
                         initial={{ opacity: 0, scale: 0 }} 

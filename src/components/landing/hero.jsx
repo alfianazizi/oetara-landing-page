@@ -17,7 +17,12 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                     </motion.p>
                 </div>
             </div>
-            <div className="hidden lg:inline-block absolute w-[100%]">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.8 }} 
+                className="hidden lg:inline-block absolute w-[100%]"
+            >
                 <motion.img 
                     src={jalur} 
                     alt="route" 
@@ -26,7 +31,7 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                 />
-            </div>
+            </motion.div>
             <motion.img 
                 src={cover} 
                 alt="cover" 

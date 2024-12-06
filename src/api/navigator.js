@@ -23,7 +23,18 @@ const getClient = () => {
     });
 }
 
+const getJob = () => {
+    return fetch(apiUrl + '/job?'+acf+'&'+field)
+    .then(response => {
+        return response.json();
+    })
+    .catch(error => {
+        return error;
+    });
+}
+
 export {
     getTeam,
-    getClient
+    getClient,
+    getJob
 }

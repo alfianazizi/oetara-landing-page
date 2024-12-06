@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import nav_4 from '../assets/image/navigation-web.png';
+import { getJob } from '../api/navigator';
 
 const Careers = () => {
   const [jobType, setJobType] = useState('');
@@ -11,6 +12,8 @@ const Careers = () => {
   const [isExperienceLevelModalOpen, setIsExperienceLevelModalOpen] = useState(false);
   const [isShowCareer, setIsShowCarieer] = useState(false)
   const [isSlidingOut, setIsSlidingOut] = useState(false);
+  const [careers, setCareers] = useState([]);
+  const [detail, setDetail] = useState({})
 
   const jobListings = [
     {
@@ -56,11 +59,22 @@ const Careers = () => {
       description: '...',
     }
   ];
+  
+  const handleJob = async () => {
+    const result = await getJob();
+    try {
+      console.log(result)
+      setCareers(result)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   const handleCategorySelect = (value) => {
     setCategory(value);
     setIsCategoryModalOpen(false);
   };
+
 
   // Function to close the modal with slide effect
   const closeCareerModal = () => {
@@ -70,6 +84,15 @@ const Careers = () => {
       setIsSlidingOut(false);
     }, 300); // Match this duration with your CSS transition duration
   };
+
+  const handleDetail = (id) => {
+    const filtered = careers.filter(a => a.id == id)[0];
+    setDetail(filtered)
+  }
+
+  useEffect(() => {
+    handleJob()
+  }, [])
 
   return (
     <div className="w-full mt-16 lg:mt-0 bg-[#F1F2F2]">
@@ -254,27 +277,28 @@ const Careers = () => {
       <div className="container mx-auto px-5 md:px-10 py-6 lg:py-16">
         <div className="flex gap-8">
           {/* Left Side - Fixed Job List */}
-          <div className="w-[100%] lg:w-1/3 bg-white rounded-xl">
-            {jobListings.map((job, index) => (
+          <div className="w-[100%] lg:w-1/3 h-[80vh] overflow-x-scroll scroll-tab p-5 bg-white rounded-xl">
+            {careers.map((job, index) => (
               <div 
                 key={index} 
                 className={`py-5 hover:lg:border-[#EC1C24] transition-shadow cursor-pointer ${selectedJobIndex === index ? 'border lg:border-[#EC1C24] rounded-lg px-6' : 'border-b border-[#BCBEC0] mx-6'}`}
-                onClick={() => {setSelectedJobIndex(index); setIsShowCarieer(true)}}
+                onClick={() => {setSelectedJobIndex(index); setIsShowCarieer(true); handleDetail(job.id)}}
               >
-                <h3 className="text-xl font-bold mb-4">{job.title}</h3>
+                <h3 className="text-xl font-bold mb-4">{job.acf.job_title}</h3>
                 <div className="space-y-2 text-gray-600">
                   <p className="flex items-center">
                     <span className="w-2 h-2 bg-gray-600 rounded-full mr-2"></span>
-                    {job.type}
+                    {job.acf.job_type.name}
                   </p>
                   <p className="flex items-center">
                     <span className="w-2 h-2 bg-gray-600 rounded-full mr-2"></span>
-                    {job.level}
+                    {job.acf.job_experience.name}
                   </p>
                 </div>
                 <div className="text-right mt-4">
                   <a 
                     className="text-[#EC1C24] text-sm font-medium"
+                    onClick={() => handleDetail(job.id)}
                   >
                     Details {'>'}
                   </a>
@@ -285,25 +309,14 @@ const Careers = () => {
 
           {/* Right Side - Details Panel */}
           <div className="hidden lg:inline-block w-2/3 border border-gray-200 bg-white rounded-lg p-8">
-            {selectedJobIndex !== null ? (
+            {selectedJobIndex !== null && detail ? (
               <>
-                <h3 className="text-2xl font-bold mb-4">{jobListings[selectedJobIndex].title}</h3>
-                <p className="text-gray-600 mb-6">{jobListings[selectedJobIndex].description}</p>
+                <h3 className="text-2xl font-bold mb-4">{detail.acf.job_title}</h3>
+                <p className="text-gray-600 mb-6" dangerouslySetInnerHTML={{__html: detail.acf.job_position_description}}></p>
                 
                 <h4 className="font-bold mb-6">WHAT WILL YOU DO?</h4>
-                {Object.entries(jobListings[selectedJobIndex].responsibilities || {}).map(([category, items], idx) => (
-                  <div key={idx} className="mb-6">
-                    <p className="font-semibold mb-3">{`${idx + 1}. ${category}`}</p>
-                    <ul className="list-none space-y-3">
-                      {items.map((item, i) => (
-                        <li key={i} className="flex items-start ml-5">
-                          {/* <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 mt-2"></span> */}
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+                <div className="mb-6" dangerouslySetInnerHTML={{ __html: detail.acf.job_activity_description}} ></div>
+                
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3RgPhjSHg-GKy75tftNnppESmB1woIK0NJyPC5hlWqlGU_A/viewform" target="_blank">
                   <button className="bg-[#EC1C24] hover:bg-red-600 text-white px-8 py-3 rounded-full">
                     Apply Now

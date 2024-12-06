@@ -25,7 +25,7 @@ const Headers = () => {
 
   return (
     <div className='flex justify-center items-center'>
-      <div className={`container fixed top-0 left-0 z-[9] lg:relative flex justify-between items-center py-8 md:py-4 px-5 md:px-10 w-full transition-all duration-500
+      <div className={`container fixed top-0 left-0 z-[12] lg:relative flex justify-between items-center py-8 md:py-4 px-5 md:px-10 w-full transition-all duration-500
         ${isScrolled ? 'bg-white shadow-md md:shadow-none' : ''}`}>
         <div className="flex justify-between lg:justify-start items-center gap-5 md:gap-10 w-[100%]">
             <Link to="/" className="w-full lg:w-auto">

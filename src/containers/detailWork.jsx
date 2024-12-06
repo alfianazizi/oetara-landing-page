@@ -94,7 +94,7 @@ const DetailWork = () => {
       
       <div className="flex justify-center items-center">
         <div className="container">
-          <div className="relative px-7 flex items-center gap-6 -mt-[3rem]">
+          <div className="relative px-7 flex items-center gap-6 -mt-[1rem] md:-mt-[3rem]">
             <div className="flex items-center justify-center flex-wrap md:flex-nowrap gap-2 md:gap-8">
               <div className='w-[100%] md:w-auto h-[10vh] md:h-[18vh]  flex items-center'>
                 <svg className='w-32 md:w-[16rem] -mt-10 object-cover rounded-lg shadow-lg' viewBox="0 0 290 227">

@@ -3,6 +3,13 @@ import service_2 from '../assets/pattern/SVG/service_2.svg';
 import service_3 from '../assets/pattern/SVG/service_3.svg';
 import service_4 from '../assets/pattern/SVG/service_4.svg';
 
+import stage_1 from '../assets/image/stage-1.jpg';
+import stage_2 from '../assets/image/stage-2.jpg';
+import stage_3 from '../assets/image/stage-3.jpg';
+import stage_4 from '../assets/image/stage-4.jpg';
+import stage_5 from '../assets/image/stage-5.jpg';
+import stage_6 from '../assets/image/stage-6.jpg';
+
 import { motion } from 'motion/react';
 
 const Service = () => {
@@ -68,32 +75,32 @@ const Service = () => {
     {
       number: 1,
       title: "Input Brief",
-      image: "https://images.unsplash.com/photo-1517971053567-8bde93bc6a58?auto=format&w=400&q=80"
+      image: stage_1
     },
     {
       number: 2,
       title: "Understand Client Expectation",
-      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&w=400&q=80"
+      image: stage_2
     },
     {
       number: 3,
       title: "Data Research & Analysis",
-      image: "https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&w=400&q=80"
+      image: stage_3
     },
     {
       number: 4,
       title: "Creative Idea & Concept",
-      image: "https://images.unsplash.com/photo-1579389083395-4507e98b5e67?auto=format&w=400&q=80"
+      image: stage_4
     },
     {
       number: 5,
       title: "Grow your Business",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&w=400&q=80"
+      image: stage_5
     },
     {
       number: 6,
       title: "Report & Suggestion",
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&w=400&q=80"
+      image: stage_6
     }
   ];
 
@@ -196,16 +203,16 @@ const Service = () => {
                 </div>
                 <h3 className="text-[8px] md:text-lg ml-2 font-semibold">{stage.title}</h3>
               </div>
-              {/* <img 
-                src={stage.image} 
-                alt={stage.title}
-                className="w-full h-20 md:h-48 object-cover rounded-lg mt-2 md:mt-6"
-              /> */}
               <div className='mt-2 md:mt-6'>
-                <svg className='rounded-none md:rounded-lg shadow-image object-cover' viewBox="0 0 290 227">
+                <img 
+                  src={stage.image} 
+                  alt={stage.title}
+                  className="w-full h-20 md:h-48 mt-2 md:mt-6 rounded-none md:rounded-lg shadow-image object-cover"
+                />
+                {/* <svg className='rounded-none md:rounded-lg shadow-image object-cover' viewBox="0 0 290 227">
                     <rect width="100%" height="100%" fill="lightgray" />
                     <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="14">Image Stage Of Service</text>
-                </svg>
+                </svg> */}
               </div>
             </div>
           </motion.div>

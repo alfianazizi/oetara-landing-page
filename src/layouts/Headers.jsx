@@ -60,13 +60,13 @@ const Headers = () => {
 
       {/* Mobile Logo - Moved outside header */}
       <Link to="/" onClick={() => setIsHamburger(...isHamburger,{ isClose: false})}>
-        <div className='flex fixed top-0 right-0 px-5 py-2 md:py-4 z-[11] lg:hidden justify-center items-center w-full text-center'>
+        <div className='flex fixed top-0 right-0 px-5 py-2 md:py-4 z-[12] lg:hidden justify-center items-center w-full text-center'>
           <img src={logo_full_mobile} alt="logo" className='w-auto h-10' />
         </div>
       </Link>
 
       {/* Moved Menu Button outside header */}
-      <div className="view-mobile fixed top-0 right-0 px-5 py-2 md:py-4 z-[11]">
+      <div className="view-mobile fixed top-0 right-0 px-5 py-2 md:py-4 z-[12]">
           <div className="relative w-6 h-6 mt-2">
             <MdClose 
               className={`absolute text-2xl cursor-pointer transition-all duration-300
@@ -95,7 +95,7 @@ const Headers = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`fixed top-0 right-0 h-full w-[100%] z-[10] bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-[100%] z-[11] bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
       >
@@ -108,6 +108,7 @@ const Headers = () => {
                 e.preventDefault();
                 navigate(`/${link.toLowerCase()}`);
                 setIsMenuOpen(false);
+                setIsHamburger({ isMenu: true, isClose: false })
               }}
               className={`px-3 py-4 text-xl ${
                 activeLink === link.toLowerCase() ? 'bg-[#C01C30] text-white w-[100%] text-center' : ''

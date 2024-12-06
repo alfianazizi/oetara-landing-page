@@ -1,12 +1,29 @@
 // import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getInformation } from '../api/information';
 import '../styles/email.css';
 import { motion } from 'motion/react';
 
 const Email = () => {
+  const [info, setInfo] = useState({})
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    handleInformation()
+  }, [])
+
+  const handleInformation = async () => {
+    const result = await getInformation()
+    try {
+      console.log(result)
+      setInfo(result[0])
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     
@@ -123,7 +140,7 @@ const Email = () => {
                         transition={{ duration: 0.5, delay: 1.4 }} 
                         className="text-gray-600 text-sm"
                       >
-                        syamsari@oetara.co.id<br/>kevin@oetara.co.id
+                        syamsan@oetara.co.id<br/>kevin@oetara.co.id
                       </motion.p>
                     </div>
                   </div>
@@ -213,7 +230,8 @@ const Email = () => {
           {/* Map as background with fixed height */}
           <div className='hidden md:inline-block h-[100vh]'>
             <div className="px-0 absolute left-0 md:top-[60vh] w-[100%] h-[100vh]">
-              <iframe
+              <div dangerouslySetInnerHTML={{ __html : info && "acf" in info ? info.acf.embed_url : '' }} className='w-full h-full object-cover pointer-events-auto'></div>
+              {/* <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666466960686!2d106.82493841476885!3d-6.175392395527999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sen!2sid!4v1680123456789!5m2!1sen!2sid"
                 className="w-full h-full object-cover pointer-events-auto cursor-pointer"
                 style={{ border: 0 }}
@@ -221,14 +239,15 @@ const Email = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Google Maps"
-              ></iframe>
+              ></iframe> */}
             </div>
           </div>
 
         </div>
       </div>
       <div className='relative mt-5 inline-block md:hidden w-full h-[50vh]'>
-        <iframe
+        <div dangerouslySetInnerHTML={{ __html : info && "acf" in info ? info.acf.embed_url : '' }} className='w-full h-full object-cover pointer-events-auto'></div>
+        {/* <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666466960686!2d106.82493841476885!3d-6.175392395527999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sen!2sid!4v1680123456789!5m2!1sen!2sid"
             className="w-full h-full object-cover pointer-events-auto cursor-pointer"
             style={{ border: 0 }}
@@ -236,7 +255,7 @@ const Email = () => {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Google Maps"
-          ></iframe>
+          ></iframe> */}
       </div>
     </div>
   );

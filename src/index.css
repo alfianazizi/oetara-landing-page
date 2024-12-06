@@ -140,6 +140,11 @@ button:focus-visible {
   border-radius: 10px;
 }
 
+iframe {
+  width: 100%!important;
+  height: 100vh!important;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -159,6 +164,10 @@ button:focus-visible {
   }
   .view-mobile {
     display: flex;
+  }
+  iframe {
+    width: auto;
+    height: 50vh !important;
   }
 }
 

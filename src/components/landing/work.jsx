@@ -2,11 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { FaChevronRight } from 'react-icons/fa6';
+import { getWorkHighlight } from '../../api';
 
 const OurWork = () => {
     const navigate = useNavigate();
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
+    const [list, setList] = useState([]);
 
     const our_work = [
         {
@@ -39,6 +41,31 @@ const OurWork = () => {
         navigate('/work');
     }
 
+    const fetchWork = async () => {
+        const result = await getWorkHighlight();
+        try {
+            const all = [];
+            result.length > 0 && result.forEach(item => {
+                all.push({
+                    title: item.title.rendered,
+                    image: item.acf.image_header
+                })
+            })
+            if (all.length < 6) {
+                let count = 6 - all.length
+                for (let i = 0; i < count; i++) {
+                    all.push({
+                        title: 'Name',
+                        image: ''
+                    })
+                }
+            }
+            setList(all)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     useEffect(() => {
         const observer = new IntersectionObserver(([entry]) => {
             if (entry.isIntersecting) {
@@ -52,6 +79,7 @@ const OurWork = () => {
         }
 
         return () => {
+            fetchWork()
             if (ref.current) {
                 observer.unobserve(ref.current);
             }
@@ -71,7 +99,7 @@ const OurWork = () => {
                     Our Work
                 </motion.p>
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 justify-items-center mb-8">
-                    {our_work.map((item, key) => (
+                    {list.map((item, key) => (
                         <motion.div 
                             ref={ref}
                             key={key} 
@@ -80,13 +108,17 @@ const OurWork = () => {
                             whileHover={{ scale: 1.03 }}
                             className="flex flex-col items-center w-[100%] relative group"
                         >
-                            <svg className='rounded-xl shadow-image object-cover' viewBox="0 0 290 227">
-                                <rect width="100%" height="100%" fill="lightgray" />
-                                <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="14">Image Work</text>
-                            </svg>
+                            {item.image !== null && item.image !== "" ? 
+                                <img src={item.image} alt="work_image" className='rounded-xl shadow-image object-cover h-[100%]' />
+                            :
+                                <svg className='rounded-xl shadow-image object-cover' viewBox="0 0 290 227">
+                                    <rect width="100%" height="100%" fill="lightgray" />
+                                    <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="14">Image Work</text>
+                                </svg>
+                            }
                             {/* Hover Overlay */}
                             <div className="absolute rounded-xl inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                                <p className="md:text-xl font-medium md:mb-4 ">{item.title}</p>
+                                <p className="md:text-xl font-medium md:mb-4">{item.title.replace(/&#8211;/g, '–')}</p>
                                 {item.desc && <p className="text-sm md:text-lg md:mb-4">{item.desc}</p>}
                                 <span className="md:mt-2 md:text-2xl">→</span>
                             </div>

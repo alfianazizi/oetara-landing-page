@@ -6,7 +6,7 @@ import nav_1 from '../../assets/image/navigator-1.jpg';
 import nav_2 from '../../assets/image/navigator-2.jpg';
 import nav_3 from '../../assets/image/navigator-3.jpg';
 
-const OurNavigator = () => {
+const OurNavigator = ({data}) => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
 
@@ -69,7 +69,7 @@ const OurNavigator = () => {
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
             </motion.p>
             <div className="grid grid-cols-3 gap-2 lg:gap-8 max-w-4xl lg:max-w-7xl mx-auto">
-                {our_nav.map((item, key) => (
+                {data.map((item, key) => (
                     <motion.div
                         ref={ref}
                         initial={{ opacity: 0, scale: 0 }} 
@@ -77,11 +77,11 @@ const OurNavigator = () => {
                         key={key} 
                         className="aspect-square flex flex-col items-center w-[100%] relative group"
                     >
-                        <img className="w-full h-full object-cover object-top" src={item.image} alt="Navigator 1" />
+                        <img className="w-full h-full object-cover object-top" src={item.acf.photo} alt="Navigator 1" />
                         {/* Hover Overlay */}
                         <div className="cursor-pointer absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                            <h3 className="text-sm lg:text-xl font-medium">{item.name}</h3>
-                            <p className="text-xs lg:text-md text-gray-300">{item.type}</p>
+                            <h3 className="text-sm lg:text-xl font-medium">{item.acf.name}</h3>
+                            <p className="text-xs lg:text-md text-gray-300">{item.acf.position}</p>
                         </div>
                     </motion.div>
                 ))}

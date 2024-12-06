@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import alphaO from '../assets/logo/logo_black/O_logo_black.svg';
 import alphaE from '../assets/logo/logo_black/E_logo_black.svg';
@@ -13,10 +13,13 @@ import Marquee from "react-fast-marquee";
 import { motion } from 'motion/react';
 import OurNavigator from '../components/navigator/our_nav';
 import OurTeam from '../components/navigator/our_team';
+import { getClient, getTeam } from '../api/navigator';
 
 
 const Navigator = () => {
   const [selectedValue, setSelectedValue] = useState(0);
+  const [team, setTeam] = useState([]);
+  const [client, setClient] = useState([]);
 
   const valueDetails = [{
       icon: alphaO,
@@ -54,6 +57,29 @@ const Navigator = () => {
   const handleJoinClick = () => {
     navigate('/careers');  // Navigate to careers page on button click
   };
+
+  useEffect(() => {
+    handleTeam()
+    handleClient()
+  }, [])
+
+  const handleTeam = async () => {
+    const result = await getTeam();
+    try {
+      setTeam(result)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const handleClient = async () => {
+    const result = await getClient();
+    try {
+      setClient(result)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <div className="">  
@@ -148,7 +174,7 @@ const Navigator = () => {
       {/* Our Navigators Section */}
       <section className="relative ">
         <img src={bg_texture} alt="" className='w-full h-[50vh] lg:h-[80vh] object-cover' />
-        <OurNavigator />
+        <OurNavigator data={team} />
       </section>
 
       {/* Join Team Section - Updated */}
@@ -165,171 +191,51 @@ const Navigator = () => {
       <section className="mb-20 mt-14 lg:mt-0">
         <h2 className="text-3xl font-bold text-red-600 text-center mb-12">Our Clients</h2>
         <Marquee>
-          <div className="flex gap-10 items-center">
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
+          <div className="flex gap-10 md:gap-16 items-center">
+            {client.map((item, key) => 
+              <div key={key} className="flex justify-center items-center">
+                {item.acf.logo !== "" ?
+                  <img src={item.acf.logo} alt="client" className='w-16 md:w-32' /> 
+                :
+                  <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="gainsboro" />
+                    <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
+                  </svg>
+                }
+              </div>
+            )}
           </div>
         </Marquee>
         <Marquee direction='ltr' className='my-6'>
           <div className="flex gap-10 items-center">
-          <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
+            {client.map((item, key) => 
+              <div key={key} className="flex justify-center items-center">
+                {item.acf.logo !== "" ?
+                  <img src={item.acf.logo} alt="client" className='w-16 md:w-32' /> 
+                :
+                  <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="gainsboro" />
+                    <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
+                  </svg>
+                }
+              </div>
+            )}
           </div>
         </Marquee>
-        <Marquee direction='ltr' className='my-6'>
-          <div className="flex md:hidden gap-10 items-center">
-          <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
-            <div className="flex justify-center items-center">
-              <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="gainsboro" />
-                <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-              </svg>
-            </div>
+        <Marquee>
+          <div className="flex md:hidden gap-10 md:gap-16 items-center">
+            {client.map((item, key) => 
+              <div key={key} className="flex justify-center items-center">
+                {item.acf.logo !== "" ?
+                  <img src={item.acf.logo} alt="client" className='w-16 md:w-32' /> 
+                :
+                  <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="gainsboro" />
+                    <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
+                  </svg>
+                }
+              </div>
+            )}
           </div>
         </Marquee>
       </section>

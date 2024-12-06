@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { getWork } from '../api';
+import { useEffect, useState } from 'react';
 
 const CaseStudy = () => {
   const navigate = useNavigate();
+  const [list, setList] = useState([]);
 
   const cases = [
     {
@@ -60,6 +63,19 @@ const CaseStudy = () => {
     },
   ];
 
+  useEffect(() => {
+    handleWork()
+  }, [])
+
+  const handleWork = async () => {
+    const result = await getWork();
+    try {
+      setList(result)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <section className="my-12">
       <div className="container mx-auto px-8 md:px-12 py-12">
@@ -82,7 +98,7 @@ const CaseStudy = () => {
         </motion.p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-8">
-          {cases.map((item, key) => (
+          {list.map((item, key) => (
             <motion.div 
               initial={{ opacity: 0, scale: 0 }} 
               animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.5 * key } }} 
@@ -95,26 +111,29 @@ const CaseStudy = () => {
               `}
               onClick={() => {
                 if (window.innerWidth <= 768) { // Check for mobile resolution
-                  setTimeout(() => navigate(`/work/detail-work/${item.id}`), 1000); // 1 seconds delay
+                  setTimeout(() => navigate(`/work/detail-work/${item.slug}`), 1000); // 1 seconds delay
                 } else {
-                  navigate(`/work/detail-work/${item.id}`); // No delay for larger screens
+                  navigate(`/work/detail-work/${item.slug}`); // No delay for larger screens
                 }
               }}
             >
-              {/* <img 
-                src={item.image} 
-                alt={item.title}
-                className="w-full h-full object-cover"
-                style={{ aspectRatio: item.id === 2 ? '1/1' : '4/3' }}
-              /> */}
-              <svg className='rounded-none md:rounded-lg shadow-image object-cover' viewBox="0 0 290 227">
-                  <rect width="100%" height="100%" fill="lightgray" />
-                  <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="20">Image Work</text>
-              </svg>
+              {item.acf.image_header !== "" ?
+                <img 
+                  src={item.acf.image_header} 
+                  alt="work_header"
+                  className="w-full h-full object-cover"
+                  style={{ aspectRatio: item.id === 2 ? '1/1' : '4/3' }}
+                />
+              :
+                <svg className='rounded-none md:rounded-lg shadow-image object-cover' viewBox="0 0 290 227">
+                    <rect width="100%" height="100%" fill="lightgray" />
+                    <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="20">Image Work</text>
+                </svg>
+              }
               {/* Hover Overlay */}
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                <p className="md:text-xl font-medium">{item.title}</p>
-                {item.subtitle && <p className="text-sm md:text-lg md:mb-4">{item.subtitle}</p>}
+                <p className="md:text-xl font-medium">{item.acf.title}</p>
+                {item.title && <p className="text-sm md:text-lg md:mb-4 text-center"> {item.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for '+ item.title.rendered.split(/&#8211;/g)[0] : ''}</p>}
                 <span className="md:mt-2 text-2xl">→</span>
               </div>
             </motion.div>

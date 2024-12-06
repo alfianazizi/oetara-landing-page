@@ -12,6 +12,7 @@ const Email = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     handleInformation()
   }, [])
 

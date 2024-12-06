@@ -11,6 +11,7 @@ import stage_5 from '../assets/image/stage-5.jpg';
 import stage_6 from '../assets/image/stage-6.jpg';
 
 import { motion } from 'motion/react';
+import { useEffect } from 'react';
 
 const Service = () => {
   const our_service = [
@@ -80,6 +81,10 @@ const Service = () => {
       image: stage_6
     }
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
 
   return (
     <div className="mx-auto container px-8 lg:px-12 py-12 my-12">

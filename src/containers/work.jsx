@@ -8,63 +8,8 @@ const CaseStudy = () => {
   const [list, setList] = useState([]);
   const [isLoad, setIsLoad] = useState(false)
 
-  const cases = [
-    {
-      id: 1,
-      image: "https://images.unsplash.com/photo-1633613286991-611fe299c4be",
-      title: "KOL services",
-      subtitle: "for Dejavu"
-    },
-    {
-      id: 2,
-      image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868",
-      overlay: true,
-      title: "KOL services",
-      subtitle: "for Dejavu"
-    },
-    {
-      id: 3,
-      image: "https://images.unsplash.com/photo-1586335963805-7b603f62a048",
-      title: "Beauty Product Campaign",
-    },
-    {
-      id: 4,
-      image: "https://images.unsplash.com/photo-1554412933-514a83d2f3c8",
-      title: "Fashion Campaign",
-    },
-    {
-      id: 5,
-      image: "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb",
-      title: "Social Media Campaign",
-    },
-    {
-      id: 6,
-      image: "https://images.unsplash.com/photo-1557838923-2985c318be48",
-      title: "Digital Marketing",
-    },
-    {
-      id: 7,
-      image: "https://images.unsplash.com/photo-1596704017254-9b121068fb31",
-      title: "Beauty Campaign",
-    },
-    {
-      id: 8,
-      image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888",
-      title: "Car Campaign",
-    },
-    {
-      id: 9,
-      image: "https://images.unsplash.com/photo-1483985988355-763728e1935b",
-      title: "Fashion Shoot",
-    },
-    {
-      id: 10,
-      image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0",
-      title: "Social Campaign",
-    },
-  ];
-
   useEffect(() => {
+    window.scrollTo(0, 0);
     handleWork()
   }, [])
 

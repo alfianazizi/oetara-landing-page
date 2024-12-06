@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo_full from '../assets/logo/logo_full.svg';
 
 const Footer = () => {
@@ -10,10 +11,18 @@ const Footer = () => {
                         <div>
                             <h3 className="text-xl font-medium mb-4">Company</h3>
                             <ul className="space-y-2">
-                                <li><a href="#" className="text-gray-400 hover:text-white">Navigator</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Email</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Service</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Work</a></li>
+                                <Link to="/navigator">
+                                    <li className="text-gray-400 font-[600] py-1 hover:text-white cursor-pointer">Navigator</li>
+                                </Link>
+                                <Link to="/email">
+                                    <li className="text-gray-400 font-[600] py-1 hover:text-white cursor-pointer">Email</li>
+                                </Link>
+                                <Link to="service">
+                                    <li className="text-gray-400 font-[600] py-1 hover:text-white cursor-pointer">Service</li>
+                                </Link>
+                                <Link to="work">
+                                    <li className="text-gray-400 font-[600] py-1 hover:text-white cursor-pointer">Work</li>
+                                </Link>
                             </ul>
                         </div>
 

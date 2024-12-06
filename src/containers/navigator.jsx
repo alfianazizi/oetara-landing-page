@@ -195,7 +195,7 @@ const Navigator = () => {
             {client.map((item, key) => 
               <div key={key} className="flex justify-center items-center">
                 {item.acf.logo !== "" ?
-                  <img src={item.acf.logo} alt="client" className='w-16 md:w-32' /> 
+                  <img src={item.acf.logo.url} alt="client" className='w-16 md:w-32' /> 
                 :
                   <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
                     <rect width="100%" height="100%" fill="gainsboro" />
@@ -211,7 +211,7 @@ const Navigator = () => {
             {client.map((item, key) => 
               <div key={key} className="flex justify-center items-center">
                 {item.acf.logo !== "" ?
-                  <img src={item.acf.logo} alt="client" className='w-16 md:w-32' /> 
+                  <img src={item.acf.logo.url} alt="client" className='w-16 md:w-32' /> 
                 :
                   <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
                     <rect width="100%" height="100%" fill="gainsboro" />

@@ -4,6 +4,25 @@ const acf_slug = 'acf_format=standard&slug='
 const acf_highlight = 'acf_format=standard&highlight=true';
 const field = '_fields=id,modified,slug,status,title,acf';
 
+const getWork = () => {
+    return fetch(apiUrl + '/work?'+acf+'&'+field)
+    .then(response => {
+        return response.json();
+    })
+    .catch(error => {
+        return error;
+    });
+}
+
+const getWorkHighlight = () => {
+    return fetch(apiUrl + '/work?'+acf_highlight+'&'+field)
+    .then(response => {
+        return response.json();
+    })
+    .catch(error => {
+        return error;
+    });
+}
 const getWorkById = (slug) => {
     return fetch(apiUrl + '/work?'+acf_slug + slug+'&'+field)
     .then(response => {
@@ -15,5 +34,7 @@ const getWorkById = (slug) => {
 }
 
 export {
+    getWork,
+    getWorkHighlight,
     getWorkById
 }

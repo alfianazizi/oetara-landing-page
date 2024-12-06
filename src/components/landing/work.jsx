@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { FaChevronRight } from 'react-icons/fa6';
-import { getWorkHighlight } from '../../api';
+import { getWork } from '../../api/work';
 
 const OurWork = () => {
     const navigate = useNavigate();
@@ -42,10 +42,10 @@ const OurWork = () => {
     }
 
     const fetchWork = async () => {
-        const result = await getWorkHighlight();
+        const result = await getWork();
         try {
             const all = [];
-            result.length > 0 && result.forEach(item => {
+            result.length > 0 && result.filter(item => item.acf.highlight).forEach(item => {
                 all.push({
                     title: item.title.rendered,
                     image: item.acf.image_header
@@ -90,7 +90,7 @@ const OurWork = () => {
                     Our Work
                 </motion.p>
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 justify-items-center mb-8">
-                    {list.map((item, key) => (
+                    {list.slice(0, 6).map((item, key) => (
                         <motion.div 
                             ref={ref}
                             key={key} 

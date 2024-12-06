@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { getWork } from '../api';
+import { getWork } from '../api/work';
 import { useEffect, useState } from 'react';
 
 const CaseStudy = () => {

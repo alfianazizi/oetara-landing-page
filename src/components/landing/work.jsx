@@ -51,15 +51,6 @@ const OurWork = () => {
                     image: item.acf.image_header
                 })
             })
-            if (all.length < 6) {
-                let count = 6 - all.length
-                for (let i = 0; i < count; i++) {
-                    all.push({
-                        title: 'Name',
-                        image: ''
-                    })
-                }
-            }
             setList(all)
         } catch (err) {
             console.log(err)
@@ -130,7 +121,7 @@ const OurWork = () => {
                         ref={ref}
                         initial={{ opacity: 0, translateY: '-2rem' }} 
                         animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
-                        transition={{ duration: 1, delay: 2.8}} 
+                        transition={{ duration: 1, delay: 0.5 * list.length}} 
                         className='py-2 px-10 bg-white rounded-full font-[600] flex items-center shadow-2xl hover:bg-gray-50 transition-colors' 
                         onClick={() => handleWork()}
                     >

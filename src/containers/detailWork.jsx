@@ -9,6 +9,7 @@ const DetailWork = () => {
     
   const [detail, setDetail] = useState({})
   const [animatedValue, setAnimatedValue] = useState(0);
+  const [isLoad, setIsLoad] = useState(false)
 
   const campaignResults = [
     "Media plan + KOL: Total Results (including boosted): 377.5M impressions (+42% vs. L1)",
@@ -42,16 +43,21 @@ const DetailWork = () => {
   }
 
   const handleDetailWork = async () => {
+    setIsLoad(true)
     const result = await getWorkById(slug)
     try {
       setDetail(result[0])
-      if (result.length > 0 && "acf" in result && result[0].acf && result[0].acf.metric) {
+      if (result.length > 0 && "acf" in result[0] && result[0].acf && result[0].acf.metric) {
+        console.log(result)
         result[0].acf.metric.forEach(metric => {
-          handleCounting(metric.metric_value);
+          if (metric.metric_type === 'number') {
+            handleCounting(metric.metric_value);
+          }
         });
       }
+      setIsLoad(false)
     } catch (err) {
-      console.log(err)
+      setIsLoad(false)
     }
   }
 
@@ -66,13 +72,24 @@ const DetailWork = () => {
 
       {/* Hero Section */}
       <div className="relative h-[200px] md:h-[300px] overflow-hidden mt-8 md:mt-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "acf" in detail && "image_header" in detail.acf && detail.acf.image_header !== "" ? `url(${detail.acf.image_header})` : `url('https://images.unsplash.com/photo-1516959512470-53955cd40f40?auto=format&w=1200&q=80')`,
-            backgroundRepeat: 'no-repeat'
-          }}
-        />
+        {!isLoad ? 
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "acf" in detail && "image_header" in detail.acf && detail.acf.image_header !== "" ? `url(${detail.acf.image_header})` : ``,
+              backgroundRepeat: 'no-repeat'
+            }}
+          />
+        : 
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+          >
+            <svg className='w-[100%]' viewBox="0 0 290 227">
+                <rect width="100%" height="100%" fill="gainsboro" />
+                <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="28">Cover Header</text>
+            </svg>
+          </div>
+        }
       </div>
       
       <div className="flex justify-center items-center">
@@ -98,7 +115,7 @@ const DetailWork = () => {
               <div key={index} className="md:text-center px-8 py-2">
                 <div className="pb-2">{metric.metric_name}</div>
                 <div className="flex flex-nowrap md:flex-wrap w-[50%] md:w-[100%]">
-                  <div className="text-red-500 text-4xl font-bold w-[100%]">{animatedValue}</div>
+                  <div className="text-red-500 text-4xl font-bold w-[100%]">{metric.metric_type !== 'number' ? metric.metric_value : animatedValue}</div>
                   <div className="text-red-500 font-[500] ml-2 md:ml-0 mt-2 md:mt-0 w-[100%]">{metric.metric_label}</div>
                 </div>
               </div>

@@ -23,6 +23,16 @@ const getClient = () => {
     });
 }
 
+const getClientById = (id) => {
+    return fetch(apiUrl + '/client/'+id+'?'+acf+'&'+field)
+    .then(response => {
+        return response.json();
+    })
+    .catch(error => {
+        return error;
+    });
+}
+
 const getJob = () => {
     return fetch(apiUrl + '/job?'+acf+'&'+field)
     .then(response => {
@@ -36,5 +46,6 @@ const getJob = () => {
 export {
     getTeam,
     getClient,
+    getClientById,
     getJob
 }

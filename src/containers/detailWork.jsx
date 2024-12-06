@@ -2,14 +2,16 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { getWorkById } from '../api/work';
+import CountUp from 'react-countup';
+import { getClientById } from '../api/navigator';
 
 const DetailWork = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
     
-  const [detail, setDetail] = useState({})
-  const [animatedValue, setAnimatedValue] = useState(0);
-  const [isLoad, setIsLoad] = useState(false)
+  const [detail, setDetail] = useState({});
+  const [isLoad, setIsLoad] = useState(false);
+  const [photo, setPhoto] = useState('');
 
   const campaignResults = [
     "Media plan + KOL: Total Results (including boosted): 377.5M impressions (+42% vs. L1)",
@@ -24,40 +26,25 @@ const DetailWork = () => {
     handleDetailWork()
   }, [])
 
-  const handleCounting = (value) => {
-    let start = 0;
-    const end = parseFloat(value.replace(/,/g, ''));
-    const duration = 2000;
-    const incrementTime = duration / end;
-
-    const timer = setInterval(() => {
-        if (start < end) {
-            start++;
-            setAnimatedValue(start);
-        } else {
-            clearInterval(timer);
-        }
-    }, incrementTime);
-
-    return () => clearInterval(timer);
-  }
-
   const handleDetailWork = async () => {
     setIsLoad(true)
     const result = await getWorkById(slug)
     try {
       setDetail(result[0])
-      if (result.length > 0 && "acf" in result[0] && result[0].acf && result[0].acf.metric) {
-        console.log(result)
-        result[0].acf.metric.forEach(metric => {
-          if (metric.metric_type === 'number') {
-            handleCounting(metric.metric_value);
-          }
-        });
-      }
+      const client_id = result[0].acf.client[0].ID;
+      handleClient(client_id)
       setIsLoad(false)
     } catch (err) {
       setIsLoad(false)
+    }
+  }
+
+  const handleClient = async (id) => {
+    const result = await getClientById(id)
+    try {
+      setPhoto(result.acf.logo.url);
+    } catch (err) {
+      console.log(err)
     }
   }
 
@@ -97,10 +84,14 @@ const DetailWork = () => {
           <div className="relative px-7 flex items-center gap-6 -mt-[1rem] md:-mt-[3rem]">
             <div className="flex items-center justify-center flex-wrap md:flex-nowrap gap-2 md:gap-8">
               <div className='w-[100%] md:w-auto h-[10vh] md:h-[18vh]  flex items-center'>
-                <svg className='w-32 md:w-[16rem] -mt-10 object-cover rounded-lg shadow-lg' viewBox="0 0 290 227">
-                    <rect width="100%" height="100%" fill="lightgray" />
-                    <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="28">Image</text>
-                </svg>
+                {photo !== '' ? 
+                  <img src={photo} alt="avatar" class="w-32 md:w-[16rem] -mt-10 object-cover rounded-lg shadow-lg" />
+                :
+                  <svg className='w-32 md:w-[16rem] -mt-10 object-cover rounded-lg shadow-lg' viewBox="0 0 290 227">
+                      <rect width="100%" height="100%" fill="lightgray" />
+                      <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="28">Image</text>
+                  </svg>
+                }
               </div>
               <div className='w-[100%] md:w-auto mt-5 md:mt-10'>
                 <h1 className="text-3xl font-bold mb-1">{"acf" in detail && detail.acf.title}</h1>
@@ -115,7 +106,16 @@ const DetailWork = () => {
               <div key={index} className="md:text-center px-8 py-2">
                 <div className="pb-2">{metric.metric_name}</div>
                 <div className="flex flex-nowrap md:flex-wrap w-[50%] md:w-[100%]">
-                  <div className="text-red-500 text-4xl font-bold w-[100%]">{metric.metric_type !== 'number' ? metric.metric_value : animatedValue}</div>
+                  <div className="text-red-500 text-4xl font-bold w-[100%]">
+                    {metric.metric_type !== 'number' ? 
+                      metric.metric_value 
+                    : 
+                      <CountUp
+                        start={0}
+                        end={metric.metric_value}
+                      />
+                    }
+                  </div>
                   <div className="text-red-500 font-[500] ml-2 md:ml-0 mt-2 md:mt-0 w-[100%]">{metric.metric_label}</div>
                 </div>
               </div>

@@ -13,29 +13,6 @@ import stage_6 from '../assets/image/stage-6.jpg';
 import { motion } from 'motion/react';
 
 const Service = () => {
-  const services = [
-    {
-      icon: "https://cdn-icons-png.flaticon.com/128/1256/1256650.png",
-      title: "Influence people using Impactful Influencer",
-      description: "KOL from Nano to Mega, Community, Live Streaming, Trending Topic"
-    },
-    {
-      icon: "https://cdn-icons-png.flaticon.com/128/702/702797.png",
-      title: "Creative Idea makes Creative Output",
-      description: "Social media Maintenance, Video Production, Digital Activation"
-    },
-    {
-      icon: "https://cdn-icons-png.flaticon.com/128/1998/1998087.png",
-      title: "Advertise Your Brand",
-      description: "Ads, LinkedIn Ads"
-    },
-    {
-      icon: "https://cdn-icons-png.flaticon.com/128/3932/3932290.png",
-      title: "Impressive Marketing Strategy",
-      description: "Digital Marketing, B2B Marketing Strategy with Data-driven Analysis"
-    }
-  ];
-
   const our_service = [
     {
         icon: service_1,
@@ -69,7 +46,7 @@ const Service = () => {
         },
         text: 'Digital Marketing 360, Influencer Marketing and Digital Ads strategy with impressive Accuration.'
     }
-]
+  ]
 
   const stages = [
     {

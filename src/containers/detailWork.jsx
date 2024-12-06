@@ -45,7 +45,7 @@ const DetailWork = () => {
     const result = await getWorkById(slug)
     try {
       setDetail(result[0])
-      if (result[0].acf && result[0].acf.metric) {
+      if (result.length > 0 && "acf" in result && result[0].acf && result[0].acf.metric) {
         result[0].acf.metric.forEach(metric => {
           handleCounting(metric.metric_value);
         });

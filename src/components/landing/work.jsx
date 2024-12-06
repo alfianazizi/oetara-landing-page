@@ -10,33 +10,6 @@ const OurWork = () => {
     const ref = useRef(null);
     const [list, setList] = useState([]);
 
-    const our_work = [
-        {
-            title: 'KOL Service',
-            desc: 'for Dejavu'
-        },
-        {
-            title: 'KOL Service',
-            desc: 'for Dejavu'
-        },
-        {
-            title: 'KOL Service',
-            desc: 'for Dejavu'
-        },
-        {
-            title: 'KOL Service',
-            desc: 'for Dejavu'
-        },
-        {
-            title: 'KOL Service',
-            desc: 'for Dejavu'
-        },
-        {
-            title: 'KOL Service',
-            desc: 'for Dejavu'
-        }
-    ]
-
     const handleWork = () => {
         navigate('/work');
     }
@@ -48,7 +21,8 @@ const OurWork = () => {
             result.length > 0 && result.filter(item => item.acf.highlight).forEach(item => {
                 all.push({
                     title: item.title.rendered,
-                    image: item.acf.image_header
+                    image: item.acf.image_header,
+                    slug: item.slug
                 })
             })
             setList(all)
@@ -98,6 +72,13 @@ const OurWork = () => {
                             animate={isVisible ? { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.5 * key } } : {}} 
                             whileHover={{ scale: 1.03 }}
                             className="flex flex-col items-center w-[100%] relative group"
+                            onClick={() => {
+                                if (window.innerWidth <= 768) { // Check for mobile resolution
+                                  setTimeout(() => navigate(`/work/detail-work/${item.slug}`), 1000); // 1 seconds delay
+                                } else {
+                                  navigate(`/work/detail-work/${item.slug}`); // No delay for larger screens
+                                }
+                            }}
                         >
                             {item.image !== null && item.image !== "" ? 
                                 <img src={item.image} alt="work_image" className='rounded-xl shadow-image object-cover h-[100%]' />

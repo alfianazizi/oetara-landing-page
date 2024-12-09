@@ -62,11 +62,11 @@ const ContactForm = () => {
             bodyForm.append('your-subject', body.subject);
             bodyForm.append('your-message', body.message);
             bodyForm.append('_wpcf7_unit_tag', 'wpcf7-f123-p456-o1')
+            const result = await postForm(bodyForm);
             try {
-                await postForm(bodyForm);
                 setShowMessage(true)
                 setBody({name: '', email: '', subject: '', message: ''})
-                setMessage('The message was successfully sent.')
+                setMessage(result.message)
                 setTimeout(() => {
                     setShowMessage(false)
                 }, 15000)

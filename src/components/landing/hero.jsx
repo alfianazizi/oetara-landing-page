@@ -6,7 +6,7 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
         <div className="relative h-[100vh] w-full overflow-hidden">
             <div className="flex justify-center items-center">
                 <div className='absolute top-[16%] md:top-[10%] container px-5 md:px-10'>
-                    <motion.p 
+                    <motion.div 
                         initial={{ opacity: 0, marginLeft: '10rem' }}
                         animate={{ opacity: 1, marginLeft: 0 }}
                         transition={{ 
@@ -87,7 +87,7 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                                 n
                             </motion.p>
                         </div>
-                    </motion.p>
+                    </motion.div>
                 </div>
             </div>
             <motion.div

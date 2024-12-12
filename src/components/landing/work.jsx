@@ -24,7 +24,6 @@ const OurWork = () => {
         result
           .filter((item) => item.acf.highlight)
           .forEach((item) => {
-            console.log(item.title.rendered.split(/&#8211;/g))
             all.push({
               title: item.title.rendered.indexOf('/&#8211;/g') === -1 ? item.title.rendered.split(/&#8211;/g)[1] : item.title.rendered.replace(/&#8211;/g, '–'),
               desc: item.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for '+ item.title.rendered.split(/&#8211;/g)[0] : '',

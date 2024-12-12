@@ -3,18 +3,83 @@ import { motion } from 'framer-motion';
 
 const Hero = ({ cover, cover_mobile, jalur}) => {
     return (
-        <div className="relative h-[100vh]">
+        <div className="relative h-[100vh] w-full overflow-hidden">
             <div className="flex justify-center items-center">
                 <div className='absolute top-[16%] md:top-[10%] container px-5 md:px-10'>
                     <motion.p 
+                        initial={{ opacity: 0, marginLeft: '10rem' }}
+                        animate={{ opacity: 1, marginLeft: 0 }}
+                        transition={{ 
+                            duration: 2,
+                            delay: 0.5,
+                            opacity: { duration: 0 }
+                        }}
                         className="title-landing font-['montserrat-extrabold']" 
-                        // className="absolute left-[2rem] lg:left-[4rem] title-landing font-[500]" 
-                        initial={{ opacity: 0, y: -20 }} 
-                        animate={{ opacity: 1, y: 0 }} 
-                        transition={{ duration: 1, delay: 1 }}
                     >
-                        We Provide Direction, <br></br>
-                        NOT Directions
+                        <div className='flex'>
+                            <motion.p
+                            >
+                                We Provide
+                            </motion.p> &nbsp;
+                            <motion.p
+                                initial={{opacity: 0, marginTop: '2rem' }}
+                                animate={{ opacity: 1, marginTop: 0 }}
+                                transition={{ delay: 0.8,  ease: "backOut" }}
+                            >
+                                Dire
+                            </motion.p> 
+                            <motion.p
+                                initial={{opacity: 0, marginTop: '2rem' }}
+                                animate={{ opacity: 1, marginTop: 0 }}
+                                transition={{ delay: 1,  ease: "backOut" }}
+                            >
+                                ction,
+                            </motion.p>    
+                        </div>
+                        <div className='flex'>
+                            <motion.p
+                                initial={{opacity: 0, marginTop: '2rem' }}
+                                animate={{ opacity: 1, marginTop: 0 }}
+                                transition={{ delay: 1.2,  ease: "backOut" }}
+                            >
+                                NOT
+                            </motion.p> &nbsp;
+                            <motion.p
+                                initial={{opacity: 0, marginTop: '2rem' }}
+                                animate={{ opacity: 1, marginTop: 0 }}
+                                transition={{ delay: 1.4,  ease: "backOut" }}
+                            >
+                                Direc
+                            </motion.p>
+                            <motion.p
+                                initial={{opacity: 0, marginLeft: '5px' }}
+                                animate={{ opacity: 1, marginLeft: 0 }}
+                                transition={{ delay: 1.5, ease: "backOut" }}
+                            >
+                                t
+                            </motion.p>
+                            <motion.p
+                                initial={{opacity: 0, marginLeft: '5px' }}
+                                animate={{ opacity: 1, marginLeft: 0 }}
+                                transition={{ delay: 1.6, ease: "backOut" }}
+                            >
+                                i
+                            </motion.p>
+                            <motion.p
+                                initial={{opacity: 0, marginLeft: '5px' }}
+                                animate={{ opacity: 1, marginLeft: 0 }}
+                                transition={{ delay: 1.7, ease: "backOut" }}
+                            >
+                                o
+                            </motion.p>
+                            <motion.p
+                                initial={{opacity: 0, marginLeft: '5px' }}
+                                animate={{ opacity: 1, marginLeft: 0 }}
+                                transition={{ delay: 1.8, ease: "backOut" }}
+                            >
+                                n
+                            </motion.p>
+                        </div>
                     </motion.p>
                 </div>
             </div>
@@ -30,16 +95,32 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                     className="animate-draw w-[100%] h-[100vh]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 1 }}
+                    transition={{ delay: 2.9 }}
                 />
             </motion.div>
             <motion.img 
                 src={cover} 
                 alt="cover" 
-                className="hidden lg:inline-block w-[100%] h-[100vh]" 
-                initial={{ opacity: 0, translateY: '10rem' }} 
-                animate={{ opacity: 1, translateY: '0' }} 
-                transition={{ duration: 2 }}
+                className="hidden lg:inline-block w-[100%] h-[100vh]"
+                initial={{
+                    opacity: 1,
+                    scale: 1.1,
+                    y: 50,
+                    rotateX: 10
+                }}
+                animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    rotateX: 0
+                }}
+                transition={{
+                    duration: 2,
+                    ease: "easeOut",
+                    opacity: { duration: 1.5 },
+                    scale: { duration: 2.2 },
+                    y: { duration: 1.8 }
+                }}
             />
             <motion.div 
                 initial={{ opacity: 0, translateY: '10rem' }}

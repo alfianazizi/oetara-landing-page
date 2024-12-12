@@ -125,7 +125,7 @@ const Service = () => {
             <motion.div 
               initial={{ opacity: 0, scale: 0 }} 
               animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.5 * key } }} 
-              key={key} 
+              key={item.id} 
               className="bg-white rounded-[7%] cursor-pointer py-4 lg:py-8 px-5 lg:px-8 xl:px-10 max-w-xs hover:!scale-[1.03] !transition-transform !duration-300 ease-in-out"
               style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}
             >
@@ -161,7 +161,7 @@ const Service = () => {
             <div className="grid grid-cols-3 md:grid-cols-3 gap-x-8 gap-y-8 md:gap-x-16 md:gap-y-20 mb-12 relative">
               {stages.map((stage, index) => (
                 <motion.div 
-                  key={index}
+                  key={stage.id}
                   initial={{ opacity: 0, translateY: '-1.5rem' }} 
                   animate={{ opacity: 1, translateY: 0 }} 
                   transition={{ 

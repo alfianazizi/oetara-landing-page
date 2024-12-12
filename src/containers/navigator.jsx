@@ -114,7 +114,7 @@ const Navigator = () => {
                 animate={{ opacity: 1, translateX: 0 }} 
                 transition={{ duration: 0.3, delay: 0.1 * index+1 }}
                 className="cursor-pointer text-center"
-                key={index}
+                key={value.id}
                 onClick={() => setSelectedValue(index)}
               >
                 <img 
@@ -200,7 +200,7 @@ const Navigator = () => {
             <Marquee className='w-full' speed={40}>
               <div className="flex gap-8 lg:gap-16 items-center">
                 {client.map((item, key) => (
-                  <div key={key} className="flex justify-center items-center px-4">
+                  <div key={item.id} className="flex justify-center items-center px-4">
                     {item.acf.logo !== "" ? (
                       <img 
                         src={item.acf.logo.url} 
@@ -224,7 +224,7 @@ const Navigator = () => {
             <Marquee direction='ltr' className='w-full' speed={40}>
               <div className="flex gap-8 lg:gap-16 items-center">
                 {client.map((item, key) => (
-                  <div key={key} className="flex justify-center items-center px-4">
+                  <div key={item.id} className="flex justify-center items-center px-4">
                     {item.acf.logo !== "" ? (
                       <img 
                         src={item.acf.logo.url} 
@@ -248,7 +248,7 @@ const Navigator = () => {
             <Marquee className='w-full' speed={30}>
               <div className="flex gap-6 items-center">
                 {client.map((item, key) => (
-                  <div key={key} className="flex justify-center items-center px-2">
+                  <div key={item.id} className="flex justify-center items-center px-2">
                     {item.acf.logo !== "" ? (
                       <img 
                         src={item.acf.logo.url} 

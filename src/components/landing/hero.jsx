@@ -47,42 +47,42 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                             <motion.p
                                 initial={{opacity: 0, marginTop: '2rem' }}
                                 animate={{ opacity: 1, marginTop: 0 }}
-                                transition={{ delay: 1.2,  ease: "backOut" }}
+                                transition={{ delay: 1.4,  ease: "backOut" }}
                             >
                                 NOT
                             </motion.p> &nbsp;
                             <motion.p
                                 initial={{opacity: 0, marginTop: '2rem' }}
                                 animate={{ opacity: 1, marginTop: 0 }}
-                                transition={{ delay: 1.4,  ease: "backOut" }}
+                                transition={{ delay: 1.6,  ease: "backOut" }}
                             >
                                 Direc
                             </motion.p>
                             <motion.p
                                 initial={{opacity: 0, marginLeft: '5px' }}
                                 animate={{ opacity: 1, marginLeft: 0 }}
-                                transition={{ delay: 1.5, ease: "backOut" }}
+                                transition={{ delay: 1.7, ease: "backOut" }}
                             >
                                 t
                             </motion.p>
                             <motion.p
                                 initial={{opacity: 0, marginLeft: '5px' }}
                                 animate={{ opacity: 1, marginLeft: 0 }}
-                                transition={{ delay: 1.6, ease: "backOut" }}
+                                transition={{ delay: 1.8, ease: "backOut" }}
                             >
                                 i
                             </motion.p>
                             <motion.p
                                 initial={{opacity: 0, marginLeft: '5px' }}
                                 animate={{ opacity: 1, marginLeft: 0 }}
-                                transition={{ delay: 1.7, ease: "backOut" }}
+                                transition={{ delay: 1.9, ease: "backOut" }}
                             >
                                 o
                             </motion.p>
                             <motion.p
                                 initial={{opacity: 0, marginLeft: '5px' }}
                                 animate={{ opacity: 1, marginLeft: 0 }}
-                                transition={{ delay: 1.8, ease: "backOut" }}
+                                transition={{ delay: 2, ease: "backOut" }}
                             >
                                 n
                             </motion.p>

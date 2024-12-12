@@ -120,7 +120,7 @@ const Service = () => {
         </motion.p>
 
         {/* Services Grid - Update the styling */}
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-8 pt-[2rem] pb-24">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-5 pt-[2rem] pb-24">
           {our_service.map((item, key) => 
             <motion.div 
               initial={{ opacity: 0, scale: 0 }} 
@@ -130,7 +130,7 @@ const Service = () => {
               style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}
             >
                 <div className="flex justify-center">
-                    <div className="bg-[#F0F1F1] p-5 rounded-full">
+                    <div className="bg-[#F0F1F1] p-0 rounded-full">
                         <img src={item.icon} alt="" className='w-12 h-12 lg:w-20 lg:h-20' />
                     </div>
                 </div>
@@ -138,7 +138,7 @@ const Service = () => {
                     <p className="font-['montserrat-bold'] py-0 text-[0.8rem] lg:text-[1rem]">{item.title.title_1}</p>
                     <p className="font-['montserrat-bold'] py-0 text-[0.8rem] lg:text-[1rem]">{item.title.title_2}</p>
                 </div>
-                <div className="py-2 md:py-3 text-center text-xs md:text-sm">{item.text}</div>
+                <div className="py-2 md:py-3 text-center text-xs md:text-[0.917rem] leading-[1.5]">{item.text}</div>
             </motion.div>
           )}
         </div>
@@ -158,7 +158,7 @@ const Service = () => {
             >
               Stages of Service
             </motion.h2>
-            <div className="grid grid-cols-3 md:grid-cols-3 gap-x-1 gap-y-1 md:gap-x-16 md:gap-y-20 mb-12 relative">
+            <div className="grid grid-cols-3 md:grid-cols-3 gap-x-8 gap-y-8 md:gap-x-16 md:gap-y-20 mb-12 relative">
               {stages.map((stage, index) => (
                 <motion.div 
                   key={index}
@@ -172,36 +172,36 @@ const Service = () => {
                 >
                   {/* Panah ke kanan untuk stage 1 dan 2 */}
                   {(index === 0 || index === 1) && (
-                    <div className="hidden md:block absolute -right-10 top-1/2 transform -translate-y-1/2">
-                      <span className="text-[#DC2626] text-4xl">»</span>
+                    <div className="absolute -right-6 lg:-right-10 top-1/2 transform -translate-y-1/2">
+                      <span className="text-[#DC2626] text-4xl lg:text-[3rem]">»</span>
                     </div>
                   )}
                   {/* Panah ke bawah untuk stage 3 */}
                   {index === 2 && (
-                    <div className="hidden md:block absolute left-1/2 bottom-[-4rem] transform -translate-x-1/2">
-                      <span className="text-[#DC2626] text-4xl rotate-90 inline-block">»</span>
+                    <div className="absolute left-1/2 bottom-[-2.5rem] lg:bottom-[-4rem] transform -translate-x-1/2">
+                      <span className="text-[#DC2626] text-4xl lg:text-[3rem] rotate-90 inline-block">»</span>
                     </div>
                   )}
                   {/* Panah ke kiri untuk stage 4 dan 5 */}
                   {(index === 4 || index === 3) && (
-                    <div className="hidden md:block absolute -right-10 top-1/2 transform -translate-y-1/2 rotate-180">
-                      <span className="text-[#DC2626] text-4xl">»</span>
+                    <div className="absolute -right-6 lg:-right-10 top-1/2 transform -translate-y-1/2 rotate-180">
+                      <span className="text-[#DC2626] text-4xl lg:text-[3rem]">»</span>
                     </div>
                   )}
                   {/* Card dengan border putih dan shadow */}
-                  <div className={`bg-white px-1 py-2 md:py-4 md:px-4 rounded-none md:rounded-lg shadow-lg relative`}>
+                  <div className={`bg-white px-1 py-1 rounded-none md:rounded-lg shadow-lg relative`} style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}>
                     {/* Badge nomor dengan warna merah */}
                     <div className="flex items-center">
-                      <div className="bg-[#C01C30] text-white rounded-sm md:rounded-lg py-1 md:py-2 px-2 md:px-4 text-[10px] md:text-[1.4rem] font-bold">
+                      <div className="bg-[#C01C30] text-white rounded-sm md:rounded-lg py-1 md:py-2 px-2 md:px-4 m-0 lg:m-4 text-[10px] md:text-[1.4rem] font-['montserrat-bold']">
                         {stage.number}
                       </div>
                       <h3 className="text-[8px] md:text-[1rem] ml-2 font-['montserrat-semibold']">{stage.title}</h3>
                     </div>
-                    <div className='mt-2 md:mt-6'>
+                    <div className='mt-2 lg:mt-0'>
                       <img 
                         src={stage.image} 
                         alt={stage.title}
-                        className="w-full h-20 md:h-48 mt-2 md:mt-6 rounded-none md:rounded-lg shadow-image object-cover"
+                        className="w-full h-20 md:h-48  rounded-none md:rounded-md shadow-image object-cover"
                       />
                       {/* <svg className='rounded-none md:rounded-lg shadow-image object-cover' viewBox="0 0 290 227">
                           <rect width="100%" height="100%" fill="lightgray" />

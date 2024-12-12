@@ -338,7 +338,7 @@ const ContactForm = () => {
                         animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
                         transition={{ duration: 0.5, delay: 1.4 }}
                         type="submit"
-                        className={`${loadForm ? "bg-gray-200 text-[#EC1C24]" : "bg-[#C01C30] text-white"} px-6 py-2 rounded-full hover:ring-0 transition-colors`}
+                        className={`${loadForm ? "bg-gray-200 text-[#C01C30]" : "bg-[#C01C30] text-white"} px-6 py-2 font-['montserrat-bold'] text-[1.3rem] rounded-full border hover:border-[#C01C30] hover:bg-white hover:text-[#C01C30] hover:ring-0 transition-colors`}
                         disabled={loadForm}
                     >
                         {loadForm ? 

@@ -64,7 +64,7 @@ const Definition = () => {
                             className="text-center"
                         >
                             <img src={alphaE} alt="E" className="lg:w-[4.5rem] lg:h-[4.5rem] w-8 h-8 mx-auto" />
-                            <p className="text-[0.5rem] mt-4 font-['montserrat-medium'] text-[1rem]">Execellent <br></br> Execution</p>
+                            <p className="text-[0.5rem] mt-4 font-['montserrat-medium'] md:text-[1rem]">Execellent <br></br> Execution</p>
                         </motion.div>
                         <motion.div 
                             ref={ref}
@@ -74,7 +74,7 @@ const Definition = () => {
                             className="text-center"
                         >
                             <img src={alphaT} alt="T" className="lg:w-[4.5rem] lg:h-[4.5rem] w-8 h-8 mx-auto" />
-                            <p className="text-[0.5rem] mt-4 font-['montserrat-medium'] text-[1rem]">Trusted<br></br> Team</p>
+                            <p className="text-[0.5rem] mt-4 font-['montserrat-medium'] md:text-[1rem]">Trusted<br></br> Team</p>
                         </motion.div>
                         <motion.div 
                             ref={ref}
@@ -84,7 +84,7 @@ const Definition = () => {
                             className="text-center"
                         >
                             <img src={alphaA} alt="A" className="lg:w-[4.5rem] lg:h-[4.5rem] w-8 h-8 mx-auto" />
-                            <p className="text-[0.5rem] mt-4 font-['montserrat-medium'] text-[1rem]">Accurate <br></br> Analysis</p>
+                            <p className="text-[0.5rem] mt-4 font-['montserrat-medium'] md:text-[1rem]">Accurate <br></br> Analysis</p>
                         </motion.div>
                         <motion.div 
                             ref={ref}
@@ -94,7 +94,7 @@ const Definition = () => {
                             className="text-center"
                         >
                             <img src={alphaR} alt="R" className="lg:w-[4.5rem] lg:h-[4.5rem] w-8 h-8 mx-auto" />
-                            <p className="text-[0.5rem] mt-4 font-['montserrat-medium'] text-[1rem]">Real <br></br> Result</p>
+                            <p className="text-[0.5rem] mt-4 font-['montserrat-medium'] md:text-[1rem]">Real <br></br> Result</p>
                         </motion.div>
                         <motion.div 
                             ref={ref}
@@ -104,7 +104,7 @@ const Definition = () => {
                             className="text-center"
                         >
                             <img src={alphaA} alt="A" className="lg:w-[4.5rem] lg:h-[4.5rem] w-8 h-8 mx-auto" />
-                            <p className="text-[0.5rem] mt-4 font-['montserrat-medium'] text-[1rem]">Advance <br></br> Assistant</p>
+                            <p className="text-[0.5rem] mt-4 font-['montserrat-medium'] md:text-[1rem]">Advance <br></br> Assistant</p>
                         </motion.div>
                     </div>
                 </div>

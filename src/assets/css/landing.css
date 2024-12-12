@@ -61,17 +61,25 @@
 
 @media (min-width: 1500px) {
   /* .route-container {
-    bottom: 12rem;
+    bottom: 4rem;
   } */
+
+  .title-landing {
+    font-size: 4rem;
+    margin-top: 2rem;
+    /* line-height: 1.5; */
+  }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1800px) {
   /* .route-container {
     bottom: 4rem;
   } */
 
   .title-landing {
-    font-size: 5.5rem;
+    font-size: 5rem;
+    margin-top: 2rem;
+    /* line-height: 1.5; */
   }
 }
 

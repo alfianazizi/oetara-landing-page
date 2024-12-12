@@ -11,7 +11,7 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                         animate={{ opacity: 1, marginLeft: 0 }}
                         transition={{ 
                             duration: 2,
-                            delay: 0.5,
+                            delay: 0.4,
                             opacity: { duration: 0 }
                         }}
                         className="title-landing font-['montserrat-extrabold']" 
@@ -19,7 +19,14 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                         <div className='flex'>
                             <motion.p
                             >
-                                We Provide
+                                We 
+                            </motion.p> &nbsp;
+                            <motion.p
+                                initial={{opacity: 0, marginTop: '2rem' }}
+                                animate={{ opacity: 1, marginTop: 0 }}
+                                transition={{ delay: 0.6,  ease: "backOut" }}
+                            >
+                                Provide
                             </motion.p> &nbsp;
                             <motion.p
                                 initial={{opacity: 0, marginTop: '2rem' }}

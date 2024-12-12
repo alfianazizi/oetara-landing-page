@@ -12,7 +12,9 @@ const ContactForm = () => {
     const [showMessage, setShowMessage] = useState(false)
     const [isVisible, setIsVisible] = useState(false);
     const [loadForm, setLoadForm] = useState(false)
-    const ref = useRef(null);
+    const headerRef = useRef(null);
+    const formRef = useRef(null);
+    const contactInfoRef = useRef(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(([entry]) => {
@@ -22,16 +24,21 @@ const ContactForm = () => {
             }
         });
 
-        if (ref.current) {
-            observer.observe(ref.current);
-        }
+        // Observe all refs
+        [headerRef, formRef, contactInfoRef].forEach(currentRef => {
+            if (currentRef.current) {
+                observer.observe(currentRef.current);
+            }
+        });
 
         return () => {
-            if (ref.current) {
-                observer.unobserve(ref.current);
-            }
+            [headerRef, formRef, contactInfoRef].forEach(currentRef => {
+                if (currentRef.current) {
+                    observer.unobserve(currentRef.current);
+                }
+            });
         };
-    }, []);
+    }, [])
 
     const handleValidation = () => {
         const { name, email, subject, message } = body;
@@ -89,7 +96,7 @@ const ContactForm = () => {
             {/* Contact Information Side */}
             <div className="md:w-1/2 mb-6 md:mb-0">
                 <motion.h2
-                    ref={ref} 
+                    ref={headerRef} 
                     initial={{ opacity: 0, translateY: '-1.5rem' }} 
                     animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                     transition={{ duration: 0.5, delay: 0.8 }} 
@@ -98,7 +105,7 @@ const ContactForm = () => {
                     Get in touch
                 </motion.h2>
                 <motion.p
-                    ref={ref}
+                    ref={headerRef}
                     initial={{ opacity: 0, translateY: '-1.5rem' }} 
                     animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                     transition={{ duration: 0.5, delay: 0.9 }}  
@@ -110,7 +117,7 @@ const ContactForm = () => {
                 <div className="space-y-8">
                     <div className="flex items-center space-x-3">
                     <motion.div
-                        ref={ref}
+                        ref={contactInfoRef}
                         initial={{ opacity: 0, translateX: '-1.5rem' }} 
                         animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
                         transition={{ duration: 0.5, delay: 1 }}  
@@ -123,7 +130,7 @@ const ContactForm = () => {
                     </motion.div>
                     <div className="text-sm md:text-[16px]">
                         <motion.p 
-                            ref={ref}
+                            ref={contactInfoRef}
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
                             transition={{ duration: 0.5, delay: 1.1 }}
@@ -132,7 +139,7 @@ const ContactForm = () => {
                             Location
                         </motion.p>
                         <motion.p 
-                            ref={ref}
+                            ref={contactInfoRef}
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
                             transition={{ duration: 0.5, delay: 1.2 }}
@@ -146,7 +153,7 @@ const ContactForm = () => {
 
                 <div className="flex items-center space-x-3">
                     <motion.div
-                        ref={ref}
+                        ref={contactInfoRef}
                         initial={{ opacity: 0, translateX: '-1.5rem' }} 
                         animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
                         transition={{ duration: 0.5, delay: 1.2 }} 
@@ -156,7 +163,7 @@ const ContactForm = () => {
                     </motion.div>
                     <div className="text-sm md:text-[16px]">
                         <motion.p 
-                            ref={ref}
+                            ref={contactInfoRef}
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
                             transition={{ duration: 0.5, delay: 1.3 }} 
@@ -165,7 +172,7 @@ const ContactForm = () => {
                             Email Us
                         </motion.p>
                         <motion.p
-                            ref={ref} 
+                            ref={contactInfoRef} 
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
                             transition={{ duration: 0.5, delay: 1.4 }} 
@@ -178,7 +185,7 @@ const ContactForm = () => {
 
                 <div className="flex items-center space-x-3">
                     <motion.div
-                        ref={ref}
+                        ref={contactInfoRef}
                         initial={{ opacity: 0, translateX: '-1.5rem' }} 
                         animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
                         transition={{ duration: 0.5, delay: 1.5 }}  
@@ -188,7 +195,7 @@ const ContactForm = () => {
                     </motion.div>
                     <div className="text-sm md:text-[16px]">
                         <motion.p
-                            ref={ref} 
+                            ref={contactInfoRef} 
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
                             transition={{ duration: 0.5, delay: 1.6 }} 
@@ -197,7 +204,7 @@ const ContactForm = () => {
                             Call Us
                         </motion.p>
                         <motion.p 
-                            ref={ref}
+                            ref={contactInfoRef}
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
                             transition={{ duration: 0.5, delay: 1.7 }} 
@@ -214,7 +221,7 @@ const ContactForm = () => {
             <div className="md:w-1/2 md:mt-10">
                 <form onSubmit={(e) => handleSubmit(e)} className="space-y-4">
                     <motion.input
-                        ref={ref}
+                        ref={formRef}
                         initial={{ opacity: 0, translateY: '-1.5rem' }} 
                         animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                         transition={{ duration: 0.5, delay: 1 }}
@@ -235,7 +242,7 @@ const ContactForm = () => {
                         </motion.div>
                     }
                     <motion.input
-                        ref={ref}
+                        ref={formRef}
                         initial={{ opacity: 0, translateY: '-1.5rem' }} 
                         animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                         transition={{ duration: 0.5, delay: 1.1 }}
@@ -257,7 +264,7 @@ const ContactForm = () => {
                     }
                     <motion.div className="relative">
                         <motion.select
-                            ref={ref}
+                            ref={formRef}
                             initial={{ opacity: 0, translateY: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                             transition={{ duration: 0.5, delay: 1.2 }}
@@ -299,7 +306,7 @@ const ContactForm = () => {
                         </motion.div>
                     }
                     <motion.textarea
-                        ref={ref}
+                        ref={formRef}
                         initial={{ opacity: 0, translateX: '-1.5rem' }} 
                         animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
                         transition={{ duration: 0.5, delay: 1.3 }}
@@ -333,7 +340,7 @@ const ContactForm = () => {
                     }
                     
                     <motion.button
-                        ref={ref}
+                        ref={formRef}
                         initial={{ opacity: 0, translateX: '-1.5rem' }} 
                         animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
                         transition={{ duration: 0.5, delay: 1.4 }}

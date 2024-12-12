@@ -23,7 +23,7 @@ const Landing = () => {
                     <OurService />
                 </div>
                 <div className="relative lg:-mt-[5rem] ">
-                    <img src={texture_2} alt="" className="w-full h-[110vh] md:h-[200vh] rounded-[5%] shadow-image" />
+                    <img src={texture_2} alt="" className="w-full h-[110vh] md:h-[170vh] rounded-[5%] shadow-image" />
                     <OurWork />
                 </div>
                 <ContactUs />

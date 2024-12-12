@@ -7,7 +7,9 @@ import { getWork } from "../../api/work";
 const OurWork = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
+  const titleRef = useRef(null);
+  const workRef = useRef(null);
+  const buttonRef = useRef(null);
   const [list, setList] = useState([]);
 
   const handleWork = () => {
@@ -47,14 +49,18 @@ const OurWork = () => {
       }
     });
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    [titleRef, workRef, buttonRef].forEach(currentRef => {
+      if (currentRef.current) {
+        observer.observe(currentRef.current);
+      }
+    });
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      [titleRef, workRef, buttonRef].forEach(currentRef => {
+        if (currentRef.current) {
+          observer.unobserve(currentRef.current);
+        }
+      });
     };
   }, []);
 
@@ -62,7 +68,7 @@ const OurWork = () => {
     <div className="absolute container top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] lg:w-[90%]">
       <div className="w-full mx-auto px-10 lg:px-[5rem]">
         <motion.p
-          ref={ref}
+          ref={titleRef}
           initial={{ opacity: 0, translateY: "-2rem" }}
           animate={isVisible ? { opacity: 1, translateY: 0 } : {}}
           transition={{ duration: 1 }}
@@ -73,7 +79,7 @@ const OurWork = () => {
         <div className="grid grid-cols-2 gap-4 mb-8 lg:grid-cols-3 lg:gap-8 justify-items-center">
           {list.slice(0, 6).map((item, key) => (
             <motion.div
-              ref={ref}
+              ref={workRef}
               key={key}
               initial={{ opacity: 0, scale: 0 }}
               animate={
@@ -143,7 +149,7 @@ const OurWork = () => {
         </div>
         <div className="flex justify-center mt-16">
           <motion.button
-            ref={ref}
+            ref={buttonRef}
             initial={{ opacity: 0, translateY: "-2rem" }}
             animate={isVisible ? { opacity: 1, translateY: 0 } : {}}
             transition={{ duration: 1, delay: 0.5 * list.length }}

@@ -14,16 +14,8 @@ const DetailWork = () => {
   const [isLoad, setIsLoad] = useState(false);
   const [photo, setPhoto] = useState('');
 
-  const campaignResults = [
-    "Media plan + KOL: Total Results (including boosted): 377.5M impressions (+42% vs. L1)",
-    "Engagement Rate: 175%",
-    "TikTok Hashtag Challenge: 99M impressions",
-    "Press conference KinKat: Total PR Value: 8.74 billion IDR",
-    "Highlight: Collaboration with Wonderful Indonesia and local UMKM"
-  ];
-
-
   useEffect(() => {
+    window.scrollTo(0, 0);
     handleDetailWork()
   }, [])
 

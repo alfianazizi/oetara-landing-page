@@ -30,9 +30,9 @@ const Footer = () => {
                         <div>
                             <h3 className="text-xl font-medium mb-4">Policies</h3>
                             <ul className="space-y-2 text-gray-400">
-                                <li><a href="#" className="text-gray-400 hover:text-white">Privacy policy</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Terms and Conditions</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Cookies</a></li>
+                                <li className="text-gray-400 hover:text-white cursor-pointer">Privacy policy</li>
+                                <li className="text-gray-400 hover:text-white cursor-pointer">Terms and Conditions</li>
+                                <li className="text-gray-400 hover:text-white cursor-pointer">Cookies</li>
                             </ul>
                         </div>
 
@@ -40,8 +40,8 @@ const Footer = () => {
                         <div>
                             <h3 className="text-xl font-medium mb-4">Career</h3>
                             <ul className="space-y-2 text-gray-400">
-                                <li><a href="#" className="text-gray-400 hover:text-white">Who We Are</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Work with us</a></li>
+                                <li><Link to="/navigator" className="text-gray-400 hover:text-white">Who We Are</Link></li>
+                                <li><Link to="/email" className="text-gray-400 hover:text-white">Work with us</Link></li>
                             </ul>
                         </div>
 

@@ -31,7 +31,7 @@ const CaseStudy = () => {
           initial={{ opacity: 0, translateY: '-1.5rem' }} 
           animate={{ opacity: 1, translateY: 0 }} 
           transition={{ duration: 0.5 }} 
-          className="text-2xl md:text-3xl font-[600] mb-4"
+          className="text-3xl md:text-[2.5rem] lg:text-[3rem] font-['montserrat-bold'] mt-5 md:mt-0 mb-6 md:mb-8"
         >
           Case Study
         </motion.h3>
@@ -39,7 +39,7 @@ const CaseStudy = () => {
           initial={{ opacity: 0, translateY: '-1.5rem' }} 
           animate={{ opacity: 1, translateY: 0 }} 
           transition={{ duration: 0.5, delay: 0.2 }}  
-          className="mb-8 text-gray-600 max-w-3xl"
+          className="mb-8 lg:mb-12 text-md md:text-[1.65rem] text-[#231F20]"
         >
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
           nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
@@ -80,51 +80,51 @@ const CaseStudy = () => {
                   </svg>
                 }
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                  <p className="md:text-xl font-medium">{item.acf.title}</p>
-                  {item.title && <p className="text-sm md:text-lg md:mb-4 text-center"> {item.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for '+ item.title.rendered.split(/&#8211;/g)[0] : ''}</p>}
-                  <span className="md:mt-2 text-2xl">→</span>
+                <div className="absolute rounded-xl inset-0 bg-black/[76%] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
+                  <p className="md:text-[1.498rem] font-['montserrat-semibold'] md:mb-8">{item.title.rendered.replace(/&#8211;/g, '–')}</p>
+                  {item && item.title && <p className="text-sm md:text-[1.592rem] font-['montserrat-bold'] md:mb-6">{item.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for '+ item.title.rendered.split(/&#8211;/g)[0] : ''}</p>}
+                  <span className="md:mt-2 md:text-[3rem]">→</span>
                 </div>
               </motion.div>
             ))}
           </div>
         :
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-8">
-            <div role="status" class="flex items-center justify-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
-              <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+            <div role="status" className="flex items-center justify-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
+              <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                 <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
               </svg>
-              <span class="sr-only">Loading...</span>
+              <span className="sr-only">Loading...</span>
             </div>
-            <div role="status" class="flex items-center justify-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
-              <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+            <div role="status" className="flex items-center justify-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
+              <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                 <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
               </svg>
-              <span class="sr-only">Loading...</span>
+              <span className="sr-only">Loading...</span>
             </div>
-            <div role="status" class="flex items-center justify-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
-              <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+            <div role="status" className="flex items-center justify-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
+              <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                 <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
               </svg>
-              <span class="sr-only">Loading...</span>
+              <span className="sr-only">Loading...</span>
             </div>
-            <div role="status" class="flex items-center justify-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
-              <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+            <div role="status" className="flex items-center justify-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
+              <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                 <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
               </svg>
-              <span class="sr-only">Loading...</span>
+              <span className="sr-only">Loading...</span>
             </div>
-            <div role="status" class="flex items-center justify-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
-              <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+            <div role="status" className="flex items-center justify-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
+              <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                 <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
               </svg>
-              <span class="sr-only">Loading...</span>
+              <span className="sr-only">Loading...</span>
             </div>
-            <div role="status" class="flex items-center justify-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
-              <svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+            <div role="status" className="flex items-center justify-center h-56 bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
+              <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                 <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
               </svg>
-              <span class="sr-only">Loading...</span>
+              <span className="sr-only">Loading...</span>
             </div>
           </div>
         }

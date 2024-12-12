@@ -25,13 +25,13 @@ const Email = () => {
   return (
     
     <div className="sm:email-container w-full min-h-screen flex flex-col overflow-x-hidden">
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center h-[70vh]md:h-[30vh] lg:h-[50vh]">
         <div className="contact-header container mt-10 md:mt-16 !mb-5 md:!mb-10 px-6 md:px-10">
           <motion.h3
             initial={{ opacity: 0, translateY: '-1.5rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
             transition={{ duration: 0.5 }}  
-            className='text-3xl lg:text-4xl leading[1.2] md:leading-[1.1] py-12 md:py-4 font-[600]'
+            className='text-3xl md:text-[2.5rem] lg:text-[3rem] leading[1.2] md:leading-[1.1] py-12 md:py-4 font-["montserrat-bold"]'
           >
             Contact Us & Let&apos;s Collaborate!
           </motion.h3>
@@ -39,7 +39,7 @@ const Email = () => {
             initial={{ opacity: 0, translateY: '-1.5rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
             transition={{ duration: 0.5, delay: 0.5 }} 
-            className='lg:text-xl'
+            className='lg:text-[1.5rem]'
           >
             Say us a Hello. Get to know each other. Tell us your story. We listen. We tell you our story. 
             You listen. Then you ask simple question. We answer. We ask you back. You answer. And then we getting closer and…
@@ -48,18 +48,20 @@ const Email = () => {
             initial={{ opacity: 0, translateY: '-1.5rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
             transition={{ duration: 0.5, delay: 0.7 }}  
-            className='mt-10 lg:text-xl'
+            className='my-5 md:my-10 lg:text-[1.5rem]'
           >
             Oh hey, we haven’t even start the conversation, but it looks like we already miss you. Please drop us a line.
           </motion.p>
         </div>
-
       </div>
 
       <div className="flex justify-center items-center">
         <div>
           <div className="container flex-grow px-5 md:px-10">
-            <div className="bg-white shadow-xl md:shadow-2xl rounded-xl p-8 w-full min-h-full relative z-[10]">
+            <div 
+              className="bg-white shadow-xl md:shadow-2xl rounded-xl px-8 py-8 lg:px-16 lg:py-16 w-full min-h-full relative z-[10]"
+              style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 50px'}}
+            >
               <ContactUs ref={null} />
             </div>
           </div>

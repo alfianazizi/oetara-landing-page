@@ -3,23 +3,23 @@
 }
 
 .title-landing {
-  width: 40%;
   font-size: 3rem;
   line-height: 1.2;
   top: 8rem;
+  width: 100%;
 }
 
 .shadow-image {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjust values as needed */
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 50px;
 }
 
 @keyframes slideIn {
   0% {
-    transform: translateX(-100%) rotate(-4deg);
+    transform: translateX(-100%) rotate(0deg);
     opacity: 0;
   }
   100% {
-    transform: translateX(0) rotate(-4deg);
+    transform: translateX(0) rotate(0deg);
     opacity: 1;
   }
 }
@@ -63,10 +63,6 @@
   /* .route-container {
     bottom: 12rem;
   } */
-
-  .title-landing {
-    width: 35%;
-  }
 }
 
 @media (min-width: 1600px) {
@@ -75,13 +71,12 @@
   } */
 
   .title-landing {
-    width: 50%;
-    font-size: 5rem;
+    font-size: 5.5rem;
   }
 }
 
 @media (max-width: 768px) {
   .title-landing {
-    width: 80%
+  font-size: 2rem;
   }
 }

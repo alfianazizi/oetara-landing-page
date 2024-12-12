@@ -63,14 +63,14 @@ const OurService = () => {
         }
     ]
     return (
-        <div className="absolute top-[55%] md:top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 container px-5 lg:px-10">
+        <div className="absolute top-1/2 md:top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 container px-5 lg:px-10">
             <div className="w-full mx-auto">
                 <motion.p 
                     ref={ref}
                     initial={{ opacity: 0, translateY: '-2rem' }} 
                     animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                     transition={{ duration: 1}} 
-                    className="text-[2rem] lg:text-[3rem] text-center font-[500] text-[#EC1C24] mb-8"
+                    className="text-[2rem] lg:text-[4rem] text-center font-['montserrat-semibold'] text-[#C01C30] mb-8"
                 >
                     Our Service
                 </motion.p>
@@ -80,20 +80,20 @@ const OurService = () => {
                             ref={ref}
                             key={key} 
                             initial={{ opacity: 0, scale: 0 }} 
-                            animate={isVisible ? { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.5 * key } } : {}} 
-                            whileHover={{ scale: 1.10 }}
-                            className="bg-white rounded-xl shadow-lg py-4 lg:py-8 px-5 lg:px-8 xl:px-10 max-w-xs"
+                            animate={isVisible ? { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.3 * key } } : {}} 
+                            className="bg-white rounded-[7%] cursor-pointer py-4 lg:py-8 px-5 lg:px-8 xl:px-10 max-w-xs hover:!scale-[1.03] !transition-transform !duration-300 ease-in-out"
+                            style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}
                         >
                             <div className="flex justify-center">
-                                <div className="bg-[#F0F1F1] p-5 rounded-full">
-                                    <img src={item.icon} alt="" className='w-8 h-8 lg:w-16 lg:h-16' />
+                                <div className="bg-[#F0F1F1]/100 p-5 rounded-full opacity-[100%]">
+                                    <img src={item.icon} alt="" className='w-12 h-12 lg:w-20 lg:h-20' />
                                 </div>
                             </div>
                             <div className="py-3 text-center">
-                                <p className="font-[500] py-0 text-sm lg:text-md">{item.title.title_1}</p>
-                                <p className="font-[500] py-0 text-sm lg:text-md">{item.title.title_2}</p>
+                                <p className="font-['montserrat-bold'] py-0 text-[0.8rem] lg:text-[1rem]">{item.title.title_1}</p>
+                                <p className="font-['montserrat-bold'] py-0 text-[0.8rem] lg:text-[1rem]">{item.title.title_2}</p>
                             </div>
-                            <div className="text-center text-sm">{item.text}</div>
+                            <div className="py-2 md:py-3 text-center text-xs md:text-sm">{item.text}</div>
                         </motion.div>
                     )}
                 </div>

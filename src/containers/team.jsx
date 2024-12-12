@@ -1,4 +1,4 @@
-import { FaAngleLeft } from 'react-icons/fa6';
+import { FaAngleLeft, FaChevronLeft } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'motion/react';
@@ -61,10 +61,10 @@ const Team = () => {
   }
 
   return (
-    <div className="mx-auto container px-10 md:px-[5rem] py-12">
+    <div className="mx-auto container px-10 py-12">
       
       {/* Breadcrumb */}
-      <div className="py-10">
+      {/* <div className="py-10">
         <Link 
           to="/navigator"
           className="text-gray-600 flex gap-2 hover:text-[#EC1C24] transition-colors duration-200"
@@ -72,6 +72,11 @@ const Team = () => {
         >
           <FaAngleLeft className='text-lg mt-1' /> 
           <p className='mb-0'>Navigator</p>
+        </Link>
+      </div> */}
+      <div className="flex justify-center items-center lg:mt-10">
+        <Link to="/navigator" className="hidden container md:flex items-center gap-2 text-[#929497] font-['montserrat-bold'] text-[1.5rem] mb-8 hover:text-[#C01C30]">
+          <FaChevronLeft /> Navigator
         </Link>
       </div>
 
@@ -81,7 +86,7 @@ const Team = () => {
           initial={{ opacity: 0, translateY: '-1.5rem' }} 
           animate={{ opacity: 1, translateY: 0 }} 
           transition={{ duration: 0.5 }} 
-          className="text-4xl font-bold"
+          className="text-3xl md:text-[2.5rem] lg:text-[3rem] mt-8 font-['montserrat-bold']"
         >
           Our Navigator
         </motion.h1>
@@ -89,7 +94,7 @@ const Team = () => {
           initial={{ opacity: 0, translateY: '-1.5rem' }} 
           animate={{ opacity: 1, translateY: 0 }} 
           transition={{ duration: 0.5, delay: 0.2 }} 
-          className="text-gray-600 mt-4"
+          className="text-[#231F20] text-[1.5rem] my-4 lg:mb-20 lg:mt-8"
         >
           We are Navigators not only crafting the right message but also setting 
           the measurable goals and will be your guidance through Digital World 
@@ -103,7 +108,7 @@ const Team = () => {
           initial={{ opacity: 0, translateY: '-1.5rem' }} 
           animate={{ opacity: 1, translateY: 0 }} 
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-2xl font-[600] text-center text-[#EC1C24] mb-10"
+          className="text-3xl md:text-[2.5rem] lg:text-[3rem] font-['montserrat-semibold'] text-[#C01C30] text-center my-10 md:my-16"
         >
           Our Creative Team
         </motion.h2>
@@ -144,8 +149,8 @@ const Team = () => {
                         ${member.acf.name ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}
                       >
                         <div>
-                          <h3 className="text-[10px] md:text-xl font-medium">{member.acf.name}</h3>
-                          <p className="text-[8px] md:text-lg text-gray-300">{member.acf.position}</p>
+                          <h3 className="text-[10px] md:text-xl font-['montserrat-bold']">{member.acf.name}</h3>
+                          <p className="text-[8px] md:text-lg">{member.acf.position}</p>
                         </div>
                       </div>
                     )}
@@ -157,7 +162,7 @@ const Team = () => {
         </Swiper>
         
         {/* Custom Pagination */}
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center mt-4 lg:mt-10">
           {Array.from({ length: Math.ceil(team.length / 6) }).map((_, index) => (
             <button
               key={index}
@@ -165,7 +170,7 @@ const Team = () => {
                 setCurrentSlide(index);
                 swiperRef.current.swiper.slideTo(index);
               }}
-              className={`w-8 h-8 rounded-xl flex items-center justify-center mx-1 p-2 ${currentSlide === index ? 'bg-[#EC1C24] text-white' : 'bg-[#D1D3D4] text-[#EC1C24]'}`}
+              className={`w-8 h-8 rounded-xl flex items-center justify-center font-['montserrat-semibold'] mx-1 p-2 ${currentSlide === index ? 'bg-[#C01C30] text-white' : 'bg-[#D1D3D4] text-[#C01C30]'}`}
             >
               {index + 1}
             </button>

@@ -84,14 +84,14 @@ const Navigator = () => {
 
   return (
     <div className="">  
-      <div className='mx-auto container px-5 lg:px-10'>
+      <div className='mx-auto container md:mt-10 h-[100vh] px-5 lg:px-10'>
         {/* Hero Section */}
         <section className="py-16">
           <motion.h1 
             initial={{ opacity: 0, translateY: '-2rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
             transition={{ duration: 1 }} 
-            className="text-3xl lg:text-4xl font-[600] mb-6"
+            className="text-3xl md:text-[2.5rem] lg:text-[3rem] font-['montserrat-bold'] mt-5 md:mt-0 mb-6 md:mb-8"
           >
             Navigator
           </motion.h1>
@@ -99,15 +99,15 @@ const Navigator = () => {
             initial={{ opacity: 0, translateY: '-2rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-md lg:text-xl"
+            className="text-md md:text-[1.65rem]"
           >
             We are Navigators not only crafting the right message but also setting the measurable goals and will be your guidance through Digital World Crowdedness. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, diam nonummy nibh euismod tincidunt ut laoreet dolore
           </motion.p>
         </section>
 
         {/* OETARA Values */}
-        <section className="mb-20 mt-16">
-          <div className="flex justify-between items-start mx-w-2xl lg:max-w-4xl mx-auto">
+        <section className="mb-20 mt-10 md:mt-16">
+          <div className="flex justify-center text-center lg:gap-[5rem] items-center">
             {valueDetails.map((value, index) => (
               <motion.div 
                 initial={{ opacity: 0, translateX: '-2rem' }} 
@@ -120,14 +120,14 @@ const Navigator = () => {
                 <img 
                   src={value.icon} 
                   alt="logo" 
-                  className={`w-8 h-8 lg:w-16 lg:h-16 mx-auto transition-all duration-300 ${
-                    selectedValue === index ? 'scale-110' : ''
+                  className={`w-8 h-8 md:w-20 md:h-20 mx-auto transition-all duration-300 ${
+                    selectedValue === index ? 'scale-[1.20]' : ''
                   }`} 
                 />
-                <p className={`text-center lg:w-[80px] mt-5 transition-colors duration-300 text-[10px] lg:text-[14px] ${
+                <p className={`text-center font-['montserrat-medium'] lg:w-[80px] mt-5 transition-colors duration-300 text-[10px] md:text-[1rem] ${
                   selectedValue === index 
-                    ? 'text-black font-medium' 
-                    : 'text-gray-400 hover:text-gray-600'
+                    ? 'text-black' 
+                    : 'text-[#231F20]/[42%] hover:text-[#231F20]'
                 }`}>
                   {value.title}
                 </p>
@@ -174,71 +174,99 @@ const Navigator = () => {
 
       {/* Our Navigators Section */}
       <section className="relative ">
-        <img src={bg_texture} alt="" className='w-full h-[50vh] lg:h-[80vh] object-cover' />
+        <img src={bg_texture} alt="" className='w-full h-[50vh] md:h-[100vh] object-cover opacity-[50%]' />
         <OurNavigator data={team} />
       </section>
 
       {/* Join Team Section - Updated */}
-      <section className="relative lg:mb-20 overflow-hidden h-[50vh] lg:h-[85vh]">
+      <section className="relative lg:mb-20 overflow-hidden h-[80vh] lg:h-[100vh]">
         <img 
           src={nav_4}
           alt="Team working together" 
-          className="absolute bottom-0 w-full object-contain lg:object-cover brightness-75"
+          className="absolute bottom-[30%] md:bottom-0 w-full object-contain lg:object-cover"
         />
         <OurTeam handleJoinClick={handleJoinClick} />
       </section>
 
       {/* Clients Section */}
-      <section className="mb-20 mt-14 lg:mt-0">
-        <h2 className="text-3xl font-bold text-red-600 text-center mb-12">Our Clients</h2>
-        <Marquee>
-          <div className="flex gap-10 md:gap-16 items-center">
-            {client.map((item, key) => 
-              <div key={key} className="flex justify-center items-center">
-                {item.acf.logo !== "" ?
-                  <img src={item.acf.logo.url} alt="client" className='w-16 md:w-32' /> 
-                :
-                  <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="100%" height="100%" fill="gainsboro" />
-                    <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-                  </svg>
-                }
+      <section className="mb-20 h-auto min-h-[50vh] lg:h-[80vh] flex justify-center items-center mt-14 lg:mt-0">
+        <div className="w-full">
+          <h2 className="text-2xl md:text-3xl lg:text-[4rem] font-['montserrat-semibold'] text-[#C01C30] text-center mb-8 md:mb-12 lg:mb-[8rem]">
+            Our Clients
+          </h2>
+          
+          {/* Desktop Marquee */}
+          <div className="hidden md:block">
+            <Marquee className='w-full' speed={40}>
+              <div className="flex gap-8 lg:gap-16 items-center">
+                {client.map((item, key) => (
+                  <div key={key} className="flex justify-center items-center px-4">
+                    {item.acf.logo !== "" ? (
+                      <img 
+                        src={item.acf.logo.url} 
+                        alt="client" 
+                        className='w-24 lg:w-32 object-contain' 
+                      /> 
+                    ) : (
+                      <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="gainsboro" />
+                        <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
+                      </svg>
+                    )}
+                  </div>
+                ))}
               </div>
-            )}
+            </Marquee>
           </div>
-        </Marquee>
-        <Marquee direction='ltr' className='my-6'>
-          <div className="flex gap-10 items-center">
-            {client.map((item, key) => 
-              <div key={key} className="flex justify-center items-center">
-                {item.acf.logo !== "" ?
-                  <img src={item.acf.logo.url} alt="client" className='w-16 md:w-32' /> 
-                :
-                  <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="100%" height="100%" fill="gainsboro" />
-                    <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-                  </svg>
-                }
+
+          {/* Desktop Marquee */}
+          <div className="hidden md:block">
+            <Marquee direction='ltr' className='w-full' speed={40}>
+              <div className="flex gap-8 lg:gap-16 items-center">
+                {client.map((item, key) => (
+                  <div key={key} className="flex justify-center items-center px-4">
+                    {item.acf.logo !== "" ? (
+                      <img 
+                        src={item.acf.logo.url} 
+                        alt="client" 
+                        className='w-24 lg:w-32 object-contain' 
+                      /> 
+                    ) : (
+                      <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="gainsboro" />
+                        <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
+                      </svg>
+                    )}
+                  </div>
+                ))}
               </div>
-            )}
+            </Marquee>
           </div>
-        </Marquee>
-        <Marquee>
-          <div className="flex md:hidden gap-10 md:gap-16 items-center">
-            {client.map((item, key) => 
-              <div key={key} className="flex justify-center items-center">
-                {item.acf.logo !== "" ?
-                  <img src={item.acf.logo} alt="client" className='w-16 md:w-32' /> 
-                :
-                  <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="100%" height="100%" fill="gainsboro" />
-                    <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="16" fill="black" fontWeight="bold">L O G O</text>
-                  </svg>
-                }
+
+          {/* Mobile Marquee */}
+          <div className="md:hidden">
+            <Marquee className='w-full' speed={30}>
+              <div className="flex gap-6 items-center">
+                {client.map((item, key) => (
+                  <div key={key} className="flex justify-center items-center px-2">
+                    {item.acf.logo !== "" ? (
+                      <img 
+                        src={item.acf.logo.url} 
+                        alt="client" 
+                        className='w-16 h-16 object-contain' 
+                      /> 
+                    ) : (
+                      <svg width="64" height="32" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="gainsboro" />
+                        <text x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle" fontSize="12" fill="black" fontWeight="bold">L O G O</text>
+                      </svg>
+                    )}
+                  </div>
+                ))}
               </div>
-            )}
+            </Marquee>
           </div>
-        </Marquee>
+        </div>
       </section>
     </div>
   );

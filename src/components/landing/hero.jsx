@@ -7,13 +7,14 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
             <div className="flex justify-center items-center">
                 <div className='absolute top-[16%] md:top-[10%] container px-5 md:px-10'>
                     <motion.p 
-                        className="title-landing font-[500]" 
+                        className="title-landing font-['montserrat-extrabold']" 
                         // className="absolute left-[2rem] lg:left-[4rem] title-landing font-[500]" 
                         initial={{ opacity: 0, y: -20 }} 
                         animate={{ opacity: 1, y: 0 }} 
                         transition={{ duration: 1, delay: 1 }}
                     >
-                        Navigating for Innovation
+                        We Provide Direction, <br></br>
+                        NOT Directions
                     </motion.p>
                 </div>
             </div>

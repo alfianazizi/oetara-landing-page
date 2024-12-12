@@ -1,32 +1,11 @@
 import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
+import { FaChevronRight } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
-
-import nav_1 from '../../assets/image/navigator-1.jpg';
-import nav_2 from '../../assets/image/navigator-2.jpg';
-import nav_3 from '../../assets/image/navigator-3.jpg';
 
 const OurNavigator = ({data}) => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
-
-    const our_nav = [
-        {
-            image: nav_1,
-            name: 'Name',
-            type: 'Direktur'
-        },
-        {
-            image: nav_2,
-            name: 'Name',
-            type: 'Direktur'
-        },
-        {
-            image: nav_3,
-            name: 'Name',
-            type: 'Direktur'
-        },
-    ]
 
     useEffect(() => {
         const observer = new IntersectionObserver(([entry]) => {
@@ -55,7 +34,7 @@ const OurNavigator = ({data}) => {
                 initial={{ opacity: 0, translateY: '-2rem' }} 
                 animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-3xl font-[600] text-[#C01C30] text-center mb-4"
+                className="text-3xl md:text-[4rem] font-['montserrat-semibold'] text-[#C01C30] text-center mb-4 md:mb-10"
             >
                 Our Navigators
             </motion.h2>
@@ -64,7 +43,7 @@ const OurNavigator = ({data}) => {
                 initial={{ opacity: 0, translateY: '-2rem' }} 
                 animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-center text-gray-600 mb-12 text-xl"
+                className="text-center text-[#231F20] mb-12 text-xl md:text-[2rem] md:px-[10%] leading-[1.3]"
             >
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
             </motion.p>
@@ -80,8 +59,8 @@ const OurNavigator = ({data}) => {
                         <img className="w-full h-full object-cover object-top" src={item.acf.photo} alt="Navigator 1" />
                         {/* Hover Overlay */}
                         <div className="cursor-pointer absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                            <h3 className="text-sm lg:text-xl font-medium">{item.acf.name}</h3>
-                            <p className="text-xs lg:text-md text-gray-300">{item.acf.position}</p>
+                            <h3 className="text-sm md:text-[1.5rem] font-['montserrat-bold'] mb-3">{item.acf.name}</h3>
+                            <p className="text-xs md:text-[1.2rem] text-gray-300">{item.acf.position}</p>
                         </div>
                     </motion.div>
                 ))}
@@ -91,10 +70,10 @@ const OurNavigator = ({data}) => {
                 initial={{ opacity: 0, translateY: '-2rem' }} 
                 animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                 transition={{ duration: 0.5, delay: 1 }}
-                className="text-center mt-8"
+                className="text-center py-8 md:py-10"
             >
-              <Link to="/team" className="text-gray-600 hover:text-[#EC1C24] md:text-xl inline-flex items-center">
-                See all our navigator <span className="ml-2">→</span>
+              <Link to="/team" className="text-black hover:text-[#C01C30] md:text-xl inline-flex items-center">
+                See all our navigator <FaChevronRight size={18} className='ml-5' />
               </Link>
             </motion.div>
           </div>

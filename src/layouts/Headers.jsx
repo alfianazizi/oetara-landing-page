@@ -25,13 +25,13 @@ const Headers = () => {
 
   return (
     <div className='flex justify-center items-center'>
-      <div className={`container fixed top-0 left-0 z-[12] lg:relative flex justify-between items-center py-8 md:py-4 px-5 md:px-10 w-full transition-all duration-500
+      <div className={`container fixed top-0 left-0 z-[12] md:relative flex justify-between items-center py-8 md:py-4 px-5 md:px-10 w-full transition-all duration-500
         ${isScrolled ? 'bg-white shadow-md md:shadow-none' : ''}`}>
         <div className="flex justify-between lg:justify-start items-center gap-5 md:gap-10 w-[100%]">
-            <Link to="/" className="w-full lg:w-auto">
-              <img src={logo} alt="logo" className="hidden lg:inline-block w-8 h-8 md:w-10 md:h-10" />
+            <Link to="#" className="w-full lg:w-auto">
+              <img src={logo} alt="logo" className="hidden md:inline-block w-8 h-8 md:w-10 md:h-10 hover:scale-[1.10] transition-all duration-300" />
             </Link>
-            <div className="view-desktop items-center gap-10">
+            <div className="view-desktop items-center text-[1rem] gap-10 font-['montserrat-bold']">
                 {['Navigator', 'Email', 'Service', 'Work'].map((link) => (
                     <a
                         key={link}
@@ -49,7 +49,7 @@ const Headers = () => {
                         {link}
                         {(activeLink === link.toLowerCase() || hoveredLink === link) && (
                             <span className="absolute inset-0 bg-[#C01C30] rounded-xl -z-10 
-                            transition-all duration-300 -rotate-[5deg]
+                            transition-all duration-300 
                             animate-slideIn"></span>
                         )}
                     </a>
@@ -61,7 +61,7 @@ const Headers = () => {
       {/* Mobile Logo - Moved outside header */}
       <Link to="/" onClick={() => setIsHamburger(...isHamburger,{ isClose: false})}>
         <div className='flex fixed top-0 right-0 px-5 py-2 md:py-4 z-[12] lg:hidden justify-center items-center w-full text-center'>
-          <img src={logo_full_mobile} alt="logo" className='w-auto h-10' />
+          <img src={logo_full_mobile} alt="logo" className='inline-block md:hidden w-auto h-10' />
         </div>
       </Link>
 

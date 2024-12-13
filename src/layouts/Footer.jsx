@@ -79,7 +79,7 @@ const Footer = () => {
                                         <a 
                                             href={item.url} 
                                             target='_blank' 
-                                            className="bg-[#C01C30] text-white p-2 rounded-full transition-all duration-300 hover:bg-white hover:border hover:border-[#C01C30] hover:text-[#C01C30] h-[40px] w-[40px] flex items-center justify-center">
+                                            className="bg-[#C01C30] text-white p-2 rounded-full transition-all duration-300 hover:scale-105 hover:text-white h-[40px] w-[40px] flex items-center justify-center">
                                             {ico}
                                         </a>
                                     )

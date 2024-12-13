@@ -13,6 +13,7 @@ const DetailWork = () => {
   const [detail, setDetail] = useState({});
   const [isLoad, setIsLoad] = useState(false);
   const [photo, setPhoto] = useState('');
+  const [campaign, setCampaign] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,6 +26,14 @@ const DetailWork = () => {
     try {
       setDetail(result[0])
       const client_id = result[0].acf.client[0].ID;
+      let work_gallery = result[0].acf.work_gallery;
+      const uniqueSubtypes = work_gallery.reduce((acc, item) => {
+        if (!acc.includes(item.subtype)) {
+          acc.push(item.subtype);
+        }
+        return acc;
+      }, []);
+      setCampaign(uniqueSubtypes[0]);
       handleClient(client_id)
       setIsLoad(false)
     } catch (err) {
@@ -74,8 +83,8 @@ const DetailWork = () => {
       <div className="flex justify-center items-center">
         <div className="container">
           <div className="relative px-7 flex items-center gap-6 -mt-[1rem] md:-mt-[6rem]">
-            <div className="flex items-center justify-center flex-wrap md:flex-nowrap gap-2 md:gap-8">
-              <div className='w-[100%] md:w-auto flex items-center bg-white rounded-[10%]' style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}>
+            <div className="flex items-center lg:justify-center flex-wrap md:flex-nowrap gap-2 md:gap-8">
+              <div className='w-auto flex items-center bg-white rounded-[10%]' style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}>
                 {photo !== '' ? 
                   <img src={photo} alt="avatar" className="w-32 md:w-[16rem] object-cover rounded-lg shadow-lg" />
                 :
@@ -125,7 +134,7 @@ const DetailWork = () => {
             <p className="md:text-lg lg:text-[1.8rem] !leading-[1.5] text-[#231F20] mb-6" dangerouslySetInnerHTML={"acf" in detail && detail.acf.execution ? { __html: detail.acf.execution } : { __html: '' }}></p>
             
             {/* Campaign Images */}
-            <div className="flex flex-wrap w-full gap-1 md:gap-4 my-12 bg-[#C01C30]/10 p-2 rounded-[10px]">
+            <div className={`${campaign === 'gif' ? 'grid grid-flow-col auto-cols-[25%]' : 'flex flex-wrap w-full'} gap-2 my-12 bg-[#C01C30]/10 p-2 rounded-[10px]`}>
               {"acf" in detail && detail.acf.work_gallery.map((item, key) => {
                 if (item.type === 'video') {
                   return (
@@ -133,29 +142,38 @@ const DetailWork = () => {
                       key={key} 
                       src={item.url} 
                       controls={false}
-                      autoPlay={false}
+                      autoPlay={true}
                       playsInline
                       className="w-full object-contain cursor-pointer"
-                      onMouseEnter={(e) => e.target.play()}
-                      onMouseLeave={(e) => {
-                        e.target.pause();
-                        e.target.currentTime = 0;
-                      }}
                     ></video>
                   );
                 } else {
-                  return (
-                    <img
-                      key={key}
-                      src={item.url}
-                      alt={`Campaign ${item}`}
-                      className={`${detail.acf.work_gallery.length === 1 ? 'w-full' 
-                        : item.subtype === 'gif'
-                          ? 'w-1/4'
-                          : 'w-[32.333%]'} 
-                        h-auto md:h-[50vh] object-contain md:object-cover`}
-                    />
-                  );
+                  if (item.subtype === 'gif') {
+                    const gifItems = detail.acf.work_gallery.filter(i => i.subtype === 'gif');
+                    const remainingGifs = gifItems.length < 4 ? 4 - gifItems.length : 0;
+                    const itemsToRender = [...gifItems, ...Array(remainingGifs).fill(null)];
+
+                    return itemsToRender.map((gifItem, index) => (
+                      gifItem && (
+                        <img
+                          key={key + index}
+                          src={gifItem.url}
+                          alt={`Campaign ${gifItem}`}
+                          className="w-full h-auto md:h-[50vh] object-contain md:object-cover"
+                        />
+                      )
+                    ));
+                  } else {
+                    return (
+                      <img
+                        key={key}
+                        src={item.url}
+                        alt={`Campaign ${item}`}
+                        className={`${detail.acf.work_gallery.length === 1 ? 'w-full' : 'w-[32.333%]'} 
+                          h-auto md:h-[50vh] object-contain md:object-cover`}
+                      />
+                    );
+                  }
                 }
               })}
             </div>

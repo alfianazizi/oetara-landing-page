@@ -291,7 +291,7 @@ const Careers = () => {
             {careers.map((job, index) => (
               <div 
                 key={index} 
-                className={`py-5 hover:lg:border-[#FF2935] transition-shadow cursor-pointer rounded-xl ${selectedJobIndex === index ? 'border lg:border-[#FF2935] px-6' : 'border-b border-[#BCBEC0] mx-6'}`}
+                className={`py-5 hover:lg:border-[#FF2935] transition-shadow cursor-pointer ${selectedJobIndex === index ? 'border lg:border-[#FF2935] rounded-xl px-6' : 'border-b border-[#BCBEC0] mx-6'}`}
                 onClick={() => {setSelectedJobIndex(index); setIsShowCarieer(true); handleDetail(job.id)}}
               >
                 <h3 className="text-xl font-['montserrat-bold'] mb-4">{job.acf.job_title}</h3>

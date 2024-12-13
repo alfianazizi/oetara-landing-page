@@ -65,6 +65,7 @@ const CaseStudy = () => {
                     navigate(`/work/detail-work/${item.slug}`); // No delay for larger screens
                   }
                 }}
+                style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}
               >
                 {item.acf.image_header !== "" ?
                   <img 

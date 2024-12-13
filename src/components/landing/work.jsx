@@ -86,7 +86,7 @@ const OurWork = () => {
                   ? {
                       opacity: 1,
                       scale: 1,
-                      transition: { duration: 0.5, delay: 0.5 * key },
+                      transition: { duration: 0.5, delay: 0.1 * key },
                     }
                   : {}
               }

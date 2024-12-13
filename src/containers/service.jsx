@@ -124,7 +124,7 @@ const Service = () => {
           {our_service.map((item, key) => 
             <motion.div 
               initial={{ opacity: 0, scale: 0 }} 
-              animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.5 * key } }} 
+              animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.1 * key } }} 
               key={item.id} 
               className="bg-white rounded-[7%] cursor-pointer py-4 lg:py-8 px-5 lg:px-8 xl:px-10 max-w-xs hover:!scale-[1.03] !transition-transform !duration-300 ease-in-out"
               style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}

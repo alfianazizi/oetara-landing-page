@@ -47,7 +47,7 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                             <motion.p
                                 initial={{opacity: 0, marginTop: '2rem' }}
                                 animate={{ opacity: 1, marginTop: 0 }}
-                                transition={{ delay: 1.4,  ease: "backOut" }}
+                                transition={{ delay: 1.5,  ease: "backOut" }}
                             >
                                 NOT
                             </motion.p> &nbsp;
@@ -85,6 +85,13 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                                 transition={{ delay: 2, ease: "backOut" }}
                             >
                                 n
+                            </motion.p>
+                            <motion.p
+                                initial={{opacity: 0, marginLeft: '5px' }}
+                                animate={{ opacity: 1, marginLeft: 0 }}
+                                transition={{ delay: 2.1, ease: "backOut" }}
+                            >
+                                s
                             </motion.p>
                         </div>
                     </motion.div>

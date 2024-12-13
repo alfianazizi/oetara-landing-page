@@ -287,7 +287,7 @@ const Careers = () => {
       <div className="container mx-auto px-5 md:px-10 py-6 lg:py-16">
         <div className="flex gap-8">
           {/* Left Side - Fixed Job List */}
-          <div className="w-[100%] lg:w-1/3 h-[80vh] overflow-x-scroll scroll-tab bg-white rounded-xl">
+          <div className="w-[100%] lg:w-1/3 h-[80vh] overflow-x-scroll scroll-tab bg-white rounded-xl" style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}>
             {careers.map((job, index) => (
               <div 
                 key={index} 
@@ -318,7 +318,7 @@ const Careers = () => {
           </div>
 
           {/* Right Side - Details Panel */}
-          <div className="hidden lg:inline-block w-2/3 border border-[#FF2935] bg-white rounded-lg p-8">
+          <div className="hidden lg:inline-block w-2/3 h-[80vh] border border-[#FF2935] bg-white rounded-lg p-8" style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}>
             {selectedJobIndex !== null && detail ? (
               <>
                 <h3 className="text-2xl font-['montserrat-bold'] mb-4">{detail.acf.job_title}</h3>

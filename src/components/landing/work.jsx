@@ -91,7 +91,7 @@ const OurWork = () => {
                   : {}
               }
             //   whileHover={{ scale: 1.03 }}
-              className="flex flex-col items-center w-[100%] relative group"
+              className="flex flex-col items-center w-[100%] h-[15vh] md:h-[30vh] lg:h-[40vh] relative group"
               onClick={() => {
                 if (window.innerWidth <= 768) {
                   // Check for mobile resolution
@@ -108,7 +108,7 @@ const OurWork = () => {
                 <img
                   src={item.image}
                   alt="work_image"
-                  className="rounded-xl cursor-pointer shadow-image object-cover h-[100%]"
+                  className="rounded-xl cursor-pointer shadow-image object-cover w-[100%] h-[100%]"
                 />
               ) : (
                 <svg
@@ -138,10 +138,10 @@ const OurWork = () => {
                 )}
                 <span className="md:mt-2 md:text-2xl">→</span>
               </div> */}
-              <div className="absolute cursor-pointer rounded-xl inset-0 bg-black/[76%] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                <p className="md:text-[1.498rem] font-['montserrat-semibold'] md:mb-6">{item.title}</p>
-                {item && item.desc && <p className="text-sm md:text-[1.592rem] font-['montserrat-bold'] md:mb-6">{item.desc}</p>}
-                <span className="md:mt-2 md:text-[3rem]">→</span>
+              <div className="absolute cursor-pointer rounded-xl inset-0 bg-black/[76%] text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
+                <p className="text-[1rem] md:text-[1.498rem] font-['montserrat-semibold'] md:mb-6">{item.title}</p>
+                {item && item.desc && <p className="text-[1rem] md:text-[1.592rem] font-['montserrat-bold'] md:mb-6">{item.desc}</p>}
+                <span className="md:mt-2 text-[1.5rem] md:text-[3rem]">→</span>
             </div>
             </motion.div>
           ))}

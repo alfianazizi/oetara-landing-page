@@ -92,15 +92,15 @@ const ContactForm = ({ data }) => {
     };
     
     return (
-        <div className="flex flex-col md:flex-row md:space-x-8">
+        <div className="flex flex-col lg:flex-row md:space-x-8">
             {/* Contact Information Side */}
-            <div className="md:w-1/2 mb-6 md:mb-0">
+            <div className="lg:w-1/2 mb-6 md:mb-0">
                 <motion.h2
                     ref={headerRef} 
                     initial={{ opacity: 0, translateY: '-1.5rem' }} 
                     animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                     transition={{ duration: 0.5 }} 
-                    className="text-[#C01C30] text-[2rem] md:text-[2.5rem] lg:text-[4.168rem] font-['montserrat-semibold'] mb-3 md:mb-10"
+                    className="text-[#C01C30] text-[2rem] md:text-[2.5rem] lg:text-[4.168rem] font-['montserrat-semibold'] mb-3 lg:mb-10"
                 >
                     Get in touch
                 </motion.h2>
@@ -239,7 +239,7 @@ const ContactForm = ({ data }) => {
             </div>
 
             {/* Contact Form Side */}
-            <div className="md:w-1/2 md:mt-10">
+            <div className="lg:w-1/2 md:mt-10">
                 <form onSubmit={(e) => handleSubmit(e)} className="space-y-4">
                     <motion.input
                         ref={formRef}

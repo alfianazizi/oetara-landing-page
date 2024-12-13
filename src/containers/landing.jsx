@@ -23,7 +23,7 @@ const Landing = () => {
             <Definition />
             <div className="bg-white pb-[10%] -mt-[1.5rem] lg:-mt-[8rem]">
                 <div className="relative">
-                    <img src={texture} alt="texture" className="w-full h-[100vh] lg:h-auto opacity-50" />
+                    <img src={texture} alt="texture" className="w-full h-[100vh] lg:h-[120vh] opacity-[0.48]" />
                     <OurService />
                 </div>
                 <div className="relative lg:-mt-[5rem] ">

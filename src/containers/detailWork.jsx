@@ -1,14 +1,13 @@
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { getWorkById } from '../api/work';
 import CountUp from 'react-countup';
 import { getClientById } from '../api/navigator';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+import { FaChevronLeft } from 'react-icons/fa6';
 
 const DetailWork = () => {
   const { slug } = useParams();
-  const navigate = useNavigate();
     
   const [detail, setDetail] = useState({});
   const [isLoad, setIsLoad] = useState(false);
@@ -51,7 +50,7 @@ const DetailWork = () => {
   }
 
   return (
-    <div className="mx-auto py-8" onClick={() => navigate('/work')}>
+    <div className="mx-auto py-8">
       <div className="flex justify-center items-center lg:mt-10">
         <Link to="/work" className="hidden container px-5 md:px-10 md:flex items-center gap-2 text-[#929497] font-['montserrat-bold'] text-[1.5rem] mb-8 hover:text-[#C01C30]">
           <FaChevronLeft /> Case Study
@@ -96,13 +95,13 @@ const DetailWork = () => {
               </div>
               <div className='w-[100%] md:w-auto mt-5 md:mt-16'>
                 <h1 className="text-3xl lg:text-[2rem] font-['montserrat-bold'] mb-3">{"acf" in detail && detail.acf.title}</h1>
-                <h2 className="text-xl lg:text-[1.5rem] font-['montserrat-bold']">{"title" in detail &&  detail.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for '+ detail.title.rendered.split(/&#8211;/g)[0] : ''}</h2>
+                <h2 className="text-3xl lg:text-[2rem] font-['montserrat-bold']">{"title" in detail &&  detail.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for Client '+ detail.title.rendered.split(/&#8211;/g)[0] : ''}</h2>
               </div>
             </div>
           </div>
 
           {/* Metrics */}
-          <div className={`grid grid-cols-1 ${"acf" in detail && detail.acf.metric.length >= 3 ? 'md:grid-cols-3' : "acf" in detail && detail.acf.metric.length == 2 ? 'md:grid-cols-2' : "acf" in detail && detail.acf.metric.length === 1 ? 'md:grid-cols-1' : 'md:grid-cols-3'} md:gap-8 mt-8 mb-12 md:justify-items-center`}>
+          <div className={`grid grid-cols-1 ${"acf" in detail && detail.acf.metric.length >= 3 ? 'md:grid-cols-3' : "acf" in detail && detail.acf.metric.length == 2 ? 'md:grid-cols-2' : "acf" in detail && detail.acf.metric.length === 1 ? 'md:grid-cols-1' : 'md:grid-cols-3'} md:gap-8 mt-12 mb-12 md:justify-items-center`}>
             {"acf" in detail && detail.acf.metric.map((metric, index) =>
               <div key={index} className="md:text-center px-8 py-2">
                 <div className="pb-2 font-['montserrat-medium'] text-[1.5rem]">{metric.metric_name}</div>
@@ -125,12 +124,12 @@ const DetailWork = () => {
 
           {/* Content Sections */}
           <section className="mb-12 px-8">
-            <h3 className="text-2xl lg:text-[2rem] font-['montserrat-semibold'] mb-4">Background</h3>
+            <h3 className="text-2xl lg:text-[2rem] font-['montserrat-semibold'] mb-4 lg:mb-6">Background</h3>
             <p className="md:text-lg lg:text-[1.8rem] !leading-[1.5] text-[#231F20]" dangerouslySetInnerHTML={"acf" in detail && detail.acf.background ? { __html: detail.acf.background } : { __html: '' }}></p>
           </section>
 
           <section className="mb-12 px-8">
-            <h3 className="text-2xl lg:text-[2rem] font-['montserrat-semibold'] mb-4">Execution</h3>
+            <h3 className="text-2xl lg:text-[2rem] font-['montserrat-semibold'] mb-4 lg:mb-6">Execution</h3>
             <p className="md:text-lg lg:text-[1.8rem] !leading-[1.5] text-[#231F20] mb-6" dangerouslySetInnerHTML={"acf" in detail && detail.acf.execution ? { __html: detail.acf.execution } : { __html: '' }}></p>
             
             {/* Campaign Images */}
@@ -180,7 +179,7 @@ const DetailWork = () => {
           </section>
 
           <section className="mb-12 px-8">
-            <h3 className="text-2xl lg:text-[2rem] font-['montserrat-semibold'] mb-4">Results</h3>
+            <h3 className="text-2xl lg:text-[2rem] font-['montserrat-semibold'] mb-4 lg:mb-6">Results</h3>
             <p className="md:text-lg lg:text-[1.8rem] !leading-[1.5] text-[#231F20] mb-6" dangerouslySetInnerHTML={"acf" in detail && detail.acf.result ? { __html: detail.acf.result } : { __html: '' }}></p>
           </section>
         </div>

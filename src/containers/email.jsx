@@ -30,7 +30,7 @@ const Email = () => {
           <motion.h3
             initial={{ opacity: 0, translateY: '-1.5rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
-            transition={{ duration: 0.5 }}  
+            transition={{ duration: 0.1 }}  
             className='text-3xl md:text-[2.5rem] lg:text-[3rem] leading[1.2] md:leading-[1.1] py-12 md:py-4 font-["montserrat-bold"]'
           >
             Contact Us & Let&apos;s Collaborate!
@@ -38,7 +38,7 @@ const Email = () => {
           <motion.p 
             initial={{ opacity: 0, translateY: '-1.5rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
-            transition={{ duration: 0.5, delay: 0.5 }} 
+            transition={{ duration: 0.5, delay: 0.2 }} 
             className='lg:text-[1.5rem]'
           >
             Say us a Hello. Get to know each other. Tell us your story. We listen. We tell you our story. 
@@ -47,7 +47,7 @@ const Email = () => {
           <motion.p
             initial={{ opacity: 0, translateY: '-1.5rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
-            transition={{ duration: 0.5, delay: 0.7 }}  
+            transition={{ duration: 0.5, delay: 0.3 }}  
             className='my-5 md:my-10 lg:text-[1.5rem]'
           >
             Oh hey, we haven’t even start the conversation, but it looks like we already miss you. Please drop us a line.

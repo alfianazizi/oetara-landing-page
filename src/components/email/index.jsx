@@ -99,7 +99,7 @@ const ContactForm = () => {
                     ref={headerRef} 
                     initial={{ opacity: 0, translateY: '-1.5rem' }} 
                     animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
-                    transition={{ duration: 0.5, delay: 0.8 }} 
+                    transition={{ duration: 0.5 }} 
                     className="text-[#C01C30] text-[2rem] md:text-[2.5rem] lg:text-[4.168rem] font-['montserrat-semibold'] mb-3 md:mb-10"
                 >
                     Get in touch
@@ -108,7 +108,7 @@ const ContactForm = () => {
                     ref={headerRef}
                     initial={{ opacity: 0, translateY: '-1.5rem' }} 
                     animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
-                    transition={{ duration: 0.5, delay: 0.9 }}  
+                    transition={{ duration: 0.5, delay: 0.1 }}  
                     className="text-[#606060] text-sm md:text-[1.341rem] font-['montserrat-medium'] leading-[1.2] mb-10"
                 >
                     Leave us your details and a member of our team will get back to you as soon as possible.
@@ -120,7 +120,7 @@ const ContactForm = () => {
                         ref={contactInfoRef}
                         initial={{ opacity: 0, translateX: '-1.5rem' }} 
                         animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                        transition={{ duration: 0.5, delay: 1 }}  
+                        transition={{ duration: 0.5, delay: 0.2 }}  
                         className=""
                     >
                         <img src={pin} alt="" className='w-12 h-12 md:w-16 lg:h-16' />
@@ -133,7 +133,7 @@ const ContactForm = () => {
                             ref={contactInfoRef}
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 1.1 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
                             className="text-[#383838] font-['montserrat-bold'] md:text-[1.2rem] mb-1 md:mb-2"
                         >
                             Location
@@ -142,7 +142,7 @@ const ContactForm = () => {
                             ref={contactInfoRef}
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 1.2 }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
                             className="text-[#606060] text-[0.7rem] md:text-[1rem] font-['montserrat-medium']"
                         >
                             Jade Sedayu No.27, Gading Serpong, <br></br>
@@ -156,7 +156,7 @@ const ContactForm = () => {
                         ref={contactInfoRef}
                         initial={{ opacity: 0, translateX: '-1.5rem' }} 
                         animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                        transition={{ duration: 0.5, delay: 1.2 }} 
+                        transition={{ duration: 0.5, delay: 0.5 }} 
                         className=""
                     >
                         <img src={envelope} alt="" className='w-12 h-12 md:w-16 lg:h-16' />
@@ -166,7 +166,7 @@ const ContactForm = () => {
                             ref={contactInfoRef}
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 1.3 }} 
+                            transition={{ duration: 0.5, delay: 0.6 }} 
                             className="text-[#383838] font-['montserrat-bold'] md:text-[1.2rem] mb-1 md:mb-2"
                         >
                             Email Us
@@ -175,7 +175,7 @@ const ContactForm = () => {
                             ref={contactInfoRef} 
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 1.4 }} 
+                            transition={{ duration: 0.5, delay: 0.7 }} 
                             className="text-[#606060] text-[0.7rem] md:text-[1rem] font-['montserrat-medium']"
                         >
                             syamsan@oetara.co.id<br/>kevin@oetara.co.id
@@ -188,7 +188,7 @@ const ContactForm = () => {
                         ref={contactInfoRef}
                         initial={{ opacity: 0, translateX: '-1.5rem' }} 
                         animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                        transition={{ duration: 0.5, delay: 1.5 }}  
+                        transition={{ duration: 0.5, delay: 0.8 }}  
                         className=""
                     >
                         <img src={phone} alt="" className='w-12 h-12 md:w-16 lg:h-16' />
@@ -198,7 +198,7 @@ const ContactForm = () => {
                             ref={contactInfoRef} 
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 1.6 }} 
+                            transition={{ duration: 0.5, delay: 0.9 }} 
                             className="text-[#383838] font-['montserrat-bold'] md:text-[1.2rem] mb-1 md:mb-2"
                         >
                             Call Us
@@ -207,7 +207,7 @@ const ContactForm = () => {
                             ref={contactInfoRef}
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 1.7 }} 
+                            transition={{ duration: 0.5, delay: 1 }} 
                             className="text-[#606060] text-[0.7rem] md:text-[1rem] font-['montserrat-medium']"
                         >
                             +628131771202<br/>+628571831390

@@ -133,7 +133,7 @@ const DetailWork = () => {
             <p className="md:text-lg lg:text-[1.8rem] !leading-[1.5] text-[#231F20] mb-6" dangerouslySetInnerHTML={"acf" in detail && detail.acf.execution ? { __html: detail.acf.execution } : { __html: '' }}></p>
             
             {/* Campaign Images */}
-            <div className={`${campaign === 'gif' ? 'grid grid-flow-col auto-cols-[25%]' : 'flex flex-wrap w-full'} gap-2 my-12 bg-[#C01C30]/10 p-2 rounded-[10px]`}>
+            <div className={`${campaign === 'gif' ? 'grid grid-flow-col auto-cols-[25%]' : 'flex flex-wrap w-full'} my-12 bg-[#C01C30]/10 p-2 rounded-[10px]`}>
               {"acf" in detail && detail.acf.work_gallery.map((item, key) => {
                 if (item.type === 'video') {
                   return (
@@ -168,7 +168,7 @@ const DetailWork = () => {
                         key={key}
                         src={item.url}
                         alt={`Campaign ${item}`}
-                        className={`${detail.acf.work_gallery.length === 1 ? 'w-full' : 'w-[32.333%]'} 
+                        className={`${detail.acf.work_gallery.length === 1 ? 'w-full' : 'w-1/3 p-1'} 
                           h-auto md:h-[50vh] object-contain md:object-cover`}
                       />
                     );

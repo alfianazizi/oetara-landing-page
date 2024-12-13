@@ -93,9 +93,9 @@ const DetailWork = () => {
                   </svg>
                 }
               </div>
-              <div className='w-[100%] md:w-auto mt-5 md:mt-16'>
-                <h1 className="text-3xl lg:text-[2rem] font-['montserrat-bold'] mb-3">{"acf" in detail && detail.acf.title}</h1>
-                <h2 className="text-3xl lg:text-[2rem] font-['montserrat-bold']">{"title" in detail &&  detail.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for Client '+ detail.title.rendered.split(/&#8211;/g)[0] : ''}</h2>
+              <div className='w-[100%] md:w-auto mt-5 md:mt-[7rem]'>
+                <h1 className="text-3xl lg:text-[38.6pt] leading-[1.2] font-['montserrat-bold'] mb-3">{"acf" in detail && detail.acf.title}</h1>
+                <h2 className="text-3xl lg:text-[38.6pt] leading-[1.2] font-['montserrat-bold']">{"title" in detail &&  detail.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for Client '+ detail.title.rendered.split(/&#8211;/g)[0] : ''}</h2>
               </div>
             </div>
           </div>
@@ -104,9 +104,9 @@ const DetailWork = () => {
           <div className={`grid grid-cols-1 ${"acf" in detail && detail.acf.metric.length >= 3 ? 'md:grid-cols-3' : "acf" in detail && detail.acf.metric.length == 2 ? 'md:grid-cols-2' : "acf" in detail && detail.acf.metric.length === 1 ? 'md:grid-cols-1' : 'md:grid-cols-3'} md:gap-8 mt-12 mb-12 md:justify-items-center`}>
             {"acf" in detail && detail.acf.metric.map((metric, index) =>
               <div key={index} className="md:text-center px-8 py-2">
-                <div className="pb-2 font-['montserrat-medium'] text-[1.5rem]">{metric.metric_name}</div>
+                <div className="pb-4 font-['montserrat-medium'] text-[18pt]">{metric.metric_name}</div>
                 <div className="flex flex-nowrap md:flex-wrap w-[50%] md:w-[100%]">
-                  <div className="text-[#FF2935] text-4xl lg:text-[3rem] font-['montserrat-extrabold'] w-[100%]">
+                  <div className="text-[#FF2935] text-4xl lg:text-[41pt] font-['montserrat-extrabold'] w-[100%]">
                     {metric.metric_type !== 'number' ? 
                       metric.metric_value 
                     : 
@@ -116,7 +116,7 @@ const DetailWork = () => {
                       />
                     }
                   </div>
-                  <div className="text-[#FF2935] font-['montserrat-bold'] lg:text-[1.5rem] ml-2 md:ml-0 mt-2 md:mt-3 w-[100%]">{metric.metric_label}</div>
+                  <div className="text-[#FF2935] font-['montserrat-bold'] lg:text-[21pt] ml-2 md:ml-0 mt-2 md:mt-3 w-[100%]">{metric.metric_label}</div>
                 </div>
               </div>
             )}

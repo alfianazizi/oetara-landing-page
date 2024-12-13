@@ -50,7 +50,7 @@ const CaseStudy = () => {
             {list.map((item, key) => (
               <motion.div 
                 initial={{ opacity: 0, scale: 0 }} 
-                animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.5 * key } }} 
+                animate={{ opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.1 * key } }} 
                 whileHover={{ scale: 1.02 }}
                 key={item.id} 
                 className={`relative group cursor-pointer rounded-lg overflow-hidden

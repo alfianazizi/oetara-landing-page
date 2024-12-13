@@ -248,7 +248,14 @@ const Navigator = () => {
 
       {/* Our Navigators Section */}
       <section className="relative ">
-        <img src={bg_texture} alt="" className='w-full h-[50vh] md:h-[100vh] object-cover opacity-[50%]' />
+        <div 
+          className="absolute w-full h-[1vh] inset-0 -mt-1 bg-white backdrop-blur-md z-[10]"
+          style={{ 
+            boxShadow: '0 0 100px 28px white',
+            WebkitBackdropFilter: 'blur(8px)'
+          }}
+        ></div>
+        <img src={bg_texture} alt="" className='w-full h-[50vh] md:h-[100vh] object-cover opacity-50' />
         <OurNavigator data={team} />
       </section>
 

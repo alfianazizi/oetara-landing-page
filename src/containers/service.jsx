@@ -147,6 +147,13 @@ const Service = () => {
       
       {/* Stages of Service */}
       <div className="relative">
+        <div 
+          className="absolute w-full h-[1vh] inset-0 -mt-1 bg-white backdrop-blur-md z-[10]"
+          style={{ 
+            boxShadow: '0 0 100px 28px white',
+            WebkitBackdropFilter: 'blur(8px)'
+          }}
+        ></div>
         <img src={texture} alt="texture" className="w-full h-[100vh] opacity-50" />
         <div className="absolute top-1/2 md:top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 container px-5 lg:px-10">
           <div>

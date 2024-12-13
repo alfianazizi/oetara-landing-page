@@ -62,7 +62,7 @@ const Email = () => {
               className="bg-white shadow-xl md:shadow-2xl rounded-xl px-8 py-8 lg:px-16 lg:py-16 w-full min-h-full relative z-[10]"
               style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 50px'}}
             >
-              <ContactUs ref={null} />
+              <ContactUs data={info} />
             </div>
           </div>
         </div>

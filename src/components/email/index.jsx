@@ -5,7 +5,7 @@ import pin from '../../assets/pattern/SVG/pin.svg';
 import phone from '../../assets/pattern/SVG/phone.svg';
 import envelope from '../../assets/pattern/SVG/email.svg';
 
-const ContactForm = () => {
+const ContactForm = ({ data }) => {
     const [body, setBody] = useState({ name: '', email: '', subject: '', message: '' })
     const [error, setError] = useState({ name: '', email: '', subject: '', message: '' });
     const [message, setMessage] = useState('');
@@ -115,105 +115,126 @@ const ContactForm = () => {
                 </motion.p>
 
                 <div className="space-y-8">
+                    <div className="flex items-center w-[100%] space-x-3">
+                        <motion.div
+                            ref={contactInfoRef}
+                            initial={{ opacity: 0, translateX: '-1.5rem' }} 
+                            animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
+                            transition={{ duration: 0.5, delay: 0.2 }}  
+                            className=""
+                        >
+                            <img src={pin} alt="" className='w-12 h-12 md:w-16 lg:h-16' />
+                            {/* <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                            </svg> */}
+                        </motion.div>
+                        <div className="text-sm md:text-[16px] w-[80%]">
+                            <motion.p 
+                                ref={contactInfoRef}
+                                initial={{ opacity: 0, translateX: '-1.5rem' }} 
+                                animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
+                                transition={{ duration: 0.5, delay: 0.3 }}
+                                className="text-[#383838] font-['montserrat-bold'] md:text-[1.2rem] mb-1 md:mb-2"
+                            >
+                                Location
+                            </motion.p>
+                            <motion.p 
+                                ref={contactInfoRef}
+                                initial={{ opacity: 0, translateX: '-1.5rem' }} 
+                                animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
+                                transition={{ duration: 0.5, delay: 0.4 }}
+                                className="text-[#606060] text-[0.7rem] md:text-[1rem] font-['montserrat-medium']"
+                            >
+                                {data && "acf" in data ? data.acf.address : ''}
+                                {/* Jade Sedayu No.27, Gading Serpong, <br></br>
+                                Jl Pondok Hijau Golf Raya, Tangerang. */}
+                            </motion.p>
+                        </div>
+                    </div>
+
                     <div className="flex items-center space-x-3">
-                    <motion.div
-                        ref={contactInfoRef}
-                        initial={{ opacity: 0, translateX: '-1.5rem' }} 
-                        animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                        transition={{ duration: 0.5, delay: 0.2 }}  
-                        className=""
-                    >
-                        <img src={pin} alt="" className='w-12 h-12 md:w-16 lg:h-16' />
-                        {/* <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                        </svg> */}
-                    </motion.div>
-                    <div className="text-sm md:text-[16px]">
-                        <motion.p 
+                        <motion.div
                             ref={contactInfoRef}
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                            className="text-[#383838] font-['montserrat-bold'] md:text-[1.2rem] mb-1 md:mb-2"
+                            transition={{ duration: 0.5, delay: 0.5 }} 
+                            className=""
                         >
-                            Location
-                        </motion.p>
-                        <motion.p 
-                            ref={contactInfoRef}
-                            initial={{ opacity: 0, translateX: '-1.5rem' }} 
-                            animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                            className="text-[#606060] text-[0.7rem] md:text-[1rem] font-['montserrat-medium']"
-                        >
-                            Jade Sedayu No.27, Gading Serpong, <br></br>
-                            Jl Pondok Hijau Golf Raya, Tangerang.
-                        </motion.p>
+                            <img src={envelope} alt="" className='w-12 h-12 md:w-16 lg:h-16' />
+                        </motion.div>
+                        <div className="text-sm md:text-[16px] w-[80%]">
+                            <motion.p 
+                                ref={contactInfoRef}
+                                initial={{ opacity: 0, translateX: '-1.5rem' }} 
+                                animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
+                                transition={{ duration: 0.5, delay: 0.6 }} 
+                                className="text-[#383838] font-['montserrat-bold'] md:text-[1.2rem] mb-1 md:mb-2"
+                            >
+                                Email Us
+                            </motion.p>
+                            <div
+                                className="text-[#606060] text-[0.7rem] md:text-[1rem] font-['montserrat-medium']"
+                            >
+                                {data && "acf" in data ? 
+                                    data.acf.emails.map((item, index) => 
+                                        <motion.p 
+                                            key={index}
+                                            ref={contactInfoRef} 
+                                            initial={{ opacity: 0, translateX: '-1.5rem' }} 
+                                            animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
+                                            transition={{ duration: 0.5, delay: 0.2 * index }} 
+                                            className='mb-1'
+                                        >
+                                            {item.email}
+                                        </motion.p>
+                                    )
+                                : ''
+                                }
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div className="flex items-center space-x-3">
-                    <motion.div
-                        ref={contactInfoRef}
-                        initial={{ opacity: 0, translateX: '-1.5rem' }} 
-                        animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                        transition={{ duration: 0.5, delay: 0.5 }} 
-                        className=""
-                    >
-                        <img src={envelope} alt="" className='w-12 h-12 md:w-16 lg:h-16' />
-                    </motion.div>
-                    <div className="text-sm md:text-[16px]">
-                        <motion.p 
+                    <div className="flex items-center space-x-3">
+                        <motion.div
                             ref={contactInfoRef}
                             initial={{ opacity: 0, translateX: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 0.6 }} 
-                            className="text-[#383838] font-['montserrat-bold'] md:text-[1.2rem] mb-1 md:mb-2"
+                            transition={{ duration: 0.5, delay: 0.8 }}  
+                            className=""
                         >
-                            Email Us
-                        </motion.p>
-                        <motion.p
-                            ref={contactInfoRef} 
-                            initial={{ opacity: 0, translateX: '-1.5rem' }} 
-                            animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 0.7 }} 
-                            className="text-[#606060] text-[0.7rem] md:text-[1rem] font-['montserrat-medium']"
-                        >
-                            syamsan@oetara.co.id<br/>kevin@oetara.co.id
-                        </motion.p>
+                            <img src={phone} alt="" className='w-12 h-12 md:w-16 lg:h-16' />
+                        </motion.div>
+                        <div className="text-sm md:text-[16px] w-[80%]">
+                            <motion.p
+                                ref={contactInfoRef} 
+                                initial={{ opacity: 0, translateX: '-1.5rem' }} 
+                                animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
+                                transition={{ duration: 0.5, delay: 0.9 }} 
+                                className="text-[#383838] font-['montserrat-bold'] md:text-[1.2rem] mb-1 md:mb-2"
+                            >
+                                Call Us
+                            </motion.p>
+                            <div 
+                                className="text-[#606060] text-[0.7rem] md:text-[1rem] font-['montserrat-medium']"
+                            >
+                                {data && "acf" in data ? 
+                                    data.acf.contacts.map((item, index) => 
+                                        <motion.p 
+                                            key={index}
+                                            ref={contactInfoRef}
+                                            initial={{ opacity: 0, translateX: '-1.5rem' }} 
+                                            animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
+                                            transition={{ duration: 0.5, delay: 0.2 * index }} 
+                                            className='mb-1'
+                                        >
+                                            {item.phone} {item.name !== "" ? `(${item.name})` : ''}
+                                        </motion.p>
+                                    )
+                                : ''
+                                }
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div className="flex items-center space-x-3">
-                    <motion.div
-                        ref={contactInfoRef}
-                        initial={{ opacity: 0, translateX: '-1.5rem' }} 
-                        animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                        transition={{ duration: 0.5, delay: 0.8 }}  
-                        className=""
-                    >
-                        <img src={phone} alt="" className='w-12 h-12 md:w-16 lg:h-16' />
-                    </motion.div>
-                    <div className="text-sm md:text-[16px]">
-                        <motion.p
-                            ref={contactInfoRef} 
-                            initial={{ opacity: 0, translateX: '-1.5rem' }} 
-                            animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 0.9 }} 
-                            className="text-[#383838] font-['montserrat-bold'] md:text-[1.2rem] mb-1 md:mb-2"
-                        >
-                            Call Us
-                        </motion.p>
-                        <motion.p 
-                            ref={contactInfoRef}
-                            initial={{ opacity: 0, translateX: '-1.5rem' }} 
-                            animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 1 }} 
-                            className="text-[#606060] text-[0.7rem] md:text-[1rem] font-['montserrat-medium']"
-                        >
-                            +628131771202<br/>+628571831390
-                        </motion.p>
-                    </div>
-                </div>
             </div>
             </div>
 

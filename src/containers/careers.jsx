@@ -318,7 +318,7 @@ const Careers = () => {
           </div>
 
           {/* Right Side - Details Panel */}
-          <div className="hidden lg:inline-block w-2/3 h-[80vh] border border-[#FF2935] bg-white rounded-lg p-8" style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}>
+          <div className="hidden lg:inline-block w-2/3 h-[80vh] overflow-y-scroll scroll-tab border border-[#FF2935] bg-white rounded-lg p-8" style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}>
             {selectedJobIndex !== null && detail ? (
               <>
                 <h3 className="text-2xl font-['montserrat-bold'] mb-4">{detail.acf.job_title}</h3>

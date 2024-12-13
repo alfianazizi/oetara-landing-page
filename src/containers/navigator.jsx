@@ -261,17 +261,17 @@ const Navigator = () => {
       </section>
 
       {/* Join Team Section - Updated */}
-      <section className="relative lg:mb-20 overflow-hidden h-[80vh] lg:h-[100vh]">
+      <section className="relative lg:mb-20 overflow-hidden h-[40vh] lg:h-[100vh]">
         <img 
           src={nav_4}
           alt="Team working together" 
-          className="absolute bottom-[30%] md:bottom-0 w-full object-contain lg:object-cover"
+          className="absolute top-0 md:bottom-0 w-full object-contain lg:object-cover"
         />
         <OurTeam handleJoinClick={handleJoinClick} />
       </section>
 
       {/* Clients Section */}
-      <section className="mb-20 h-auto min-h-[50vh] lg:h-[80vh] flex justify-center items-center mt-14 lg:mt-0">
+      <section className="mb-20 h-auto min-h-[50vh] lg:h-[80vh] flex justify-center items-center mt-20 lg:mt-0">
         <div className="w-full">
           <h2 className="text-2xl md:text-3xl lg:text-[4rem] font-['montserrat-semibold'] text-[#C01C30] text-center mb-8 md:mb-12 lg:mb-[8rem]">
             Our Clients

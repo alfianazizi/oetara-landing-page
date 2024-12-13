@@ -52,11 +52,9 @@ const Definition = () => {
     }, [startAnimation]);
 
     const rotatingBg = useTransform(rotate, (r) => {
-        // When rotation is complete (360), return solid color
         if (r === 360) {
             return '#EC1C24';
         }
-        // Add 225 degrees to make gradient start from top-left
         return `linear-gradient(${r + 45}deg, #EC1C24 0%, #161616 50%, #161616 100%)`;
     });
 

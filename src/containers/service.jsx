@@ -148,13 +148,17 @@ const Service = () => {
       {/* Stages of Service */}
       <div className="relative">
         <div 
-          className="absolute w-full h-[1vh] inset-0 -mt-1 bg-white backdrop-blur-md z-[10]"
+          className="absolute w-full h-[0.5rem] inset-0 -mt-12 bg-white backdrop-blur-md z-[10]"
           style={{ 
-            boxShadow: '0 0 100px 28px white',
-            WebkitBackdropFilter: 'blur(8px)'
+            boxShadow: '0 0 60px 40px white',
+            WebkitBackdropFilter: 'blur(100px)'
           }}
         ></div>
-        <img src={texture} alt="texture" className="w-full h-[100vh] opacity-50" />
+        <img 
+          src={texture} alt="" 
+          className='w-full h-[50vh] md:h-[100vh] object-cover' 
+          style={{ opacity: 0.1 }} 
+        />
         <div className="absolute top-1/2 md:top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 container px-5 lg:px-10">
           <div>
             <motion.h2

@@ -22,7 +22,9 @@ const Footer = () => {
     return (
         <div className="bg-[#1E1E1E] flex justify-center items-center text-white py-16">
                 <div className="px-5 container lg:px-10">
-                    <img src={logo_full} alt="Oetara" className="h-12 mb-12" />
+                    <Link to="/">
+                        <img src={logo_full} alt="Oetara" className="h-12 mb-12" />
+                    </Link>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-20 !text-white">
                         {/* Company Section */}
                         <div>

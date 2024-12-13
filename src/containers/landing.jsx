@@ -10,9 +10,13 @@ import OurWork from '../components/landing/work';
 
 import '../assets/css/landing.css';
 import ContactUs from '../components/landing/contact';
+import { useEffect } from 'react';
 
 
 const Landing = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
     return (
         <>
             <Hero cover={cover} cover_mobile={cover_mobile} jalur={jalur} />

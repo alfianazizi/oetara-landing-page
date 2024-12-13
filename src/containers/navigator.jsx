@@ -281,9 +281,9 @@ const Navigator = () => {
             <div>
               {i === 1 ? 
                 <>
-                  <div className='flex flex-col gap-4 hidden md:inline-block'>
+                  <div className='md:flex gap-4 hidden'>
                     <Marquee direction="right" className='w-full' speed={40}>
-                      {item.row.map(a =>
+                      {item.row.concat(item.row, item.row).map(a =>  // Duplicate the items by concatenating the array three times
                         <div key={a.id} className="px-4">
                           {a.acf.logo !== "" ? (
                             <img 
@@ -303,7 +303,7 @@ const Navigator = () => {
                   </div>
                   <div className='flex flex-col gap-4 md:hidden'>
                     <Marquee direction="right" className='w-full' speed={40}>
-                      {item.row.slice(0, Math.ceil(item.row.length / 2)).map(a =>
+                      {item.row.concat(item.row, item.row).slice(0, Math.ceil(item.row.length / 2)).map(a =>  // Duplicate and slice for mobile view
                         <div key={a.id} className="px-4">
                           {a.acf.logo !== "" ? (
                             <img 
@@ -321,7 +321,7 @@ const Navigator = () => {
                       )}
                     </Marquee>
                     <Marquee direction="left" className='w-full' speed={40}>
-                      {item.row.slice(Math.ceil(item.row.length / 2)).map(a =>
+                      {item.row.concat(item.row, item.row).slice(Math.ceil(item.row.length / 2)).map(a =>  // Duplicate and slice for mobile view
                         <div key={a.id} className="px-4">
                           {a.acf.logo !== "" ? (
                             <img 
@@ -342,7 +342,7 @@ const Navigator = () => {
                 </>
               :
                 <Marquee className='w-full' speed={40}>
-                  {item.row.map(a =>
+                  {item.row.concat(item.row, item.row).map(a =>  // Duplicate the items by concatenating the array three times
                     <div key={a.id} className="px-4">
                       {a.acf.logo !== "" ? (
                         <img 

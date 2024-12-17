@@ -49,8 +49,7 @@ const Headers = () => {
                         {link}
                         {(activeLink === link.toLowerCase() || hoveredLink === link) && (
                             <span className="absolute inset-0 bg-[#C01C30] rounded-xl -z-10 
-                            transition-all duration-300 
-                            animate-slideIn"></span>
+                            transition-all duration-300 "></span>
                         )}
                     </a>
                 ))}

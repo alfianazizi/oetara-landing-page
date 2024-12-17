@@ -290,7 +290,7 @@ const ContactForm = ({ data }) => {
                             animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                             transition={{ duration: 0.5, delay: 1.2 }}
                             value={body.subject}
-                            className="w-full px-4 md:px-6 py-2 mt-3 md:py-3 md:text-[1.3rem] border-[1.16px] border-[#929497] 
+                            className="w-full px-4 md:px-6 py-2 mt-0 md:py-3 md:text-[1.3rem] border-[1.16px] border-[#929497] 
                             placeholder:text-[#BBBDBF] rounded-full focus:outline-none focus:ring-1 focus:ring-[#C01C30] bg-white
                             appearance-none cursor-pointer"
                             onChange={(e) => {setBody({...body, subject: e.target.value }), setError({...error, subject: ''})}}

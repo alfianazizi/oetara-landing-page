@@ -70,7 +70,7 @@ const OurService = () => {
                     initial={{ opacity: 0, translateY: '-2rem' }} 
                     animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                     transition={{ duration: 1}} 
-                    className="text-[2rem] lg:text-[4rem] text-center font-['montserrat-semibold'] text-[#C01C30] mb-8"
+                    className="text-[2rem] lg:text-[4rem] text-center font-['montserrat-semibold'] text-[#C01C30] mb-[2rem]"
                 >
                     Our Service
                 </motion.p>
@@ -81,11 +81,11 @@ const OurService = () => {
                             key={key} 
                             initial={{ opacity: 0, scale: 0 }} 
                             animate={isVisible ? { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.1 * key } } : {}} 
-                            className="bg-white rounded-[7%] cursor-pointer py-4 lg:py-8 px-5 lg:px-8 xl:px-10 max-w-xs hover:!scale-[1.03] !transition-transform !duration-300 ease-in-out"
+                            className="bg-white rounded-[7%] cursor-pointer py-3 lg:py-8 px-5 lg:px-8 xl:px-10 max-w-xs hover:!scale-[1.03] !transition-transform !duration-300 ease-in-out"
                             style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}
                         >
                             <div className="flex justify-center">
-                                <div className="bg-[#F0F1F1]/100 p-5 rounded-full opacity-[100%]">
+                                <div className="bg-[#F0F1F1]/100 p-6 md:p-5 rounded-full opacity-[100%]">
                                     <img src={item.icon} alt="" className='w-12 h-12 lg:w-20 lg:h-20' />
                                 </div>
                             </div>

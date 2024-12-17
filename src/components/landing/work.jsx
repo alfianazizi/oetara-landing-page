@@ -139,9 +139,9 @@ const OurWork = () => {
                 <span className="md:mt-2 md:text-2xl">→</span>
               </div> */}
               <div className="absolute cursor-pointer rounded-xl inset-0 bg-black/[76%] text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                <p className="text-[1rem] md:text-[1.498rem] font-['montserrat-semibold'] md:mb-6">{item.title}</p>
-                {item && item.desc && <p className="text-[1rem] md:text-[1.592rem] font-['montserrat-bold'] md:mb-6">{item.desc}</p>}
-                <span className="md:mt-2 text-[1.5rem] md:text-[3rem]">→</span>
+                <p className="text-[0.8rem] md:text-[1.498rem] font-['montserrat-semibold'] md:mb-6">{item.title}</p>
+                {item && item.desc && <p className="text-[0.8rem] md:text-[1.592rem] font-['montserrat-bold'] md:mb-6">{item.desc}</p>}
+                <span className="md:mt-2 text-[1rem] md:text-[3rem]">→</span>
             </div>
             </motion.div>
           ))}
@@ -156,8 +156,8 @@ const OurWork = () => {
             style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}
             onClick={() => handleWork()}
           >
-            <span className="lg:text-[18px] mr-5">See all our work</span>
-            <FaChevronRight size={18} />
+            <span className="text-[14px] lg:text-[18px] mr-5">See all our work</span>
+            <FaChevronRight className="text-[14px] lg:text-[18px]" />
           </motion.button>
         </div>
       </div>

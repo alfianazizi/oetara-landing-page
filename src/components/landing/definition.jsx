@@ -60,7 +60,7 @@ const Definition = () => {
 
     return (
         <div 
-            className="bg-[#161616] h-[110vh] text-white relative definition-top rounded-b-[10%] md:rounded-b-[5%] lg:rounded-b-[10%] z-[2]"
+            className="bg-[#161616] h-[110vh] md:h-[130vh] text-white relative definition-top rounded-b-2xl md:rounded-b-[5%] lg:rounded-b-[5%] z-[2]"
             style={{ boxShadow: '0 -10px 20px #161616' }}
         >
             <div className="flex flex-col w-full justify-center items-center h-full gap-10 lg:gap-[8rem]">
@@ -138,7 +138,7 @@ const Definition = () => {
                         </motion.div>
                     </motion.div>
                 </div>
-                <div className=" lg:w-[900px]">
+                <div className="mt-[5rem] lg:w-[900px]">
                     <motion.p 
                         ref={ref}
                         initial={{ opacity: 0, translateY: '-2rem' }} 

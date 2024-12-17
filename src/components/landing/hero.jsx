@@ -59,39 +59,11 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                                 Direc
                             </motion.p>
                             <motion.p
-                                initial={{opacity: 0, marginLeft: '5px' }}
-                                animate={{ opacity: 1, marginLeft: 0 }}
+                                initial={{opacity: 0, marginTop: '2rem' }}
+                                animate={{ opacity: 1, marginTop: 0 }}
                                 transition={{ delay: 1.7, ease: "backOut" }}
                             >
-                                t
-                            </motion.p>
-                            <motion.p
-                                initial={{opacity: 0, marginLeft: '5px' }}
-                                animate={{ opacity: 1, marginLeft: 0 }}
-                                transition={{ delay: 1.8, ease: "backOut" }}
-                            >
-                                i
-                            </motion.p>
-                            <motion.p
-                                initial={{opacity: 0, marginLeft: '5px' }}
-                                animate={{ opacity: 1, marginLeft: 0 }}
-                                transition={{ delay: 1.9, ease: "backOut" }}
-                            >
-                                o
-                            </motion.p>
-                            <motion.p
-                                initial={{opacity: 0, marginLeft: '5px' }}
-                                animate={{ opacity: 1, marginLeft: 0 }}
-                                transition={{ delay: 2, ease: "backOut" }}
-                            >
-                                n
-                            </motion.p>
-                            <motion.p
-                                initial={{opacity: 0, marginLeft: '5px' }}
-                                animate={{ opacity: 1, marginLeft: 0 }}
-                                transition={{ delay: 2.1, ease: "backOut" }}
-                            >
-                                s
+                                tions
                             </motion.p>
                         </div>
                     </motion.div>
@@ -109,7 +81,7 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                     className="animate-draw w-[100%] h-[100vh]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 2.9 }}
+                    transition={{ delay: 3.5 }}
                 />
             </motion.div>
             <motion.img 
@@ -119,7 +91,7 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                 initial={{
                     opacity: 1,
                     scale: 1.1,
-                    y: 50,
+                    y: 600,
                     rotateX: 10
                 }}
                 animate={{
@@ -133,7 +105,7 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                     ease: "easeOut",
                     opacity: { duration: 1.5 },
                     scale: { duration: 2.2 },
-                    y: { duration: 1.8 }
+                    y: { duration: 1.8, delay: 0.8 },
                 }}
             />
             <motion.div 

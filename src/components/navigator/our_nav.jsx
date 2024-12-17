@@ -34,7 +34,7 @@ const OurNavigator = ({data}) => {
                 initial={{ opacity: 0, translateY: '-2rem' }} 
                 animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-3xl md:text-[4rem] font-['montserrat-semibold'] text-[#C01C30] text-center mb-4 md:mb-10"
+                className="text-3xl md:text-[4rem] font-['montserrat-semibold'] text-[#C01C30] text-center mb-8 md:mb-10"
             >
                 Our Navigators
             </motion.h2>
@@ -43,7 +43,7 @@ const OurNavigator = ({data}) => {
                 initial={{ opacity: 0, translateY: '-2rem' }} 
                 animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-center text-[#231F20] mb-12 text-xl md:text-[2rem] md:px-[10%] leading-[1.3]"
+                className="text-center text-[#231F20] mb-12 md:text-[2rem] md:px-[10%] leading-[1.3]"
             >
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
             </motion.p>

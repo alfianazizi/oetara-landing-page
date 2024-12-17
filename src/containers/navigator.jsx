@@ -14,6 +14,7 @@ import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import OurNavigator from '../components/navigator/our_nav';
 import OurTeam from '../components/navigator/our_team';
 import { getClient, getTeam } from '../api/navigator';
+import '../assets/css/navigator.css'
 
 
 const Navigator = () => {
@@ -139,7 +140,7 @@ const Navigator = () => {
 
   return (
     <div className="">  
-      <div className='mx-auto container md:mt-10 h-[100vh] px-5 lg:px-10'>
+      <div className='mx-auto container md:mt-10 h-section1 px-5 lg:px-10'>
         {/* Hero Section */}
         <section className="py-16">
           <motion.h1 
@@ -254,7 +255,7 @@ const Navigator = () => {
         <img 
           src={bg_texture} 
           alt="" 
-          className='w-full h-[50vh] md:h-[100vh] object-cover' 
+          className='w-full h-section2 object-cover' 
           style={{ opacity: 0.48 }}
         />
         <OurNavigator data={team} />
@@ -289,7 +290,7 @@ const Navigator = () => {
                             <img 
                               src={a.acf.logo.url} 
                               alt="client" 
-                              className='w-24 lg:w-32 object-contain' 
+                              className='w-24 lg:w-48 object-contain' 
                             /> 
                           ) : (
                             <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
@@ -348,7 +349,7 @@ const Navigator = () => {
                         <img 
                           src={a.acf.logo.url} 
                           alt="client" 
-                          className='w-24 lg:w-32 object-contain' 
+                          className='w-24 lg:w-48 object-contain' 
                         /> 
                       ) : (
                         <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">

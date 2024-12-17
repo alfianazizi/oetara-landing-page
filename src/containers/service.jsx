@@ -104,7 +104,7 @@ const Service = () => {
           initial={{ opacity: 0, translateY: '-1.5rem' }} 
           animate={{ opacity: 1, translateY: 0 }} 
           transition={{ duration: 0.5, delay: 0.2 }} 
-          className="text-[#231F20] text-[1.5rem] my-4 lg:my-8"
+          className="text-[#231F20] lg:text-[1.5rem] my-4 lg:my-8"
         >
           OETARA is a maps where top strategic, creative, Influencer, and analysts who
           called themselves "Navigator" let us show you the right path
@@ -113,7 +113,7 @@ const Service = () => {
           initial={{ opacity: 0, translateY: '-1.5rem' }} 
           animate={{ opacity: 1, translateY: 0 }} 
           transition={{ duration: 0.5, delay: 0.3 }}  
-          className="text-[#231F20] text-[1.5rem] my-8 lg:my-16"
+          className="text-[#231F20] lg:text-[1.5rem] my-8 lg:my-16"
         >
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
           nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
@@ -130,7 +130,7 @@ const Service = () => {
               style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}
             >
                 <div className="flex justify-center">
-                    <div className="bg-[#F0F1F1] p-0 rounded-full">
+                    <div className="bg-[#F0F1F1] p-5 rounded-full">
                         <img src={item.icon} alt="" className='w-12 h-12 lg:w-20 lg:h-20' />
                     </div>
                 </div>
@@ -152,7 +152,7 @@ const Service = () => {
         ></div>
         <img 
           src={texture} alt="" 
-          className='w-full h-[50vh] md:h-[100vh] object-cover' 
+          className='w-full h-[100vh] object-cover' 
           style={{ opacity: 0.48 }} 
         />
         <div className="absolute top-1/2 md:top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 container px-5 lg:px-10">
@@ -198,7 +198,7 @@ const Service = () => {
                   {/* Card dengan border putih dan shadow */}
                   <div className={`bg-white px-1 py-1 rounded-none md:rounded-lg shadow-lg relative`} style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}>
                     {/* Badge nomor dengan warna merah */}
-                    <div className="flex items-center">
+                    <div className="flex items-center h-[8vh] md:h-[10vh]">
                       <div className="bg-[#C01C30] text-white rounded-sm md:rounded-lg py-1 md:py-2 px-2 md:px-4 m-0 lg:m-4 text-[10px] md:text-[1.4rem] font-['montserrat-bold']">
                         {stage.number}
                       </div>
@@ -210,10 +210,6 @@ const Service = () => {
                         alt={stage.title}
                         className="w-full h-20 md:h-48  rounded-none md:rounded-md shadow-image object-cover"
                       />
-                      {/* <svg className='rounded-none md:rounded-lg shadow-image object-cover' viewBox="0 0 290 227">
-                          <rect width="100%" height="100%" fill="lightgray" />
-                          <text x="145" y="113.5" textAnchor="middle" dominantBaseline="middle" fill="gray" fontSize="14">Image Stage Of Service</text>
-                      </svg> */}
                     </div>
                   </div>
                 </motion.div>

@@ -79,6 +79,7 @@ const Footer = () => {
 
                                     return (
                                         <a 
+                                            key={key}
                                             href={item.url} 
                                             target='_blank' 
                                             className="bg-[#C01C30] text-white p-2 rounded-full transition-all duration-300 hover:scale-105 hover:text-white h-[40px] w-[40px] flex items-center justify-center">

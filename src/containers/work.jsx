@@ -81,9 +81,9 @@ const CaseStudy = () => {
                   </svg>
                 }
                 {/* Hover Overlay */}
-                <div className="absolute rounded-xl inset-0 bg-black/[76%] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white">
-                  <p className="md:text-[1.498rem] font-['montserrat-semibold'] md:mb-8">{item.title.rendered.indexOf('/&#8211;/g') === -1 ? item.title.rendered.split(/&#8211;/g)[1] : item.title.rendered.replace(/&#8211;/g, '–')}</p>
-                  {item && item.title && <p className="text-sm md:text-[1.592rem] font-['montserrat-bold'] md:mb-6">{item.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for '+ item.title.rendered.split(/&#8211;/g)[0] : ''}</p>}
+                <div className="absolute rounded-xl inset-0 bg-black/[76%] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-2 text-center">
+                  <p className="text-[0.8rem] md:text-[1.498rem] font-['montserrat-semibold'] md:mb-8">{item.title.rendered.indexOf('/&#8211;/g') === -1 ? item.title.rendered.split(/&#8211;/g)[1] : item.title.rendered.replace(/&#8211;/g, '–')}</p>
+                  {item && item.title && <p className="text-[0.8rem] md:text-[1.592rem] font-['montserrat-bold'] md:mb-6">{item.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for '+ item.title.rendered.split(/&#8211;/g)[0] : ''}</p>}
                   <span className="md:mt-2 md:text-[3rem]">→</span>
                 </div>
               </motion.div>

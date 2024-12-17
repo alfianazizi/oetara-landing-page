@@ -1,10 +1,11 @@
 import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { getWorkById } from '../api/work';
 import CountUp from 'react-countup';
 import { getClientById } from '../api/navigator';
 import { FaChevronLeft } from 'react-icons/fa6';
+import ReactVisibilitySensor from 'react-visibility-sensor';
 
 const DetailWork = () => {
   const { slug } = useParams();
@@ -13,11 +14,23 @@ const DetailWork = () => {
   const [isLoad, setIsLoad] = useState(false);
   const [photo, setPhoto] = useState('');
   const [campaign, setCampaign] = useState('');
+  const videoRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    handleDetailWork()
-  }, [])
+    handleDetailWork();
+  }, []);
+
+  useEffect(() => {
+    if (isVisible && videoRef.current) {
+      videoRef.current.play();
+    } else {
+      if (videoRef.current && videoRef.current.pause) {
+        videoRef.current.pause();
+      }
+    }
+  }, [isVisible]);
 
   const handleDetailWork = async () => {
     setIsLoad(true)
@@ -50,15 +63,17 @@ const DetailWork = () => {
   }
 
   return (
-    <div className="mx-auto py-8">
-      <div className="flex justify-center items-center lg:mt-10">
-        <Link to="/work" className="hidden container px-5 md:px-10 md:flex items-center gap-2 text-[#929497] font-['montserrat-bold'] text-[1.5rem] mb-8 hover:text-[#C01C30]">
-          <FaChevronLeft /> Case Study
-        </Link>
+    <div className="mx-auto py-8 md:py-0">
+      <div className="absolute inset-0 py-12 z-[10]">
+        <div className="flex justify-center items-center mt-8 lg:mt-12">
+          <Link to="/work" className="container px-5 md:px-10 flex items-center gap-2 text-white font-['montserrat-bold'] md:text-[1.5rem] mb-8 hover:text-[#C01C30]">
+            <FaChevronLeft /> Case Study
+          </Link>
+        </div>
       </div>
 
       {/* Hero Section */}
-      <div className="relative h-[200px] md:h-[300px] lg:h-[50vh] overflow-hidden mt-8 md:mt-0">
+      <div className="relative h-[120px] md:h-[300px] lg:h-[35vh] overflow-hidden mt-8 md:mt-0">
         {!isLoad ? 
           <div 
             className="absolute inset-0 bg-cover bg-center brightness-50"
@@ -81,7 +96,7 @@ const DetailWork = () => {
       
       <div className="flex justify-center items-center">
         <div className="container">
-          <div className="relative px-7 flex items-center gap-6 -mt-[1rem] md:-mt-[6rem]">
+          <div className="relative px-7 flex items-center gap-6 -mt-[3rem] md:-mt-[6rem]">
             <div className="flex items-center lg:justify-center flex-wrap md:flex-nowrap gap-2 md:gap-8">
               <div className='w-auto flex items-center bg-white rounded-[10%]' style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}>
                 {photo !== '' ? 
@@ -94,33 +109,37 @@ const DetailWork = () => {
                 }
               </div>
               <div className='w-[100%] md:w-auto mt-5 md:mt-[7rem]'>
-                <h1 className="text-3xl lg:text-[38.6pt] leading-[1.2] font-['montserrat-bold'] mb-3">{"acf" in detail && detail.acf.title}</h1>
-                <h2 className="text-3xl lg:text-[38.6pt] leading-[1.2] font-['montserrat-bold']">{"title" in detail &&  detail.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for Client '+ detail.title.rendered.split(/&#8211;/g)[0] : ''}</h2>
+                <h1 className="text-2xl lg:text-[38.6pt] leading-[1.2] font-['montserrat-bold'] mb-3">{"acf" in detail && detail.acf.title}</h1>
+                <h2 className="text-2xl lg:text-[38.6pt] leading-[1.2] font-['montserrat-bold']">{"title" in detail &&  detail.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for Client '+ detail.title.rendered.split(/&#8211;/g)[0] : ''}</h2>
               </div>
             </div>
           </div>
 
           {/* Metrics */}
-          <div className={`grid grid-cols-1 ${"acf" in detail && detail.acf.metric.length >= 3 ? 'md:grid-cols-3' : "acf" in detail && detail.acf.metric.length == 2 ? 'md:grid-cols-2' : "acf" in detail && detail.acf.metric.length === 1 ? 'md:grid-cols-1' : 'md:grid-cols-3'} md:gap-8 mt-12 mb-12 md:justify-items-center`}>
-            {"acf" in detail && detail.acf.metric.map((metric, index) =>
-              <div key={index} className="md:text-center px-8 py-2">
-                <div className="pb-4 font-['montserrat-medium'] text-[18pt]">{metric.metric_name}</div>
-                <div className="flex flex-nowrap md:flex-wrap w-[50%] md:w-[100%]">
-                  <div className="text-[#FF2935] text-4xl lg:text-[41pt] font-['montserrat-extrabold'] w-[100%]">
-                    {metric.metric_type !== 'number' ? 
-                      metric.metric_value 
-                    : 
-                      <CountUp
-                        start={0}
-                        end={metric.metric_value}
-                      />
-                    }
+          {detail && "acf" in detail && detail.acf.metric.length > 1 ?
+            <div className={`grid grid-cols-1 ${"acf" in detail && detail.acf.metric.length >= 3 ? 'md:grid-cols-3' : "acf" in detail && detail.acf.metric.length == 2 ? 'md:grid-cols-2' : "acf" in detail && detail.acf.metric.length === 1 ? 'md:grid-cols-1' : 'md:grid-cols-3'} md:gap-8 mt-6 md:mt-12 mb-12 md:justify-items-center`}>
+              {"acf" in detail && detail.acf.metric.map((metric, index) =>
+                <div key={index} className="md:text-center px-8 py-2">
+                  <div className="pb-1 md:pb-4 font-['montserrat-medium'] md:text-[18pt]">{metric.metric_name}</div>
+                  <div className="flex flex-nowrap md:flex-wrap w-[50%] md:w-[100%] pb-3 mb:pb-0">
+                    <div className="text-[#FF2935] text-4xl lg:text-[41pt] font-['montserrat-extrabold'] w-[100%]">
+                      {metric.metric_type !== 'number' ? 
+                        metric.metric_value 
+                      : 
+                        <CountUp
+                          start={0}
+                          end={metric.metric_value}
+                        />
+                      }
+                    </div>
+                    <div className="text-[#FF2935] font-['montserrat-bold'] lg:text-[21pt] ml-2 md:ml-0 mt-2 md:mt-3 w-[100%]">{metric.metric_label}</div>
                   </div>
-                  <div className="text-[#FF2935] font-['montserrat-bold'] lg:text-[21pt] ml-2 md:ml-0 mt-2 md:mt-3 w-[100%]">{metric.metric_label}</div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          :
+              <div className='pt-8 md:pt-20'></div>
+          }
 
           {/* Content Sections */}
           <section className="mb-12 px-8">
@@ -137,14 +156,17 @@ const DetailWork = () => {
               {"acf" in detail && detail.acf.work_gallery.map((item, key) => {
                 if (item.type === 'video') {
                   return (
-                    <video 
-                      key={key} 
-                      src={item.url} 
-                      controls={false}
-                      autoPlay={true}
-                      playsInline
-                      className="w-full object-contain cursor-pointer"
-                    ></video>
+                    <ReactVisibilitySensor onChange={(isVisible) => setIsVisible(isVisible)}>
+                      <video 
+                        key={key} 
+                        src={item.url} 
+                        controls={false}
+                        autoPlay={false}
+                        playsInline
+                        ref={videoRef}
+                        className="w-full object-contain cursor-pointer"
+                      ></video>
+                    </ReactVisibilitySensor>
                   );
                 } else {
                   if (item.subtype === 'gif') {

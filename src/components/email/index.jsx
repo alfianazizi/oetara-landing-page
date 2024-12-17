@@ -193,53 +193,54 @@ const ContactForm = ({ data }) => {
                             </div>
                         </div>
                     </div>
-
-                    <div className="flex items-center space-x-3">
-                        <motion.div
-                            ref={contactInfoRef}
-                            initial={{ opacity: 0, translateX: '-1.5rem' }} 
-                            animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                            transition={{ duration: 0.5, delay: 0.8 }}  
-                            className=""
-                        >
-                            <img src={phone} alt="" className='w-12 h-12 md:w-16 lg:h-16' />
-                        </motion.div>
-                        <div className="text-sm md:text-[16px] w-[80%]">
-                            <motion.p
-                                ref={contactInfoRef} 
+                    {data && "acf" in data && data.acf.contacts.length < 0 ?
+                        <div className="flex items-center space-x-3">
+                            <motion.div
+                                ref={contactInfoRef}
                                 initial={{ opacity: 0, translateX: '-1.5rem' }} 
                                 animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                                transition={{ duration: 0.5, delay: 0.9 }} 
-                                className="text-[#383838] font-['montserrat-bold'] md:text-[1.2rem] mb-1 md:mb-2"
+                                transition={{ duration: 0.5, delay: 0.8 }}  
+                                className=""
                             >
-                                Call Us
-                            </motion.p>
-                            <div 
-                                className="text-[#606060] text-[0.7rem] md:text-[1rem] font-['montserrat-medium']"
-                            >
-                                {data && "acf" in data ? 
-                                    data.acf.contacts.map((item, index) => 
-                                        <motion.p 
-                                            key={index}
-                                            ref={contactInfoRef}
-                                            initial={{ opacity: 0, translateX: '-1.5rem' }} 
-                                            animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
-                                            transition={{ duration: 0.5, delay: 0.2 * index }} 
-                                            className='mb-1'
-                                        >
-                                            {item.phone} {item.name !== "" ? `(${item.name})` : ''}
-                                        </motion.p>
-                                    )
-                                : ''
-                                }
-                            </div>
+                                <img src={phone} alt="" className='w-12 h-12 md:w-16 lg:h-16' />
+                            </motion.div>
+                                <div className="text-sm md:text-[16px] w-[80%]">
+                                    <motion.p
+                                        ref={contactInfoRef} 
+                                        initial={{ opacity: 0, translateX: '-1.5rem' }} 
+                                        animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
+                                        transition={{ duration: 0.5, delay: 0.9 }} 
+                                        className="text-[#383838] font-['montserrat-bold'] md:text-[1.2rem] mb-1 md:mb-2"
+                                    >
+                                        Call Us
+                                    </motion.p>
+                                    <div 
+                                        className="text-[#606060] text-[0.7rem] md:text-[1rem] font-['montserrat-medium']"
+                                    >
+                                        {data && "acf" in data ? 
+                                            data.acf.contacts.map((item, index) => 
+                                                <motion.p 
+                                                    key={index}
+                                                    ref={contactInfoRef}
+                                                    initial={{ opacity: 0, translateX: '-1.5rem' }} 
+                                                    animate={isVisible ? { opacity: 1, translateX: 0 } : {}} 
+                                                    transition={{ duration: 0.5, delay: 0.2 * index }} 
+                                                    className='mb-1'
+                                                >
+                                                    {item.phone} {item.name !== "" ? `(${item.name})` : ''}
+                                                </motion.p>
+                                            )
+                                        : ''
+                                        }
+                                    </div>
+                                </div>
                         </div>
-                    </div>
+                    : ''}
             </div>
             </div>
 
             {/* Contact Form Side */}
-            <div className="lg:w-1/2 md:mt-10">
+            <div className="lg:w-1/2 md:mt-2">
                 <form onSubmit={(e) => handleSubmit(e)} className="space-y-4">
                     <motion.input
                         ref={formRef}

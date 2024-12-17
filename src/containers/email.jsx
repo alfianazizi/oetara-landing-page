@@ -25,13 +25,13 @@ const Email = () => {
   return (
     
     <div className="sm:email-container w-full min-h-screen flex flex-col overflow-x-hidden">
-      <div className="flex justify-center items-center h-[70vh]md:h-[30vh] lg:h-[50vh]">
-        <div className="contact-header container mt-10 md:mt-16 !mb-5 md:!mb-10 px-6 md:px-10">
+      <div className="flex justify-center items-center h-[70vh] lg:h-[50vh]">
+        <div className="contact-header container py-16 mt-10 md:mt-[5rem] !mb-5 md:!mb-10 px-6 md:px-10">
           <motion.h3
             initial={{ opacity: 0, translateY: '-1.5rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
             transition={{ duration: 0.1 }}  
-            className='text-3xl md:text-[2.5rem] lg:text-[3rem] leading[1.2] md:leading-[1.1] py-12 md:py-4 font-["montserrat-bold"]'
+            className='text-3xl md:text-[2.5rem] lg:text-[3rem] font-["montserrat-bold"] mt-5 md:mt-0 mb-6 md:mb-8'
           >
             Contact Us & Let&apos;s Collaborate!
           </motion.h3>

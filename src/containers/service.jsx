@@ -120,7 +120,7 @@ const Service = () => {
         </motion.p>
 
         {/* Services Grid - Update the styling */}
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-5 pt-[2rem] pb-24">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 pt-[2rem] pb-24">
           {our_service.map((item, key) => 
             <motion.div 
               initial={{ opacity: 0, scale: 0 }} 

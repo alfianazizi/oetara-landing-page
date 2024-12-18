@@ -94,7 +94,7 @@ const Team = () => {
           initial={{ opacity: 0, translateY: '-1.5rem' }} 
           animate={{ opacity: 1, translateY: 0 }} 
           transition={{ duration: 0.5, delay: 0.2 }} 
-          className="text-[#231F20] text-[1.5rem] my-4 lg:mb-20 lg:mt-8"
+          className="text-[#231F20] lg:text-[1.5rem] my-4 lg:mb-20 lg:mt-8"
         >
           We are Navigators not only crafting the right message but also setting 
           the measurable goals and will be your guidance through Digital World 

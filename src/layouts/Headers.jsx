@@ -105,7 +105,7 @@ const Headers = () => {
                 setIsMenuOpen(false);
                 setIsHamburger({ isMenu: true, isClose: false })
               }}
-              className={`px-3 py-4 text-xl ${
+              className={`px-3 py-4 text-xl text-black hover:text-[#C01C30] ${
                 activeLink === link.toLowerCase() ? 'bg-[#C01C30] text-white w-[100%] text-center' : ''
               }`}
             >

@@ -46,7 +46,7 @@ const CaseStudy = () => {
         </motion.p>
 
         {!isLoad ? 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
             {list.map((item, key) => (
               <motion.div 
                 initial={{ opacity: 0, scale: 0 }} 

@@ -65,7 +65,7 @@ const DetailWork = () => {
   return (
     <div className="mx-auto py-8 md:py-0">
       <div className="absolute inset-0 py-12 z-[10]">
-        <div className="flex justify-center items-center mt-8 lg:mt-12">
+        <div className="hidden md:flex justify-center items-center mt-8 lg:mt-12">
           <Link to="/work" className="container px-5 md:px-10 flex items-center gap-2 text-white font-['montserrat-bold'] md:text-[1.5rem] mb-8 hover:text-[#C01C30]">
             <FaChevronLeft /> Case Study
           </Link>

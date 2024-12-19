@@ -152,7 +152,7 @@ const DetailWork = () => {
             <p className="md:text-lg lg:text-[1.8rem] !leading-[1.5] text-[#231F20] mb-6" dangerouslySetInnerHTML={"acf" in detail && detail.acf.execution ? { __html: detail.acf.execution } : { __html: '' }}></p>
             
             {/* Campaign Images */}
-            <div className={`${campaign === 'gif' ? 'grid grid-flow-col auto-cols-[25%]' : 'flex flex-wrap w-full'} my-12 bg-[#C01C30]/10 p-2 rounded-[10px]`}>
+            <div className={`${campaign === 'gif' ? 'grid grid-cols-4 gap-2' : 'flex flex-wrap w-full'} my-12 bg-[#C01C30]/10 p-2 rounded-[10px]`}>
               {"acf" in detail && detail.acf.work_gallery.map((item, key) => {
                 if (item.type === 'video') {
                   return (
@@ -170,20 +170,31 @@ const DetailWork = () => {
                   );
                 } else {
                   if (item.subtype === 'gif') {
-                    const gifItems = detail.acf.work_gallery.filter(i => i.subtype === 'gif');
-                    const remainingGifs = gifItems.length < 4 ? 4 - gifItems.length : 0;
-                    const itemsToRender = [...gifItems, ...Array(remainingGifs).fill(null)];
-
-                    return itemsToRender.map((gifItem, index) => (
-                      gifItem && (
+                    if (detail.acf.work_gallery.length < 4) {
+                      const gifItems = detail.acf.work_gallery.filter(i => i.subtype === 'gif');
+                      const remainingGifs = gifItems.length < 4 ? 4 - gifItems.length : 0;
+                      const itemsToRender = remainingGifs.length >= 4 ? gifItems : [...gifItems, ...Array(remainingGifs).fill(null)];
+  
+                      return itemsToRender.map((gifItem, index) => (
+                        gifItem && (
+                          <img
+                            key={key + index}
+                            src={gifItem.url}
+                            alt={`Campaign ${gifItem}`}
+                            className="w-full h-auto md:h-[50vh] object-contain md:object-cover"
+                          />
+                        )
+                      ));
+                    } else {
+                      return (
                         <img
-                          key={key + index}
-                          src={gifItem.url}
-                          alt={`Campaign ${gifItem}`}
+                          key={key}
+                          src={item.url}
+                          alt={`Campaign ${key}`}
                           className="w-full h-auto md:h-[50vh] object-contain md:object-cover"
                         />
-                      )
-                    ));
+                      );
+                    }
                   } else {
                     return (
                       <img

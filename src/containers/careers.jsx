@@ -72,10 +72,20 @@ const Careers = () => {
     }
   }
 
+  const handleJobTypeSelect = (value) => {
+    setJobType(value);
+    setIsJobTypeModalOpen(false)
+  }
+
   const handleCategorySelect = (value) => {
     setCategory(value);
     setIsCategoryModalOpen(false);
   };
+
+  const handleExperienceSelect = (value) => {
+    setExperienceLevel(value);
+    setIsExperienceLevelModalOpen(false)
+  }
 
 
   // Function to close the modal with slide effect
@@ -119,7 +129,7 @@ const Careers = () => {
           <div>
             <div className="mb-12 text-center">
               <h1 className="text-lg lg:text-4xl font-['montserrat-bold'] mb-4">Find Jobs, Employment & Career Opportunities</h1>
-              <h2 className="text-5xl font-['montserrat-bold'] leading-[1.2]">
+              <h2 className="text-2xl lg:text-5xl font-['montserrat-bold'] leading-[1.2]">
                 Search Your Job<br />
                 & Join Our Team
               </h2>
@@ -132,10 +142,9 @@ const Careers = () => {
                 onChange={(e) => setJobType(e.target.value)}
                 className="hidden lg:inline-block p-3 pr-8 rounded-md bg-white text-[#231F20] font-['montserrat-semibold'] w-1/3 lg:min-w-[200px] appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:8px_8px] bg-[right_12px_center] bg-no-repeat"
               >
-                <option value="">Job Type</option>
-                <option value="full-time">Full Time</option>
-                <option value="part-time">Part Time</option>
-                <option value="contract">Contract</option>
+                <option value="" disabled selected>Job Type</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Internship">Internship</option>
               </select>
               <button 
                 onClick={() => setIsJobTypeModalOpen(true)} 
@@ -149,10 +158,11 @@ const Careers = () => {
                 onChange={(e) => setCategory(e.target.value)}
                 className="hidden lg:inline-block p-3 pr-8 rounded-md bg-white text-[#231F20] font-['montserrat-semibold'] w-1/3 lg:min-w-[200px] appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:8px_8px] bg-[right_12px_center] bg-no-repeat"
               >
-                <option value="">Category</option>
-                <option value="planning">Planning</option>
-                <option value="accounting">Accounting</option>
-                <option value="motion">Motion Graphics</option>
+                <option value="" disabled selected>Category</option>
+                <option value="Business Development">Business Development</option>
+                <option value="Operation Support">Operation Support</option>
+                <option value="Campaign Strategic">Campaign Strategic</option>
+                <option value="Creative">Creative</option>
               </select>
               <button 
                 onClick={() => setIsCategoryModalOpen(true)} 
@@ -166,9 +176,10 @@ const Careers = () => {
                 onChange={(e) => setExperienceLevel(e.target.value)}
                 className="hidden lg:inline-block p-3 pr-8 rounded-md bg-white text-[#231F20] font-['montserrat-semibold'] w-1/3 lg:min-w-[200px] appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:8px_8px] bg-[right_12px_center] bg-no-repeat"
               >
-                <option value="">Experience Level</option>
-                <option value="mid">Mid Level</option>
-                <option value="senior">Senior Level</option>
+                <option value="" disabled selected>Experience Level</option>
+                <option value="entry">Entry (0-3 years)</option>
+                <option value="mid">Mid (3-5 years)</option>
+                <option value="senior">Senior (5+ years)</option>
               </select>
               <button 
                 onClick={() => setIsExperienceLevelModalOpen(true)} 
@@ -185,24 +196,24 @@ const Careers = () => {
       {isJobTypeModalOpen && (
         <div className="fixed inset-0 z-[9] flex items-end justify-center bg-black bg-opacity-50">
           <div className="bg-white rounded-2xl  w-full lg:w-1/3">
-            <div className="flex justify-center">
+            <div className="flex justify-center" onClick={() => setIsJobTypeModalOpen(false)}>
               <div className="border-b-[8px] rounded-full border-[#58595B] my-5 w-[30%]"></div>
             </div>
             <div className="flex justify-between p-4">
               <h3 className="text-lg font-[400] mb-4">Job Level</h3>
               <div 
-                onClick={() => setIsJobTypeModalOpen(false)} 
+                onClick={() => {setIsJobTypeModalOpen(false), setJobType('')}} 
                 className="text-[#EC1C24]"
               >
                 Reset
               </div>
             </div>
             <div className="flex flex-wrap gap-2 px-4 pb-2">
-              {['All', 'Internship', 'Entry level', 'Associate', 'Mid-Senior level', 'Director'].map((cat) => (
+              {['All', 'Full-time', 'Internship'].map((cat) => (
                 <button 
                   key={cat} 
-                  onClick={() => handleCategorySelect(cat)} 
-                  className="py-2 px-6 text-left bg-white border text-xs border-[#BCBEC0] rounded-full hover:bg-gray-200 w-auto h-auto"
+                  onClick={() => handleJobTypeSelect(cat)} 
+                  className={`py-2 px-6 text-left ${jobType === cat ? 'bg-[#C01C30] text-white' : 'bg-white'} border text-xs border-[#BCBEC0] rounded-full hover:bg-gray-200 w-auto h-auto`}
                 >
                   {cat}
                 </button>
@@ -219,24 +230,24 @@ const Careers = () => {
       {isCategoryModalOpen && (
         <div className="fixed inset-0 z-[9] flex items-end justify-center bg-black bg-opacity-50">
           <div className="bg-white rounded-2xl  w-full lg:w-1/3">
-            <div className="flex justify-center">
+            <div className="flex justify-center" onClick={() => setIsCategoryModalOpen(false)} >
               <div className="border-b-[8px] rounded-full border-[#58595B] my-5 w-[30%]"></div>
             </div>
             <div className="flex justify-between p-4">
               <h3 className="text-lg font-[400] mb-4">Category</h3>
               <div 
-                onClick={() => setIsCategoryModalOpen(false)} 
+                onClick={() => {setIsCategoryModalOpen(false), setCategory('')}} 
                 className="text-[#EC1C24]"
               >
                 Reset
               </div>
             </div>
             <div className="flex flex-wrap gap-2 px-4 pb-2">
-              {['All', 'Internship', 'Entry level', 'Associate', 'Mid-Senior level', 'Director'].map((cat) => (
+              {['All', 'Business Development', 'Operation Support', 'Campaign Strategic', 'Creative'].map((cat) => (
                 <button 
                   key={cat} 
                   onClick={() => handleCategorySelect(cat)} 
-                  className="py-2 px-6 text-left bg-white border text-xs border-[#BCBEC0] rounded-full hover:bg-gray-200 w-auto h-auto"
+                  className={`py-2 px-6 text-left ${category === cat ? 'bg-[#C01C30] text-white' : 'bg-white'} border text-xs border-[#BCBEC0] rounded-full hover:bg-gray-200 w-auto h-auto`}
                 >
                   {cat}
                 </button>
@@ -253,24 +264,24 @@ const Careers = () => {
       {isExperienceLevelModalOpen && (
         <div className="fixed inset-0 z-[9] flex items-end justify-center bg-black bg-opacity-50">
           <div className="bg-white rounded-2xl  w-full lg:w-1/3">
-            <div className="flex justify-center">
+            <div className="flex justify-center" onClick={() => setIsExperienceLevelModalOpen(false)}>
               <div className="border-b-[8px] rounded-full border-[#58595B] my-5 w-[30%]"></div>
             </div>
             <div className="flex justify-between p-4">
               <h3 className="text-lg font-[400] mb-4">Experience Level</h3>
               <div 
-                onClick={() => setIsExperienceLevelModalOpen(false)} 
+                onClick={() => {setIsExperienceLevelModalOpen(false), setExperienceLevel('')}} 
                 className="text-[#EC1C24]"
               >
                 Reset
               </div>
             </div>
             <div className="flex flex-wrap gap-2 px-4 pb-2">
-              {['All', 'Internship', 'Entry level', 'Associate', 'Mid-Senior level', 'Director'].map((cat) => (
+              {['All', 'Entry (0-3 years)', 'Mid (3-5 years)', 'Senior (5+ years)'].map((cat) => (
                 <button 
                   key={cat} 
-                  onClick={() => handleCategorySelect(cat)} 
-                  className="py-2 px-6 text-left bg-white border text-xs border-[#BCBEC0] rounded-full hover:bg-gray-200 w-auto h-auto"
+                  onClick={() => handleExperienceSelect(cat)} 
+                  className={`py-2 px-6 text-left ${experienceLevel === cat ? 'bg-[#C01C30] text-white' : 'bg-white'} border text-xs border-[#BCBEC0] rounded-full hover:bg-gray-200 w-auto h-auto`}
                 >
                   {cat}
                 </button>

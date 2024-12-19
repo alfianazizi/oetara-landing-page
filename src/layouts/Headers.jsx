@@ -43,7 +43,7 @@ const Headers = () => {
                         onMouseEnter={() => setHoveredLink(link)}
                         onMouseLeave={() => setHoveredLink(null)}
                         className={`px-3 py-1 relative hover:text-black rounded-full box-border border-2 border-transparent hover:border-[#C01C30] transition-all duration-300 ${
-                            activeLink === link.toLowerCase() ? 'text-white bg-[#C01C30] hover:bg-transparent' : ''
+                            activeLink === link.toLowerCase() ? 'text-white bg-[#C01C30] hover:text-white' : ''
                         }`}
                     >
                         {link}

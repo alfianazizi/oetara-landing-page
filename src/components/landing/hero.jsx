@@ -72,7 +72,7 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.8 }} 
+                transition={{ delay: 1.2 }} 
                 className="hidden lg:inline-block absolute w-[100%]"
             >
                 <motion.img 
@@ -81,7 +81,6 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                     className="animate-draw w-[100%] h-[100vh]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 3.5 }}
                 />
             </motion.div>
             <motion.img 
@@ -101,11 +100,11 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                     rotateX: 0
                 }}
                 transition={{
-                    duration: 2,
+                    duration: 1.8,
                     ease: "easeOut",
                     opacity: { duration: 1.5 },
-                    scale: { duration: 2.2 },
-                    y: { duration: 1.8, delay: 0.8 },
+                    scale: { duration: 1.2 },
+                    y: { duration: 1, delay: 0.5, ease: [0.5, 0, 0.5, 1] },
                 }}
             />
             <motion.div 

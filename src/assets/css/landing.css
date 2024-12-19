@@ -39,7 +39,7 @@
 
 .animate-draw {
   animation: draw 3s ease-in-out forwards;
-  animation-delay: 2.9s;
+  animation-delay: 1.5s;
 }
 
 .route-container {

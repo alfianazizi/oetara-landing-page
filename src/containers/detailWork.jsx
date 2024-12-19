@@ -73,7 +73,7 @@ const DetailWork = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="relative h-[120px] md:h-[300px] lg:h-[35vh] overflow-hidden mt-8 md:mt-0">
+      <div className="relative h-[120px] md:h-[300px] lg:h-[30vh] overflow-hidden mt-8 md:mt-0">
         {!isLoad ? 
           <div 
             className="absolute inset-0 bg-cover bg-center brightness-50"
@@ -96,7 +96,7 @@ const DetailWork = () => {
       
       <div className="flex justify-center items-center">
         <div className="container">
-          <div className="relative px-7 flex items-center gap-6 -mt-[3rem] md:-mt-[6rem]">
+          <div className="relative px-7 flex items-center gap-6 -mt-[3rem] md:-mt-[8rem]">
             <div className="flex items-center lg:justify-center flex-wrap md:flex-nowrap gap-2 md:gap-8">
               <div className='w-auto flex items-center bg-white rounded-[10%]' style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}>
                 {photo !== '' ? 
@@ -108,9 +108,9 @@ const DetailWork = () => {
                   </svg>
                 }
               </div>
-              <div className='w-[100%] md:w-auto mt-5 md:mt-[7rem]'>
-                <h1 className="text-2xl lg:text-[38.6pt] leading-[1.2] font-['montserrat-bold'] mb-3">{"acf" in detail && detail.acf.title}</h1>
-                <h2 className="text-2xl lg:text-[38.6pt] leading-[1.2] font-['montserrat-bold']">{"title" in detail &&  detail.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for Client '+ detail.title.rendered.split(/&#8211;/g)[0] : ''}</h2>
+              <div className='w-[100%] md:w-auto mt-5 md:mt-[8.5rem]'>
+                <h1 className="text-2xl lg:text-[35pt] leading-[1.2] font-['montserrat-bold'] mb-3">{"acf" in detail && detail.acf.title}</h1>
+                <h2 className="text-2xl lg:text-[35pt] leading-[1.1] font-['montserrat-bold']">{"title" in detail &&  detail.title.rendered.indexOf('/&#8211;/g') === -1 ? 'for Client '+ detail.title.rendered.split(/&#8211;/g)[0] : ''}</h2>
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ const DetailWork = () => {
                 <div key={index} className="md:text-center px-8 py-2">
                   <div className="pb-1 md:pb-4 font-['montserrat-medium'] md:text-[18pt]">{metric.metric_name}</div>
                   <div className="flex flex-nowrap md:flex-wrap w-[50%] md:w-[100%] pb-3 mb:pb-0">
-                    <div className="text-[#FF2935] text-4xl lg:text-[41pt] font-['montserrat-extrabold'] w-[100%]">
+                    <div className="text-[#FF2935] text-4xl lg:text-[38pt] font-['montserrat-extrabold'] w-[100%]">
                       {metric.metric_type !== 'number' ? 
                         metric.metric_value 
                       : 

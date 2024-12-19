@@ -272,7 +272,7 @@ const Navigator = () => {
       </section>
 
       {/* Clients Section */}
-      <section className="mb-20 h-auto min-h-[50vh] lg:h-[80vh] flex justify-center items-center mt-20 lg:mt-0">
+      <section className="mb-20 h-auto min-h-[50vh] lg:h-[100vh] flex justify-center items-center mt-20 lg:mt-0">
         <div className="w-full">
           <h2 className="text-2xl md:text-3xl lg:text-[4rem] font-['montserrat-semibold'] text-[#C01C30] text-center mb-8 md:mb-12 lg:mb-[8rem]">
             Our Clients

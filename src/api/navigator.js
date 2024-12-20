@@ -1,7 +1,17 @@
 const apiUrl = 'https://cms.oetara.co.id/wp-json/wp/v2';
 const acf = 'acf_format=standard';
 const field = '_fields=id,modified,slug,status,title,acf';
-const field_by_id_name = '_fields=id,name'
+const field_by_id_name = '_fields=id,name';
+
+const getLetter = () => {
+    return fetch(apiUrl + '/navigator?'+acf+'&'+field)
+    .then(response =>{
+        return response.json()
+    })
+    .catch(err => {
+        return err
+    })
+}
 
 const getTeam = () => {
     return fetch(apiUrl + '/team?'+acf)
@@ -54,6 +64,7 @@ const getJob = () => {
 }
 
 export {
+    getLetter,
     getTeam,
     getNavTeam,
     getClient,

@@ -105,17 +105,14 @@ const Careers = () => {
 
   const handleJobTypeSelect = (value) => {
     setJobType(value);
-    setIsJobTypeModalOpen(false)
   }
 
   const handleCategorySelect = (value) => {
     setCategory(value);
-    setIsCategoryModalOpen(false);
   };
 
   const handleExperienceSelect = (value) => {
     setExperienceLevel(value);
-    setIsExperienceLevelModalOpen(false)
   }
 
   const handleFilterJobType = (value) => {
@@ -296,18 +293,24 @@ const Careers = () => {
               </div>
             </div>
             <div className="flex flex-wrap gap-2 px-4 pb-2">
-              {['All', 'Full-time', 'Internship'].map((cat) => (
-                <button 
-                  key={cat} 
-                  onClick={() => handleJobTypeSelect(cat)} 
-                  className={`py-2 px-6 text-left ${jobType === cat ? 'bg-[#C01C30] text-white' : 'bg-white'} border text-xs border-[#BCBEC0] rounded-full hover:bg-gray-200 w-auto h-auto`}
+              <button 
+                  onClick={() => handleJobTypeSelect('')}
+                  className={`py-2 px-6 text-left ${jobType === '' ? 'bg-[#C01C30] text-white' : 'bg-white'} border text-xs border-[#BCBEC0] rounded-full hover:bg-[#C01C30] w-auto h-auto`}
                 >
-                  {cat}
+                  All
+                </button>
+              {listJob.map((cat, key) => (
+                <button 
+                  key={key} 
+                  onClick={() => handleJobTypeSelect(cat.name)} 
+                  className={`py-2 px-6 text-left ${jobType === cat.name ? 'bg-[#C01C30] text-white' : 'bg-white'} border text-xs border-[#BCBEC0] rounded-full w-auto h-auto`}
+                >
+                  {cat.name}
                 </button>
               ))}
             </div>
             <div className='px-4 py-4'>
-              <button className="w-full text-white bg-[#C01C30] text-sm" onClick={() => setIsJobTypeModalOpen(false)}>Show Result</button>
+              <button className="w-full text-white bg-[#C01C30] text-sm" onClick={() => {handleFilterJobType(jobType), setIsJobTypeModalOpen(false)}}>Show Result</button>
             </div>      
           </div>
         </div>
@@ -330,18 +333,24 @@ const Careers = () => {
               </div>
             </div>
             <div className="flex flex-wrap gap-2 px-4 pb-2">
-              {['All', 'Business Development', 'Operation Support', 'Campaign Strategic', 'Creative'].map((cat) => (
+              <button 
+                onClick={() => handleCategorySelect('')} 
+                className={`py-2 px-6 text-left ${category === '' ? 'bg-[#C01C30] text-white' : 'bg-white'} border text-xs border-[#BCBEC0] rounded-full hover:bg-[#C01C30] w-auto h-auto`}
+              >
+                All
+              </button>
+              {listCategory.map((cat, key) => (
                 <button 
-                  key={cat} 
-                  onClick={() => handleCategorySelect(cat)} 
-                  className={`py-2 px-6 text-left ${category === cat ? 'bg-[#C01C30] text-white' : 'bg-white'} border text-xs border-[#BCBEC0] rounded-full hover:bg-gray-200 w-auto h-auto`}
+                  key={key} 
+                  onClick={() => handleCategorySelect(cat.name)} 
+                  className={`py-2 px-6 text-left ${category === cat.name ? 'bg-[#C01C30] text-white' : 'bg-white'} border text-xs border-[#BCBEC0] rounded-full hover:bg-[#C01C30] w-auto h-auto`}
                 >
-                  {cat}
+                  {cat.name}
                 </button>
               ))}
             </div>
             <div className='px-4 py-4'>
-              <button className="w-full text-white bg-[#C01C30] text-sm" onClick={() => setIsCategoryModalOpen(false)}>Show Result</button>
+              <button className="w-full text-white bg-[#C01C30] text-sm" onClick={() => {handleFilterJobCategory(category), setIsCategoryModalOpen(false)}}>Show Result</button>
             </div>      
           </div>
         </div>
@@ -364,18 +373,24 @@ const Careers = () => {
               </div>
             </div>
             <div className="flex flex-wrap gap-2 px-4 pb-2">
-              {['All', 'Entry (0-3 years)', 'Mid (3-5 years)', 'Senior (5+ years)'].map((cat) => (
+              <button 
+                onClick={() => handleExperienceSelect('')} 
+                className={`py-2 px-6 text-left ${experienceLevel === '' ? 'bg-[#C01C30] text-white' : 'bg-white'} border text-xs border-[#BCBEC0] rounded-full hover:bg-[#C01C30] w-auto h-auto`}
+              >
+                All
+              </button>
+              {listExperience.map((cat, key) => (
                 <button 
-                  key={cat} 
-                  onClick={() => handleExperienceSelect(cat)} 
-                  className={`py-2 px-6 text-left ${experienceLevel === cat ? 'bg-[#C01C30] text-white' : 'bg-white'} border text-xs border-[#BCBEC0] rounded-full hover:bg-gray-200 w-auto h-auto`}
+                  key={key} 
+                  onClick={() => handleExperienceSelect(cat.name)} 
+                  className={`py-2 px-6 text-left ${experienceLevel === cat.name ? 'bg-[#C01C30] text-white' : 'bg-white'} border text-xs border-[#BCBEC0] rounded-full hover:bg-[#C01C30] w-auto h-auto`}
                 >
-                  {cat}
+                  {cat.name}
                 </button>
               ))}
             </div>
             <div className='px-4 py-4'>
-              <button className="w-full text-white bg-[#C01C30] text-sm" onClick={() => setIsExperienceLevelModalOpen(false)}>Show Result</button>
+              <button className="w-full text-white bg-[#C01C30] text-sm" onClick={() => {handleFilterExperience(experienceLevel), setIsExperienceLevelModalOpen(false)}}>Show Result</button>
             </div>      
           </div>
         </div>
@@ -420,7 +435,7 @@ const Careers = () => {
             {selectedJobIndex !== null && detail ? (
               <>
                 <h3 className="text-2xl font-['montserrat-bold'] mb-4">{detail.acf.job_title}</h3>
-                <p className="text-[#231F20] text-[1.1rem] mb-6" dangerouslySetInnerHTML={{__html: detail.acf.job_position_description}}></p>
+                <div className="text-[#231F20] text-[1.1rem] mb-6" dangerouslySetInnerHTML={{__html: detail.acf.job_position_description}}></div>
                 
                 <h4 className="font-[montserrat-bold] mb-6">WHAT WILL YOU DO?</h4>
                 <div className="mb-6 text-[1rem] font-['montserrat-semibold']" dangerouslySetInnerHTML={{ __html: detail.acf.job_activity_description}} ></div>
@@ -445,24 +460,12 @@ const Careers = () => {
                   <div className="border-b-[8px] rounded-full border-[#58595B] my-5 w-[30%]"></div>
                 </div>
                 <div className='px-4 h-[80vh] overflow-x-scroll'>
-                  <h3 className="text-xl font-[600] pb-4 pt-6">{jobListings[0]['title']}</h3>
-                  <p>{jobListings[0]['description']}</p>
+                  <h4 className="text-2xl font-['montserrat-bold'] mb-4">{detail.acf.job_title}</h4>
+                  <div className="text-[#231F20] text-[1.1rem] mb-6" dangerouslySetInnerHTML={{__html: detail.acf.job_position_description}}></div>
 
                   <div className='py-6'>
-                    <h4 className="font-bold mb-6">WHAT WILL YOU DO?</h4>
-                    {Object.entries(jobListings[selectedJobIndex].responsibilities || {}).map(([category, items], idx) => (
-                      <div key={idx} className="mb-6">
-                        <p className="font-semibold mb-3">{`${idx + 1}. ${category}`}</p>
-                        <ul className="list-none space-y-3">
-                          {items.map((item, i) => (
-                            <li key={i} className="flex items-start">
-                              {/* <span className="w-2 h-2 bg-gray-400 rounded-full mr-3 mt-2"></span> */}
-                              <span className='ml-5'>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+                    <h4 className="font-[montserrat-bold] mb-6">WHAT WILL YOU DO?</h4>
+                    <div className="mb-6 text-[1rem] font-['montserrat-semibold']" dangerouslySetInnerHTML={{ __html: detail.acf.job_activity_description}} ></div>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3RgPhjSHg-GKy75tftNnppESmB1woIK0NJyPC5hlWqlGU_A/viewform" target="_blank">
                       <button className="bg-[#EC1C24] hover:bg-red-600 text-white px-4 py-2 text-sm rounded-full">
                         Apply Now

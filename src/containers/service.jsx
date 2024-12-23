@@ -232,7 +232,7 @@ const Service = () => {
                   <div className="grid grid-cols-3 md:grid-cols-3 gap-x-8 gap-y-8 md:gap-x-16 md:gap-y-20 mb-12 relative">
                     {stages.map((stage, index) => (
                       <motion.div 
-                        key={stage.id}
+                        key={stage.number}
                         initial={{ opacity: 0, translateY: '-1.5rem' }} 
                         animate={{ opacity: 1, translateY: 0 }} 
                         transition={{ 

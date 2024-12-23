@@ -127,7 +127,7 @@ const Service = () => {
           <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
           <div className="flex justify-center mt-10 md:mt-16">
           </div>
-          <div className="flex gap-4 lg:gap-5 mt-3">
+          <div className="flex flex-wrap lg:flex-nowrap gap-4 lg:gap-5 mt-3">
             <div className="flex items-center justify-center w-full h-80 bg-gray-300 rounded-[7%] sm:w-96 dark:bg-gray-700">
               <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                   <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
@@ -168,8 +168,8 @@ const Service = () => {
               animate={letter && 'acf' in letter ? { opacity: 1, translateY: 0 } : {}} 
               transition={{ duration: 0.5, delay: 0.2 }} 
               className="text-[#231F20] lg:text-[1.5rem] my-4 lg:my-8"
+              dangerouslySetInnerHTML={{ __html: letter && "acf" in letter ? letter.acf.description : ''}}
             >
-              {letter && "acf" in letter ? letter.acf.description : ''}
             </motion.p>
             {/* <motion.p
               initial={{ opacity: 0, translateY: '-1.5rem' }} 
@@ -201,7 +201,7 @@ const Service = () => {
                           <p className="font-['montserrat-bold'] py-0 text-[0.8rem] lg:text-[1rem]">{item.title.rendered}</p>
                           {/* <p className="font-['montserrat-bold'] py-0 text-[0.8rem] lg:text-[1rem]">{item.title.title_2}</p> */}
                       </div>
-                      <div className="py-2 md:py-3 text-center text-xs md:text-[0.917rem] leading-[1.5]">{item.acf.description}</div>
+                      <div className="py-2 md:py-3 text-center text-xs md:text-[0.917rem] leading-[1.5]" dangerouslySetInnerHTML={{ __html: item.acf.description }}>{}</div>
                   </motion.div>
                 )}
               </div>

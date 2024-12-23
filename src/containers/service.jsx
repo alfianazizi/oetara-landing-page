@@ -194,7 +194,7 @@ const Service = () => {
                   >
                       <div className="flex justify-center">
                           <div className="bg-[#F0F1F1] p-5 rounded-full">
-                              <img src={item.acf.icon} alt="" className='w-12 h-12 lg:w-20 lg:h-20' />
+                              <img src={our_service[key]['icon']} alt="" className='w-12 h-12 lg:w-20 lg:h-20' />
                           </div>
                       </div>
                       <div className="py-3 text-center">

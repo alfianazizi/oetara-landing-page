@@ -47,6 +47,7 @@ const Team = () => {
     try {
       // const chunkedTeam = sliceIntoChunks(result, 12);
       // setTeam(chunkedTeam);
+      console.log(result)
       getNavigatorTeam(result)
     } catch (err) {
       console.log(err);

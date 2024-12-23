@@ -216,7 +216,7 @@ const Service = () => {
               ></div>
               <img 
                 src={texture} alt="" 
-                className='w-full h-[100vh] object-cover' 
+                className='w-full h-[100vh] lg:h-[150vh] object-cover' 
                 style={{ opacity: 0.48 }} 
               />
               <div className="absolute top-1/2 md:top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 container px-5 lg:px-10">
@@ -225,7 +225,7 @@ const Service = () => {
                     initial={{ opacity: 0, translateY: '-1.5rem' }} 
                     animate={{ opacity: 1, translateY: 0 }} 
                     transition={{ duration: 0.5, delay: 1.8 }}  
-                    className="text-3xl md:text-[2.5rem] lg:text-[3rem] font-['montserrat-semibold'] text-center mb-12 text-[#DC2626]"
+                    className="text-3xl md:text-[2.5rem] lg:text-[3rem] font-['montserrat-semibold'] text-center mb-12 lg:mb-[5rem] text-[#DC2626]"
                   >
                     Stages of Service
                   </motion.h2>

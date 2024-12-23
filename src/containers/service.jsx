@@ -163,14 +163,14 @@ const Service = () => {
             >
               {letter && 'title' in letter && letter.title.rendered}
             </motion.h1>
-            <motion.p 
+            <motion.div
               initial={{ opacity: 0, translateY: '-1.5rem' }} 
               animate={letter && 'acf' in letter ? { opacity: 1, translateY: 0 } : {}} 
               transition={{ duration: 0.5, delay: 0.2 }} 
               className="text-[#231F20] lg:text-[1.5rem] my-4 lg:my-8"
-              dangerouslySetInnerHTML={{ __html: letter && "acf" in letter ? letter.acf.description : ''}}
+              dangerouslySetInnerHTML={{ __html: letter && "acf" in letter ? letter.acf.description.replace(/<p>/g, '<p class="mb-5">') : '' }}
             >
-            </motion.p>
+            </motion.div>
             {/* <motion.p
               initial={{ opacity: 0, translateY: '-1.5rem' }} 
               animate={letter && "acf" in letter ? { opacity: 1, translateY: 0 } : {}} 

@@ -25,8 +25,8 @@ const Email = () => {
   return (
     
     <div className="sm:email-container w-full min-h-screen flex flex-col overflow-x-hidden">
-      <div className="flex justify-center items-center h-[70vh] lg:h-[50vh]">
-        <div className="contact-header container py-16 mt-10 md:mt-[5rem] !mb-5 md:!mb-10 px-6 md:px-10">
+      <div className="flex justify-center items-start h-[70vh] lg:h-[50vh]">
+        <div className="contact-header container py-16 mt-10 md:mt-[3rem] !mb-5 md:!mb-10 px-6 md:px-10">
           <motion.h3
             initial={{ opacity: 0, translateY: '-1.5rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
@@ -35,23 +35,14 @@ const Email = () => {
           >
             Contact Us & Let&apos;s Collaborate!
           </motion.h3>
-          <motion.p 
+          <motion.div 
             initial={{ opacity: 0, translateY: '-1.5rem' }} 
             animate={{ opacity: 1, translateY: 0 }} 
             transition={{ duration: 0.5, delay: 0.2 }} 
             className='lg:text-[1.5rem]'
+            dangerouslySetInnerHTML={{ __html: info && "acf" in info && info.acf.header.replace(/<p>/g, '<p class="mb-5">') }}
           >
-            Say us a Hello. Get to know each other. Tell us your story. We listen. We tell you our story. 
-            You listen. Then you ask simple question. We answer. We ask you back. You answer. And then we getting closer and…
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, translateY: '-1.5rem' }} 
-            animate={{ opacity: 1, translateY: 0 }} 
-            transition={{ duration: 0.5, delay: 0.3 }}  
-            className='my-5 md:my-10 lg:text-[1.5rem]'
-          >
-            Oh hey, we haven’t even start the conversation, but it looks like we already miss you. Please drop us a line.
-          </motion.p>
+          </motion.div>
         </div>
       </div>
 

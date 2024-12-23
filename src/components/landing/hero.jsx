@@ -72,7 +72,7 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.2 }} 
+                transition={{ delay: 1.4 }} 
                 className="hidden lg:inline-block absolute w-[100%]"
             >
                 <motion.img 

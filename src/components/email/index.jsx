@@ -311,11 +311,17 @@ const ContactForm = ({ data }) => {
                         </motion.select>
                         
                         {/* Custom arrow */}
-                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center mt-3 px-4 md:px-6 text-gray-700">
+                        <motion.div 
+                            ref={formRef}
+                            initial={{ opacity: 0, translateY: '-1.5rem' }} 
+                            animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
+                            transition={{ duration: 0.5, delay: 1.3 }}
+                            className="pointer-events-none absolute inset-y-0 right-0 flex items-center mt-1 px-4 md:px-6 text-gray-700"
+                        >
                             <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                             </svg>
-                        </div>
+                        </motion.div>
                     </motion.div>
                     {error.subject && 
                         <motion.div

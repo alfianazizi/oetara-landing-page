@@ -91,7 +91,7 @@ const OurService = () => {
                     Our Service
                 </motion.p>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 justify-items-center">
-                    {list.map((item, key) => 
+                    {list.length > 0 && list.map((item, key) => 
                         <motion.div 
                             ref={ref}
                             key={key} 

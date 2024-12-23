@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import nav_4 from '../assets/image/navigation-web.png';
-import { getJob } from '../api/navigator';
+import { getJob, getJobCategory, getJobExperience, getJobType } from '../api/navigator';
 import { Link } from 'react-router-dom';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 
 const Careers = () => {
+  const [listJob, setListJob] = useState([]);
+  const [listCategory, setListCategory] = useState([]);
+  const [listExperience, setListExperience] = useState([]);
   const [jobType, setJobType] = useState('');
   const [category, setCategory] = useState('');
   const [experienceLevel, setExperienceLevel] = useState('');
@@ -14,6 +17,7 @@ const Careers = () => {
   const [isExperienceLevelModalOpen, setIsExperienceLevelModalOpen] = useState(false);
   const [isShowCareer, setIsShowCarieer] = useState(false)
   const [isSlidingOut, setIsSlidingOut] = useState(false);
+  const [allData, setAllData] = useState([]);
   const [careers, setCareers] = useState([]);
   const [detail, setDetail] = useState({})
 
@@ -61,11 +65,38 @@ const Careers = () => {
       description: '...',
     }
   ];
+
+  const getListJob = async () => {
+    const result = await getJobType();
+    try {
+      setListJob(result)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const getListCategory = async () => {
+    const result = await getJobCategory()
+    try {
+      setListCategory(result)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const getListExperience = async () => {
+    const result = await getJobExperience()
+    try {
+      setListExperience(result)
+    } catch (err) {
+      console.log(err)
+    }
+  }
   
   const handleJob = async () => {
     const result = await getJob();
     try {
-      console.log(result)
+      setAllData(result);
       setCareers(result)
     } catch (err) {
       console.log(err)
@@ -87,6 +118,59 @@ const Careers = () => {
     setIsExperienceLevelModalOpen(false)
   }
 
+  const handleFilterJobType = (value) => {
+    if (value !== '') {
+      const filtered = allData.filter(a => a.acf['job_type']['name'] === value);
+      setCareers(filtered)
+    } else {
+      setCareers(allData)
+    }
+    setCategory('')
+    setExperienceLevel('')
+  }
+
+  const handleFilterJobCategory = (value) => {
+    let filtered = allData.filter(a => a.acf['job_category']['name'] === value);
+    if (value !== '') {
+      filtered = allData.filter(a => a.acf['job_category']['name'] === value);
+      if (jobType !== '') {
+        filtered = allData.filter(a => a.acf['job_type']['name'] === jobType && a.acf['job_category']['name'] === value);
+      }
+      setCareers(filtered)
+    } else {
+      if (jobType !== '') {
+        filtered = allData.filter(a => a.acf['job_type']['name'] === jobType);
+        setCareers(filtered)
+      } else {
+        console.log(allData)
+        setCareers(allData)
+      }
+    }
+    setExperienceLevel('')
+  }
+
+  const handleFilterExperience = (value) => {
+    let filtered = allData.filter(a => a.acf['job_experience']['name'] === value);
+    if (value !== '') {
+      filtered = allData.filter(a => a.acf['job_experience']['name'] === value);
+      
+      if (jobType !== '' && category !== '') {
+        filtered = allData.filter(a => a.acf['job_type']['name'] === jobType && a.acf['job_category']['name'] === category && a.acf['job_experience']['name'] === value);
+      } else if (jobType !== '') {
+        filtered = allData.filter(a => a.acf['job_type']['name'] === jobType && a.acf['job_experience']['name'] === value);
+      } else if (category !== '') {
+        filtered = allData.filter(a => a.acf['job_category']['name'] === category && a.acf['job_experience']['name'] === value);
+      } 
+      setCareers(filtered)
+    } else {
+      if (jobType !== '' && category !== '') {
+        filtered = allData.filter(a => a.acf['job_type']['name'] === jobType && a.acf['job_category']['name'] === category);
+        setCareers(filtered)
+      } else {
+        setCareers(allData)
+      }
+    }
+  }
 
   // Function to close the modal with slide effect
   const closeCareerModal = () => {
@@ -104,7 +188,10 @@ const Careers = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    handleJob()
+    getListJob();
+    getListCategory();
+    getListExperience();
+    handleJob();
   }, [])
 
   return (
@@ -139,12 +226,13 @@ const Careers = () => {
             <div className="flex gap-2 lg:gap-4 justify-center w-full">
               <select 
                 value={jobType}
-                onChange={(e) => setJobType(e.target.value)}
+                onChange={(e) => {setJobType(e.target.value), handleFilterJobType(e.target.value)}}
                 className="hidden lg:inline-block p-3 pr-8 rounded-md bg-white text-[#231F20] font-['montserrat-semibold'] w-1/3 lg:min-w-[200px] appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:8px_8px] bg-[right_12px_center] bg-no-repeat"
               >
-                <option value="" disabled selected>Job Type</option>
-                <option value="Full-time">Full-time</option>
-                <option value="Internship">Internship</option>
+                <option value="" selected>Job Type</option>
+                {listJob.length > 0 && listJob.map((item,key) => 
+                  <option key={key} value={item.name}>{item.name}</option>
+                )}
               </select>
               <button 
                 onClick={() => setIsJobTypeModalOpen(true)} 
@@ -155,14 +243,13 @@ const Careers = () => {
               
               <select 
                 value={category}
-                onChange={(e) => setCategory(e.target.value)}
+                onChange={(e) => {setCategory(e.target.value), handleFilterJobCategory(e.target.value)}}
                 className="hidden lg:inline-block p-3 pr-8 rounded-md bg-white text-[#231F20] font-['montserrat-semibold'] w-1/3 lg:min-w-[200px] appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:8px_8px] bg-[right_12px_center] bg-no-repeat"
               >
-                <option value="" disabled selected>Category</option>
-                <option value="Business Development">Business Development</option>
-                <option value="Operation Support">Operation Support</option>
-                <option value="Campaign Strategic">Campaign Strategic</option>
-                <option value="Creative">Creative</option>
+                <option value="" selected>Category</option>
+                {listCategory.length > 0 && listCategory.map((item, key) => 
+                  <option key={key} value={item.name}>{item.name}</option>
+                )}
               </select>
               <button 
                 onClick={() => setIsCategoryModalOpen(true)} 
@@ -173,13 +260,13 @@ const Careers = () => {
 
               <select 
                 value={experienceLevel}
-                onChange={(e) => setExperienceLevel(e.target.value)}
+                onChange={(e) => {setExperienceLevel(e.target.value), handleFilterExperience(e.target.value)}}
                 className="hidden lg:inline-block p-3 pr-8 rounded-md bg-white text-[#231F20] font-['montserrat-semibold'] w-1/3 lg:min-w-[200px] appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:8px_8px] bg-[right_12px_center] bg-no-repeat"
               >
-                <option value="" disabled selected>Experience Level</option>
-                <option value="entry">Entry (0-3 years)</option>
-                <option value="mid">Mid (3-5 years)</option>
-                <option value="senior">Senior (5+ years)</option>
+                <option value="" selected>Experience Level</option>
+                {listExperience.length > 0 && listExperience.map((item, key) => 
+                  <option key={key} value={item.name}>{item.name}</option>
+                )}
               </select>
               <button 
                 onClick={() => setIsExperienceLevelModalOpen(true)} 
@@ -299,7 +386,7 @@ const Careers = () => {
         <div className="flex gap-8">
           {/* Left Side - Fixed Job List */}
           <div className="w-[100%] lg:w-1/3 h-[80vh] overflow-x-scroll scroll-tab bg-white rounded-xl" style={{ boxShadow: 'rgba(149, 157, 165, 0.7) 0px 8px 24px'}}>
-            {careers.map((job, index) => (
+            {careers.length > 0 && careers.map((job, index) => (
               <div 
                 key={index} 
                 className={`py-5 hover:lg:border-[#FF2935] transition-shadow cursor-pointer ${selectedJobIndex === index ? 'border lg:border-[#FF2935] rounded-xl px-6' : 'border-b border-[#BCBEC0] mx-6'}`}

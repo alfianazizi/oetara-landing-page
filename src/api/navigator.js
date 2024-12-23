@@ -63,11 +63,44 @@ const getJob = () => {
     });
 }
 
+const getJobType = () => {
+    return fetch (apiUrl + '/job-type?_fields=name')
+    .then(response => {
+        return response.json()
+    })
+    .catch(error => {
+        return error;
+    })
+}
+
+const getJobCategory = () => {
+    return fetch(apiUrl + '/job-category?_fields=name')
+    .then(response => {
+        return response.json()
+    })
+    .catch(error => {
+        return error
+    })
+}
+
+const getJobExperience = () => {
+    return fetch(apiUrl + '/job-experience?_fields=name')
+    .then(response => {
+        return response.json()
+    })
+    .catch(error => {
+        return error
+    })
+}
+
 export {
     getLetter,
     getTeam,
     getNavTeam,
     getClient,
     getClientById,
-    getJob
+    getJob,
+    getJobType,
+    getJobCategory,
+    getJobExperience
 }

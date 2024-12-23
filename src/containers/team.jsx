@@ -15,23 +15,6 @@ const Team = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const teamMembers = [
-    // Row 1
-    { id: 1, name: "Name", role: "Director" },
-    { id: 2, name: "Name", role: "Director" },
-    { id: 3, name: "Name", role: "Director" },
-    { id: 4, name: "Name", role: "Director" },
-    { id: 5, name: "Name", role: "Director" },
-    // Row 2
-    { id: 6, name: "Name", role: "Designer" },
-    { id: 7, name: "Name", role: "Developer" },
-    { id: 8, name: "Name", role: "Marketing" },
-    { id: 9, name: "Name", role: "Content Writer" },
-    { id: 10, name: "Name", role: "SEO Specialist" },
-    { id: 11, name: "Name", role: "Project Manager" },
-    { id: 12, name: "Name", role: "QA Engineer" },
-  ];
-
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLoad, setIsLoad] = useState(false)
   const swiperRef = useRef(null);

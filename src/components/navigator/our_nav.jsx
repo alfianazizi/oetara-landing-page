@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FaChevronRight } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
-const OurNavigator = ({data}) => {
+const OurNavigator = ({data, our_nav}) => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
 
@@ -45,7 +45,7 @@ const OurNavigator = ({data}) => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="text-center text-[#231F20] mb-12 md:text-[2rem] md:px-[10%] leading-[1.3]"
             >
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.
+                {our_nav}
             </motion.p>
             <div className="grid grid-cols-3 gap-2 lg:gap-8 max-w-4xl lg:max-w-7xl mx-auto">
                 {data.length > 0 && data.slice(0,3).map((item, key) => (

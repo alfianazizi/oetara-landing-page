@@ -21,6 +21,7 @@ const Navigator = () => {
   const [selectedValue, setSelectedValue] = useState(0);
   const [head, setHead] = useState({});
   const [letter, setLetter] = useState([]);
+  const [ourNav, setOurNav] = useState('');
   const [team, setTeam] = useState([]);
   const [client, setClient] = useState([]);
   const [ourClient, setOurClient] = useState([]);
@@ -92,6 +93,7 @@ const Navigator = () => {
     try {
       setHead(result[0]['acf']);
       setLetter(result[0]['acf']['navigation']);
+      setOurNav(result[0]['acf']['our_navigator'])
       setStartAnimation(true);
       setIsLoad(false)
     } catch (err) {
@@ -295,7 +297,7 @@ const Navigator = () => {
           className='w-full h-section2 object-cover' 
           style={{ opacity: 0.48 }}
         />
-        <OurNavigator data={team} />
+        <OurNavigator data={team} our_nav={ourNav} />
       </section>
 
       {/* Join Team Section - Updated */}

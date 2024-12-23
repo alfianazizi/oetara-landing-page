@@ -4,12 +4,15 @@ import service_1 from '../../assets/pattern/SVG/service_1.svg';
 import service_2 from '../../assets/pattern/SVG/service_2.svg';
 import service_3 from '../../assets/pattern/SVG/service_3.svg';
 import service_4 from '../../assets/pattern/SVG/service_4.svg';
+import { getService } from '../../api/service';
 
 const OurService = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [list, setList] = useState([]);
     const ref = useRef(null);
 
     useEffect(() => {
+        handleService()
         const observer = new IntersectionObserver(([entry]) => {
             if (entry.isIntersecting) {
                 setIsVisible(true);
@@ -62,6 +65,19 @@ const OurService = () => {
             text: 'Digital Marketing 360, Influencer Marketing and Digital Ads strategy with impressive Accuration.'
         }
     ]
+
+    const handleService = async () => {
+        const result = await getService();
+        try {
+            if (result.length > 0) {
+                let filtered = result.slice(1);
+                let sort = filtered.sort((a,b) => a.id - b.id);
+                setList(sort)
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
     return (
         <div className="absolute top-1/2 md:top-1/2 left-1/2 transform flex justify-center items-center -translate-x-1/2 -translate-y-1/2 container px-5 lg:px-10">
             <div className="w-full mx-auto">
@@ -75,7 +91,7 @@ const OurService = () => {
                     Our Service
                 </motion.p>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 justify-items-center">
-                    {our_service.map((item, key) => 
+                    {list.map((item, key) => 
                         <motion.div 
                             ref={ref}
                             key={key} 
@@ -86,14 +102,13 @@ const OurService = () => {
                         >
                             <div className="flex justify-center">
                                 <div className="bg-[#F0F1F1]/100 p-6 md:p-5 rounded-full opacity-[100%]">
-                                    <img src={item.icon} alt="" className='w-12 h-12 lg:w-20 lg:h-20' />
+                                    <img src={our_service[key].icon} alt="" className='w-12 h-12 lg:w-20 lg:h-20' />
                                 </div>
                             </div>
                             <div className="py-3 text-center">
-                                <p className="font-['montserrat-bold'] py-0 text-[0.8rem] lg:text-[1rem]">{item.title.title_1}</p>
-                                <p className="font-['montserrat-bold'] py-0 text-[0.8rem] lg:text-[1rem]">{item.title.title_2}</p>
+                                <p className="font-['montserrat-bold'] py-0 text-[0.8rem] lg:text-[1rem]">{item.title.rendered}</p>
                             </div>
-                            <div className="py-2 md:py-3 text-center text-xs md:text-sm">{item.text}</div>
+                            <div className="py-2 md:py-3 text-center text-xs md:text-sm" dangerouslySetInnerHTML={{ __html: item.acf.description }}></div>
                         </motion.div>
                     )}
                 </div>

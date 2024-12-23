@@ -201,7 +201,7 @@ const Service = () => {
                           <p className="font-['montserrat-bold'] py-0 text-[0.8rem] lg:text-[1rem]">{item.title.rendered}</p>
                           {/* <p className="font-['montserrat-bold'] py-0 text-[0.8rem] lg:text-[1rem]">{item.title.title_2}</p> */}
                       </div>
-                      <div className="py-2 md:py-3 text-center text-xs md:text-[0.917rem] leading-[1.5]" dangerouslySetInnerHTML={{ __html: item.acf.description }}>{}</div>
+                      <div className="py-2 md:py-3 text-center text-xs md:text-[0.917rem] leading-[1.5]" dangerouslySetInnerHTML={{ __html: item.acf.description }}></div>
                   </motion.div>
                 )}
               </div>

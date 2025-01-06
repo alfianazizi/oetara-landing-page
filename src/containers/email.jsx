@@ -40,7 +40,7 @@ const Email = () => {
             animate={{ opacity: 1, translateY: 0 }} 
             transition={{ duration: 0.5, delay: 0.2 }} 
             className='lg:text-[1.5rem]'
-            dangerouslySetInnerHTML={{ __html: info && "acf" in info && info.acf.header.replace(/<p>/g, '<p class="mb-5">') }}
+            dangerouslySetInnerHTML={{ __html: info && "acf" in info ? info.acf.header.replace(/<p>/g, '<p class="mb-5">') : '' }}
           >
           </motion.div>
         </div>

@@ -33,6 +33,7 @@ const Team = () => {
       setLetter(result)
     } catch (err) {
       console.log(err)
+      setIsLoad(false)
     }
   }
 
@@ -42,6 +43,7 @@ const Team = () => {
       getNavigatorTeam(result)
     } catch (err) {
       console.log(err);
+      setIsLoad(false)
     }
   }
 
@@ -69,6 +71,7 @@ const Team = () => {
       setIsLoad(false)
     } catch (err) {
       console.log('error', err)
+      setIsLoad(false)
     }
   }
 
@@ -91,7 +94,7 @@ const Team = () => {
             transition={{ duration: 0.5 }} 
             className="text-3xl md:text-[2.5rem] lg:text-[3rem] mt-8 font-['montserrat-bold']"
           >
-            {letter.length > 0 && "acf" in letter[0] ? letter[0]['acf']['our_navigator'] : 'Our Navigator'}
+            Our Navigator
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, translateY: '-1.5rem' }} 

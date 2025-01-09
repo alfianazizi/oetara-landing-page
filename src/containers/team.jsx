@@ -8,7 +8,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { getNavTeam, getTeam } from '../api/navigator';
+import { getLetter, getNavTeam, getTeam } from '../api/navigator';
 
 const Team = () => {
   useEffect(() => {
@@ -18,19 +18,27 @@ const Team = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLoad, setIsLoad] = useState(false)
   const swiperRef = useRef(null);
+  const [letter, setLetter] = useState({})
   const [team, setTeam] = useState([]);
 
   useEffect(() => {
     setIsLoad(true)
+    handleLetter()
     handleTeam()
   }, [])
+
+  const handleLetter =  async () => {
+    const result = await getLetter();
+    try {
+      setLetter(result)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   const handleTeam = async () => {
     const result = await getTeam();
     try {
-      // const chunkedTeam = sliceIntoChunks(result, 12);
-      // setTeam(chunkedTeam);
-      console.log(result)
       getNavigatorTeam(result)
     } catch (err) {
       console.log(err);
@@ -64,15 +72,6 @@ const Team = () => {
     }
   }
 
-  // Utility function to slice an array into chunks
-  // const sliceIntoChunks = (array, chunkSize) => {
-  //   const result = [];
-  //   for (let i = 0; i < array.length; i += chunkSize) {
-  //     result.push(array.slice(i, i + chunkSize));
-  //   }
-  //   return result;
-  // }
-
   return (
     <div className="mx-auto container px-10 py-12">
       
@@ -92,7 +91,7 @@ const Team = () => {
             transition={{ duration: 0.5 }} 
             className="text-3xl md:text-[2.5rem] lg:text-[3rem] mt-8 font-['montserrat-bold']"
           >
-            Our Navigator
+            {letter.length > 0 && "acf" in letter[0] ? letter[0]['acf']['our_navigator'] : 'Our Navigator'}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, translateY: '-1.5rem' }} 
@@ -100,9 +99,7 @@ const Team = () => {
             transition={{ duration: 0.5, delay: 0.2 }} 
             className="text-[#231F20] lg:text-[1.5rem] my-4 lg:mb-20 lg:mt-8"
           >
-            We are Navigators not only crafting the right message but also setting 
-            the measurable goals and will be your guidance through Digital World 
-            Crowdedness.
+            {letter.length > 0 && "acf" in letter[0] ? letter[0]['acf']['team_heading'] : ''}
           </motion.p>
         </section>
       :

@@ -10,7 +10,7 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                         initial={{ opacity: 0, marginLeft: '10rem' }}
                         animate={{ opacity: 1, marginLeft: 0 }}
                         transition={{ 
-                            duration: 2,
+                            duration: 1.5,
                             delay: 0.4,
                             opacity: { duration: 0 }
                         }}

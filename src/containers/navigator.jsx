@@ -240,7 +240,7 @@ const Navigator = () => {
             </section>
           </div>
           {/* Our Navigators Section */}
-          <section className="relative ">
+          <section className="relative mt-team">
             <div 
               className="absolute w-full h-[1rem] inset-0 bg-gradient-to-b from-white z-[10]"
             ></div>

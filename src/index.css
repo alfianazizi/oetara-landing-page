@@ -139,6 +139,10 @@ iframe {
   height: 100vh!important;
 }
 
+.mt-team {
+  margin-top: 0;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -149,6 +153,18 @@ iframe {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .mt-team {
+    margin-top: 10rem;
+  } 
+}
+
+@media (max-width: 1023px) {
+  .mt-team {
+    margin-top: 15rem;
   }
 }
 

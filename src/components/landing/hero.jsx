@@ -19,52 +19,24 @@ const Hero = ({ cover, cover_mobile, jalur}) => {
                         <div className='flex'>
                             <motion.p
                             >
-                                We 
+                                Navigating
                             </motion.p> &nbsp;
                             <motion.p
                                 initial={{opacity: 0, marginTop: '2rem' }}
                                 animate={{ opacity: 1, marginTop: 0 }}
                                 transition={{ delay: 0.6,  ease: "backOut" }}
                             >
-                                Provide
-                            </motion.p> &nbsp;
-                            <motion.p
-                                initial={{opacity: 0, marginTop: '2rem' }}
-                                animate={{ opacity: 1, marginTop: 0 }}
-                                transition={{ delay: 0.8,  ease: "backOut" }}
-                            >
-                                Dire
-                            </motion.p> 
-                            <motion.p
-                                initial={{opacity: 0, marginTop: '2rem' }}
-                                animate={{ opacity: 1, marginTop: 0 }}
-                                transition={{ delay: 1,  ease: "backOut" }}
-                            >
-                                ction,
-                            </motion.p>    
+                                for
+                            </motion.p> &nbsp;    
                         </div>
                         <div className='flex'>
                             <motion.p
                                 initial={{opacity: 0, marginTop: '2rem' }}
                                 animate={{ opacity: 1, marginTop: 0 }}
-                                transition={{ delay: 1.5,  ease: "backOut" }}
+                                transition={{ delay: 0.8,  ease: "backOut" }}
                             >
-                                NOT
+                                Innovation
                             </motion.p> &nbsp;
-                            <motion.p
-                                initial={{opacity: 0, marginTop: '2rem' }}
-                                animate={{ opacity: 1, marginTop: 0 }}
-                                transition={{ delay: 1.6,  ease: "backOut" }}
-                            >
-                                Direc
-                            </motion.p>
-                            <motion.p
-                                initial={{opacity: 0, marginTop: '2rem' }}
-                                animate={{ opacity: 1, marginTop: 0 }}
-                                transition={{ delay: 1.7, ease: "backOut" }}
-                            >
-                                tions
-                            </motion.p>
                         </div>
                     </motion.div>
                 </div>

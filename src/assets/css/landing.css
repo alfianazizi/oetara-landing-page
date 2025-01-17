@@ -7,6 +7,7 @@
   line-height: 1.2;
   top: 8rem;
   width: 100%;
+  padding-left: 1.5rem
 }
 
 .shadow-image {
@@ -59,6 +60,14 @@
   transform: scale(1.25);
 }
 
+@media (max-width: 1400px) {
+  .title-landing {
+    font-size: 5rem;
+    /* margin-top: 1rem; */
+    /* line-height: 1.5; */
+  }
+}
+
 @media (min-width: 1500px) {
   /* .route-container {
     bottom: 4rem;
@@ -85,6 +94,16 @@
 
 @media (max-width: 768px) {
   .title-landing {
-  font-size: 1.8rem;
+    font-size: 2.8rem;
+    padding-left: .5rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 399px) {
+  .title-landing {
+    font-size: 2.4rem;
+    padding-left: .5rem;
+    line-height: 1.4;
   }
 }

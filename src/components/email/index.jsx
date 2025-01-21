@@ -94,7 +94,7 @@ const ContactForm = ({ data }) => {
     return (
         <div className="flex flex-col lg:flex-row md:space-x-8">
             {/* Contact Information Side */}
-            <div className="lg:w-1/2 mb-6 md:mb-0">
+            <div className="mb-6 lg:w-1/2 md:mb-0">
                 <motion.h2
                     ref={headerRef} 
                     initial={{ opacity: 0, translateY: '-1.5rem' }} 
@@ -111,7 +111,7 @@ const ContactForm = ({ data }) => {
                     transition={{ duration: 0.5, delay: 0.1 }}  
                     className="text-[#606060] text-sm md:text-[1.341rem] font-['montserrat-medium'] leading-[1.2] mb-10"
                 >
-                    Leave us your details and a member of our team will get back to you as soon as possible.
+                    Reach out to us, and our team will connect with you right away!
                 </motion.p>
 
                 <div className="space-y-8">
@@ -316,9 +316,9 @@ const ContactForm = ({ data }) => {
                             initial={{ opacity: 0, translateY: '-1.5rem' }} 
                             animate={isVisible ? { opacity: 1, translateY: 0 } : {}} 
                             transition={{ duration: 0.5, delay: 1.3 }}
-                            className="pointer-events-none absolute inset-y-0 right-0 flex items-center mt-1 px-4 md:px-6 text-gray-700"
+                            className="absolute inset-y-0 right-0 flex items-center px-4 mt-1 text-gray-700 pointer-events-none md:px-6"
                         >
-                            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <svg className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                             </svg>
                         </motion.div>

@@ -26,7 +26,7 @@ const OurTeam = ({handleJoinClick}) => {
     
     return (
         <div className="absolute inset-0 flex items-end bottom-[5%] lg:bottom-10 justify-center">
-            <div className="bg-white flex justify-between flex-wrap lg:flex-nowrap py-4 lg:py-8 px-4 lg:px-8 rounded-xl shadow-lg mx-8 lg:mx-4 max-w-3xl">
+            <div className="flex flex-wrap justify-between max-w-3xl px-4 py-4 mx-8 bg-white shadow-lg lg:flex-nowrap lg:py-8 lg:px-8 rounded-xl lg:mx-4">
                 <div className='w-[100%] lg:w-[60%]'>
                 <motion.h2 
                     ref={ref}
@@ -35,7 +35,7 @@ const OurTeam = ({handleJoinClick}) => {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     className="text-2xl md:text-[2.5rem] font-['montserrat-semibold'] text-[#C01C30] py-2 lg:py-4 px-4"
                 >
-                    Join Our Team
+                    Join Us!
                 </motion.h2>
                 <motion.p
                     ref={ref}
@@ -44,7 +44,7 @@ const OurTeam = ({handleJoinClick}) => {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="text-[#231F20] text-sm px-4 py-2"
                 >
-                    Be part of our growing team and help shape the future of digital marketing. Join us in creating innovative solutions.
+                    Step into the world of digital navigation with us—where exciting, creative campaigns lead the way to unforgettable success!
                 </motion.p>
                 </div>
                 <div className='w-[100%] lg:w-auto flex justify-start lg:justify-center items-center'>

@@ -158,13 +158,13 @@ iframe {
 
 @media (min-width: 1024px) and (max-width: 1280px) {
   .mt-team {
-    margin-top: 10rem;
+    margin-top: 15rem;
   } 
 }
 
 @media (max-width: 1023px) {
   .mt-team {
-    margin-top: 15rem;
+    margin-top: 30rem;
   }
 }
 

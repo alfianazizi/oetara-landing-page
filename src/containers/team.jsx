@@ -40,7 +40,8 @@ const Team = () => {
   const handleTeam = async () => {
     const result = await getTeam();
     try {
-      getNavigatorTeam(result)
+      const sort = result.sort((a,b) => a.title.rendered.toLowerCase().localeCompare(b.title.rendered.toLowerCase()));
+      getNavigatorTeam(sort)
     } catch (err) {
       console.log(err);
       setIsLoad(false)

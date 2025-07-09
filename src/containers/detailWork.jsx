@@ -68,7 +68,7 @@ const DetailWork = () => {
     // console.log(videoElement)
     if (!videoElement) return;
 
-    setIsVisible(true)
+    setIsVisible(true);
 
     // IntersectionObserver configuration
     const observer = new IntersectionObserver(
@@ -96,7 +96,7 @@ const DetailWork = () => {
 
   const handleUnMuted = () => {
     setIsMuted(false);
-    setIsVisible(false)
+    setIsVisible(false);
   };
 
   return (
@@ -258,19 +258,6 @@ const DetailWork = () => {
                   : { __html: "" }
               }
             ></p>
-
-            {/* Campaign Images */}
-            {isVisible ? 
-              <div className="text-center">
-                <button
-                  ref={buttonRef}
-                  onClick={handleUnMuted}
-                  className="relative mt-5 bg-[#C01C30] text-white px-4 py-2 rounded"
-                >
-                  🔊 Tap to Unmute
-                </button>
-              </div>
-            : null}
             <div
               className={`${
                 campaign === "gif"
@@ -282,18 +269,61 @@ const DetailWork = () => {
                 detail.acf.work_gallery.map((item, key) => {
                   if (item.type === "video") {
                     return (
-                      <video
-                        key={key}
-                        src={item.url}
-                        controls={false}
-                        // controlsList="nodownload"
-                        autoPlay
-                        playsInline
-                        ref={videoRef}
-                        className="w-full object-contain cursor-pointer"
-                        muted={isMuted}
-                        preload="auto"
-                      ></video>
+                      <div className="relative">
+                        <video
+                          key={key}
+                          src={item.url}
+                          controls={false}
+                          autoPlay
+                          playsInline
+                          ref={videoRef}
+                          className="w-full object-contain cursor-pointer"
+                          muted={isMuted}
+                          preload="auto"
+                        ></video>
+                        {isVisible ? (
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full z-10 flex justify-center items-center">
+                            <div 
+                              ref={buttonRef}
+                              onClick={handleUnMuted}
+                              className="relative w-20 h-20 lg:w-40 lg:h-40 cursor-pointer"
+                            >
+                              {/* Lingkaran Merah */}
+                              <div className="bg-[#C01C30] rounded-full w-20 h-20 lg:w-40 lg:h-40 flex items-center justify-center shadow-xl shadow-black/30"></div>
+
+                              {/* Text Lingkaran */}
+                              <svg
+                                viewBox="0 0 200 200"
+                                className="absolute top-0 left-0 w-full h-full p-1 lg:p-2"
+                              >
+                                <defs>
+                                  <path
+                                    id="circlePath"
+                                    d="
+                                      M 100, 100
+                                      m -90, 0
+                                      a 90,90 0 1,1 180,0
+                                      a 90,90 0 1,1 -180,0
+                                    "
+                                    fill="none"
+                                  />
+                                </defs>
+                                <text className="fill-white text-[14px] font-semibold tracking-wider">
+                                  <textPath href="#circlePath" startOffset="0%">
+                                    TAP TO UNMUTE • TAP TO UNMUTE • TAP TO UNMUTE
+                                    • TAP TO UNMUTE •
+                                  </textPath>
+                                </text>
+                              </svg>
+
+                              {/* Icon Tengah */}
+                              <div className="absolute inset-0 flex items-center justify-center text-white text-xl lg:text-4xl">
+                                🔊
+                              </div>
+                            </div>
+                          </div>
+                        ) : null}
+                      </div>
                     );
                   } else {
                     if (item.subtype === "gif") {

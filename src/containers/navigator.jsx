@@ -241,7 +241,7 @@ const Navigator = () => {
             </section>
           </div>
           {/* Our Navigators Section */}
-          <section className="relative mt-team">
+          {/* <section className="relative mt-team">
             <div 
               className="absolute w-full h-[1rem] inset-0 bg-gradient-to-b from-white z-[10]"
             ></div>
@@ -252,7 +252,7 @@ const Navigator = () => {
               style={{ opacity: 0.48 }}
             />
             <OurNavigator data={team} our_nav={ourNav} />
-          </section>
+          </section> */}
 
           {/* Join Team Section - Updated */}
           <section className="relative lg:mb-20 overflow-hidden h-[40vh] lg:h-[100vh]">

@@ -113,8 +113,8 @@ const Navigator = () => {
   }
 
   const handleClient = async () => {
-    const result = await getClient();
     try {
+      const result = await getClient();
       const highlight = result.filter(a => a.acf.highlight === true);
       const non_highlight = result.filter(a => a.acf.highlight === false);
       const body = [];

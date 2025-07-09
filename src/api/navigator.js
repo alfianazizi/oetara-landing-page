@@ -34,7 +34,7 @@ const getNavTeam = () => {
 }
 
 const getClient = () => {
-    return fetch(apiUrl + '/client?'+acf+'&'+field)
+    return fetch(apiUrl + '/client?'+acf+'&'+field+'&per_page=100')
     .then(response => {
         return response.json();
     })

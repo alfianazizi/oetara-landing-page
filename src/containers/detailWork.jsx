@@ -5,9 +5,6 @@ import { getWorkById } from "../api/work";
 import CountUp from "react-countup";
 import { getClientById } from "../api/navigator";
 import { FaChevronLeft } from "react-icons/fa6";
-// import ReactVisibilitySensor from 'react-visibility-sensor';
-import ReactPlayer from "react-player";
-import { Waypoint } from "react-waypoint";
 
 const DetailWork = () => {
   const { slug } = useParams();
@@ -20,35 +17,11 @@ const DetailWork = () => {
   const buttonRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     handleDetailWork();
   }, []);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY > 120) {
-  //       console.log("Scrolled past 120px");
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   if (isVisible) {
-  //     const playPromise = videoRef.current?.play();
-  //     if (playPromise !== undefined) {
-  //       playPromise.catch((error) => console.error("Playback prevented:", error));
-  //     }
-  //   } else {
-  //     videoRef.current?.pause();
-  //   }
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [isVisible]);
 
   const handleDetailWork = async () => {
     setIsLoad(true);
@@ -121,78 +94,10 @@ const DetailWork = () => {
     };
   };
 
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       console.log(entry)
-  //       if (entry.isIntersecting) {
-  //         console.log(1)
-  //         setIsVisible(true);
-  //         // setIsMuted(false); // Unmute when visible
-  //         if (videoRef.current) {
-  //           const playPromise = videoRef.current.play();
-  //           if (playPromise !== undefined) {
-  //             playPromise.catch((error) => console.error("Autoplay prevented:", error));
-  //           }
-  //         }
-  //       } else {
-  //         console.log(0)
-  //         setIsVisible(false);
-  //         // setIsMuted(true); // Mute when not visible
-  //         videoRef.current?.pause();
-  //       }
-  //     },
-  //     { threshold: 0.5 } // Video must be at least 50% visible
-  //   );
-
-  //   if (videoRef.current) observer.observe(videoRef.current);
-
-  //   return () => {
-  //     if (videoRef.current) observer.unobserve(videoRef.current);
-  //   };
-  // }, []);
-
   const handleUnMuted = () => {
     setIsMuted(false);
     setIsVisible(false)
-    // videoRef.current?.play()
-
-    // if (videoRef.current) {
-    // }
   };
-
-  // const handleVisible = (isVisible) => {
-  //   setIsVisible(isVisible);
-  //   if (videoRef.current) {
-  //     if (isVisible) {
-  //       const playPromise = videoRef.current.play();
-  //       setIsMuted(false);
-  //       if (playPromise !== undefined) {
-  //         playPromise.catch((error) =>
-  //           console.error("Autoplay prevented:", error)
-  //         );
-  //       }
-  //     } else {
-  //       videoRef.current.pause();
-  //       setIsMuted(true);
-  //     }
-  //   }
-  // };
-
-  // const handleVisible = (isVisible) => {
-  //   setIsVisible(isVisible);
-  //   if (isVisible) {
-  //     setIsMuted(false); // Unmute saat video terlihat
-  //   } else {
-  //     setIsMuted(true); // Mute saat video tidak terlihat
-  //   }
-  //   // if (isVisible) {
-  //   //   console.log('Is Visible :', isVisible)
-  //   //   setTimeout(() => {
-  //   //     // handleUnMuted()
-  //   //   }, 3000)
-  //   // }
-  // }
 
   return (
     <div className="mx-auto py-8 md:py-0">

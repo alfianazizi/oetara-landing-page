@@ -4,14 +4,12 @@ const acf_slug = 'acf_format=standard&slug='
 const acf_highlight = 'acf_format=standard&highlight=true';
 const field = '_fields=id,modified,slug,status,title,acf';
 
-const getWork = () => {
-    return fetch(apiUrl + '/work?'+acf+'&'+field)
-    .then(response => {
-        return response.json();
-    })
-    .catch(error => {
-        return error;
-    });
+const getWork = async (per_page = 100) => {
+    const res = await fetch(apiUrl + '/work?'+acf+'&'+field+'&per_page='+per_page)
+    if (!res.ok) throw new Error("Failed to fetch");
+    const data = await res.json();
+
+    return data;
 }
 
 const getWorkHighlight = () => {

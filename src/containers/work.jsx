@@ -18,8 +18,8 @@ const CaseStudy = () => {
 
   const handleWork = async () => {
     setIsLoad(true)
-    const result = await getWork();
     try {
+      const result = await getWork();
       setList(result)
       setIsLoad(false)
     } catch (err) {

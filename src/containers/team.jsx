@@ -130,21 +130,39 @@ const Team = () => {
             Our {team && team[currentSlide] && team[currentSlide]['name']}
           </motion.h2>
           
-          <Swiper
-            ref={swiperRef}
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-              delay: 8000,
-              disableOnInteraction: false,
-            }}
-            onSlideChange={(swiper) => {
-              setCurrentSlide(swiper.activeIndex);
-            }}
-            navigation={true}
-            modules={[Autoplay, Pagination, Navigation]}
-            className="mySwiper"
-          >
+          {/* Custom Navigation Container */}
+          <div className="relative px-12">
+            {/* Left Navigation Button */}
+            <button
+              onClick={() => swiperRef.current?.swiper.slidePrev()}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-[#C01C30] shadow-lg rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#C01C30] transition-colors duration-200 -ml-2"
+            >
+              <FaChevronLeft size={20} />
+            </button>
+            
+            {/* Right Navigation Button */}
+            <button
+              onClick={() => swiperRef.current?.swiper.slideNext()}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-[#C01C30] shadow-lg rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#C01C30] transition-colors duration-200 -mr-6"
+            >
+              <FaChevronLeft size={20} className="rotate-180" />
+            </button>
+            
+            <Swiper
+              ref={swiperRef}
+              spaceBetween={30}
+              centeredSlides={true}
+              autoplay={{
+                delay: 8000,
+                disableOnInteraction: false,
+              }}
+              onSlideChange={(swiper) => {
+                setCurrentSlide(swiper.activeIndex);
+              }}
+              navigation={false}
+              modules={[Autoplay, Pagination, Navigation]}
+              className="mySwiper"
+            >
             {team.length > 0 && team.map((item, i) => 
               <SwiperSlide key={i}>
                 <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 gap-2 md:gap-4">
@@ -173,6 +191,7 @@ const Team = () => {
               </SwiperSlide>
             )}
           </Swiper>
+          </div>
           
           {/* Custom Pagination */}
           <div className="flex justify-center mt-4 lg:mt-10">

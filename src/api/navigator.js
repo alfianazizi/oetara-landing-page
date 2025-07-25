@@ -14,7 +14,7 @@ const getLetter = () => {
 }
 
 const getTeam = () => {
-    return fetch(apiUrl + '/team?'+acf)
+    return fetch(apiUrl + '/team?'+acf+'&orderby=title&per_page=100&order=asc')
     .then(response => {
         return response.json();
     })
